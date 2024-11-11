@@ -5,13 +5,13 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="mt-24 shadow-xl">
+    <div className="mt-20 md:mt-24 shadow-xl">
       
       {/* قسم الفيديو الرئيسي */}
       <section className="mb-5 p-5 mx-auto rounded-lg">
         <div className=" grid md:grid-cols-2 place-items-center ">
           <div className="text-center ">
-            <h1 className="text-4xl font-bold mb-3">في بورسعيد</h1>
+            <h1 className="text-2xl md:text-4xl font-bold mb-3 text-blue-600">في بورسعيد</h1>
             {/* تضمين الفيديو */}
             
               <iframe

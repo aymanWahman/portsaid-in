@@ -10,8 +10,8 @@
 /* إعدادات الخطوط الافتراضية */
 body {
   font-family: 'Cairo', sans-serif; /* الخط الافتراضي للغة الإنجليزية */
-  background-color: #f7f7f7;
-  color: #4682B4;
+  background-color: #f0f0f0;
+  color: #333;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 

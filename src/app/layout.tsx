@@ -1,11 +1,11 @@
 
 "use client";
-// import { ThemeProvider } from "next-themes";
+import { ThemeProvider } from "next-themes";
 import { Cairo, Tajawal } from "next/font/google"; // استيراد الخطوط
 import "./globals.css";
 import Header from "@/components/Navbar";
 import Footer from "@/components/Footer";
-// import { SessionProvider } from "next-auth/react";
+import { SessionProvider } from "next-auth/react";
 import Head from 'next/head';
 
 // تحميل الخطوط
@@ -27,14 +27,14 @@ export default function RootLayout({
         <meta name="keywords" content="Learn Languages, Arabic, English, Turkish, Language Learning, Linguistics, Programming Languages, HTML, CSS, JavaScript, Python" />
       </Head>
       <body>
-        {/* <ThemeProvider attribute="class" defaultTheme="light"> */}
-          {/* <SessionProvider> */}
+        <ThemeProvider attribute="class" defaultTheme="light"> 
+           <SessionProvider>
             <Header />
             <main className={tajawal.className}>{children}</main>{" "}
             {/* تطبيق خط Tajawal للنصوص العربية */}
             <Footer />
-          {/* </SessionProvider> */}
-        {/* </ThemeProvider> */}
+          </SessionProvider> 
+        </ThemeProvider>
       </body>
     </html>
   );
