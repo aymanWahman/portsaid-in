@@ -1,0 +1,56 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+  
+/* إعدادات الخطوط الافتراضية */
+body {
+  font-family: 'Cairo', sans-serif; /* الخط الافتراضي للغة الإنجليزية */
+  background-color: #f7f7f7;
+  color: #4682B4;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* النصوص العربية */
+html[lang="ar"] body {
+  font-family: 'Tajawal', sans-serif; /* الخط للنصوص العربية */
+}
+
+/* وضع الـ dark mode */
+.dark body {
+  background-color: #121212; /* لون خلفية داكن للوضع الليلي */
+  color: #f0f0f0; /* لون النص في الوضع الليلي */
+}
+
+.dark .button {
+  background-color: #333; /* لون الزر في الوضع الليلي */
+  color: #f0f0f0;
+}
+
+.dark .button:hover {
+  background-color: #555; /* لون عند تمرير الماوس في الوضع الليلي */
+}
+
+/* الأزرار */
+.button {
+  background-color: #007BFF; /* لون الزر في الوضع الفاتح */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0056b3; /* لون عند تمرير الماوس في الوضع الفاتح */
+}
+
+
+
+
+
+
