@@ -5,12 +5,12 @@ import Link from "next/link";
 import { useState } from "react";
 import { useTheme } from "next-themes";
 // import Penguin from "@/components/Penguin";
-import { signOut, useSession } from 'next-auth/react';
+// import { signOut, useSession } from 'next-auth/react';
 
 const Header = () => {
   const { theme, setTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { data: session } = useSession();
+  // const { data: session } = useSession();
 
   const handleMenuClick = () => {
     setIsMenuOpen(false);
@@ -105,11 +105,6 @@ const Header = () => {
             اتصل بنا
           </Link>
         
-        
-        
-      
-      
-
         </nav>
 
         {/* Dark Mode Toggle */}
