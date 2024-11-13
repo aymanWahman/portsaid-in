@@ -10,7 +10,7 @@ const Header = () => {
   const { theme, setTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   // const { data: session } = useSession();
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
   const handleMenuClick = () => {
     setIsMenuOpen(false);
   };
