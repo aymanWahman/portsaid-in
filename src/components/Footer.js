@@ -20,7 +20,7 @@ const Footer = () => {
     </div> */}
   
 
-    <div><p className='text-sm md:text-lg text-center text-gray-500 font-serif'>Designed and developed by <span className='text-pink-200 hover:text-gray-500 hover:text-2xl'>Ayman Aly</span></p></div>
+    <div><p className='text-sm md:text-lg text-center text-gray-500 font-serif'>Designed and developed by <span className='text-seaBlue hover:text-gray-500 hover:text-2xl'>Ayman Aly</span></p></div>
 
 
     </footer>

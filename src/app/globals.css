@@ -10,7 +10,7 @@
 /* إعدادات الخطوط الافتراضية */
 body {
   font-family: 'Cairo', sans-serif; /* الخط الافتراضي للغة الإنجليزية */
-  background-color: #f0f0f0;
+  background-color: #D9E2EC;
   color: #333;
   transition: background-color 0.3s ease, color 0.3s ease;
 }

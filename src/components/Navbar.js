@@ -1,6 +1,5 @@
+'use client';
 
-
-"use client";
 import Link from "next/link";
 import { useState } from "react";
 import { useTheme } from "next-themes";
@@ -11,7 +10,7 @@ const Header = () => {
   const { theme, setTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   // const { data: session } = useSession();
-
+  const [isOpen, setIsOpen] = useState(false);
   const handleMenuClick = () => {
     setIsMenuOpen(false);
   };
@@ -26,8 +25,8 @@ const Header = () => {
           </Link>
         </div> */}
         <Link href="/">
-          <h1 className="font-extrabold text-xl hover:text-2xl md:text-5xl hover:md:text-6xl text-blue-600 hover:text-gray-400 font-serif transition duration-300">
-            Portsaidin
+          <h1 className="font-extrabold text-xl hover:text-2xl md:text-4xl hover:md:text-5xl text-seaBlue hover:text-sandyGold font-serif transition duration-300">
+            Portsaid-in
           </h1>
         </Link>
       </div>
@@ -45,7 +44,7 @@ const Header = () => {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="w-8 h-8 text-yellow-400"
+              className="w-6 h-6 text-yellow-400"
             >
               <path
                 strokeLinecap="round"
@@ -58,7 +57,7 @@ const Header = () => {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="w-8 h-8 text-gray-800"
+              className="w-6 h-6 text-gray-800"
             >
               <path
                 fillRule="evenodd"
@@ -89,19 +88,38 @@ const Header = () => {
       {/* Full Menu on Medium Screens and Above */}
       <div className="hidden md:flex items-center gap-x-6">
         <nav className="flex items-center gap-x-8">
-          <Link href="/news" className="text-sm text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">
+          {/* <Link href="/news" className="text-lg text-sandyGold  hover:text-seaBlue  transition">
             الأخبار
-          </Link>
-          <Link href="/local-services" className="text-sm text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">
-            الخدمات العامة
-          </Link>
-          <Link href="/about" className="text-sm text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">
+          </Link> */}
+          {/* <Link href="/local-services" className="text-lg text-sandyGold  hover:text-seaBlue transition">
+            الخدمات المحلية
+          </Link> */}
+          <Link href="/aboutPort" className="text-lg text-sandyGold  hover:text-seaBlue transition">
             عن بورسعيد
           </Link>
-          <Link href="/tourist-spots" className="text-sm text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">
+          <Link href="/tourist-spots" className="text-lg text-sandyGold  hover:text-seaBlue transition">
             الأماكن السياحية
           </Link>
-          <Link href="/contact" className="text-sm text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">
+
+       {/* <div className="relative">
+        <button onClick={() => setIsOpen(!isOpen)} className="text-lg text-sandyGold hover:text-seaBlue">
+              الأماكن السياحية
+            </button>
+           {isOpen && (
+             <div className="absolute bg-sandyGold py-2 rounded shadow-lg mt-2">
+              <Link href="/tourist-spots/museum">
+              <h2 className="block px-4 py-2 hover:bg-seaBlue">المتحف</h2>              </Link>
+             <Link href="/tourist-spots/beaches">
+               <h2 className="block px-4 py-2 hover:bg-seaBlue">الشواطئ</h2>
+             </Link>              
+             <Link href="/tourist-spots/port">
+               <h2 className="block px-4 py-2 hover:bg-seaBlue">الميناء</h2>
+            </Link>
+              </div>
+            )}
+          </div> */}
+
+          <Link href="/contact" className="text-lg text-sandyGold  hover:text-seaBlue transition">
             اتصل بنا
           </Link>
         
@@ -148,17 +166,17 @@ const Header = () => {
       <ul
         className={`${
           isMenuOpen ? "block" : "hidden"
-        } absolute top-16 left-0 w-full bg-pink-100 dark:bg-gray-900 shadow-lg rounded-lg p-2 text-gray-600 dark:text-gray-300 transition-all duration-300 ease-in-out`}
+        } absolute top-16 left-0 w-full bg-seaBlue dark:bg-gray-900 shadow-lg rounded-lg p-2 text-gray-600 dark:text-gray-300 transition-all duration-300 ease-in-out`}
       >
-        <li className="text-sm py-1 px-2 hover:bg-yellow-100 dark:hover:bg-gray-700 rounded-md transition duration-300">
+        {/* <li className="text-sm py-1 px-2 hover:bg-yellow-100 dark:hover:bg-gray-700 rounded-md transition duration-300">
           <Link href="/news" onClick={handleMenuClick}>الأخبار</Link>
-        </li>
+        </li> */}
         <li className="text-sm py-1 px-2 hover:bg-yellow-100 dark:hover:bg-gray-700 rounded-md transition duration-300">
-          <Link href="/about" onClick={handleMenuClick}>عن بورسعيد</Link>
+          <Link href="/aboutPort" onClick={handleMenuClick}>عن بورسعيد</Link>
         </li>
-        <li className="text-sm py-1 px-2 hover:bg-yellow-100 dark:hover:bg-gray-700 rounded-md transition duration-300">
-          <Link href="/local-services" onClick={handleMenuClick}>خدمات عامة</Link>
-        </li>
+        {/* <li className="text-sm py-1 px-2 hover:bg-yellow-100 dark:hover:bg-gray-700 rounded-md transition duration-300">
+          <Link href="/local-services" onClick={handleMenuClick}>خدمات محلية</Link>
+        </li> */}
         <li className="text-sm py-1 px-2 hover:bg-yellow-100 dark:hover:bg-gray-700 rounded-md transition duration-300">
           <Link href="/tourist-spots" onClick={handleMenuClick}>الأماكن السياحية</Link>
         </li>
@@ -174,84 +192,4 @@ const Header = () => {
 };
 
 export default Header;
-
-
-// "use client";
-
-// import { useState } from 'react';
-// import Link from 'next/link';
-
-// export default function Navbar() {
-//   const [isOpen, setIsOpen] = useState(false);
-
-//   return (
-//     <header className="flex fixed top-0 w-full z-50  rounded-b-2xl shadow-lg bg-transparent backdrop-blur-md ">
-//       <div className="container mx-auto flex justify-between items-center p-4 ">
-//         <Link href="/">
-//           <h2 className="text-2xl hover:text-3xl font-bold hover:text-gray-300 font-serif">Portsaid-in</h2>
-//         </Link>
-//         {/* قائمة منسدلة للروابط */}
-//         <nav className="hidden md:flex space-x-4">
-//           <Link href="/news">
-//             <h2 className="hover:text-blue-400">الأخبار</h2>
-//           </Link>
-//           <div className="relative">
-//             <button onClick={() => setIsOpen(!isOpen)} className="hover:text-blue-400">
-//               الأماكن السياحية
-//             </button>
-//             {isOpen && (
-//               <div className="absolute bg-blue-700 py-2 rounded shadow-lg mt-2">
-//                 <Link href="/tourist-spots/museum">
-//                   <h2 className="block px-4 py-2 hover:bg-blue-600">المتحف</h2>
-//                 </Link>
-//                 <Link href="/tourist-spots/beaches">
-//                   <h2 className="block px-4 py-2 hover:bg-blue-600">الشواطئ</h2>
-//                 </Link>
-//                 <Link href="/tourist-spots/port">
-//                   <h2 className="block px-4 py-2 hover:bg-blue-600">الميناء</h2>
-//                 </Link>
-//               </div>
-//             )}
-//           </div>
-//           <Link href="/local-services">
-//             <h2 className="hover:text-blue-400">الخدمات المحلية</h2>
-//           </Link>
-//           <Link href="/about">
-//             <h2 className="hover:text-blue-400">عن بورسعيد</h2>
-//           </Link>
-//           <Link href="/contact">
-//             <h2 className="hover:text-blue-400">اتصل بنا</h2>
-//           </Link>
-//         </nav>
-//         {/* زر للقائمة الجانبية */}
-//         <button className="md:hidden bg-slate-300 rounded-xl" onClick={() => setIsOpen(!isOpen)}>
-//           <svg className="w-6 h-6 bg" fill="currentColor" viewBox="0 0 24 24">
-//             <path d="M4 6h16M4 12h16M4 18h16"></path>
-//           </svg>
-//         </button>
-//       </div>
-//       {/* قائمة جانبية للأجهزة الصغيرة */}
-//       {isOpen && (
-//         <nav className="md:hidden bg-blue-700">
-//           <Link href="/news">
-//             <h2 className="block px-4 py-2 hover:bg-blue-600">الأخبار</h2>
-//           </Link>
-//           <Link href="/tourist-spots">
-//             <h2 className="block px-4 py-2 hover:bg-blue-600">الأماكن السياحية</h2>
-//           </Link>
-//           <Link href="/local-services">
-//             <h2 className="block px-4 py-2 hover:bg-blue-600">الخدمات المحلية</h2>
-//           </Link>
-//           <Link href="/about">
-//             <h2 className="block px-4 py-2 hover:bg-blue-600">عن بورسعيد</h2>
-//           </Link>
-//           <Link href="/contact">
-//             <h2 className="block px-4 py-2 hover:bg-blue-600">اتصل بنا</h2>
-//           </Link>
-//         </nav>
-//       )}
-//       </header>
-//     );
-//   }
-  
 

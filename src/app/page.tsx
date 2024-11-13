@@ -1,5 +1,4 @@
-/* eslint-disable react/no-unescaped-entities */
-
+'use client'
 
 import Image from "next/image";
 
@@ -11,7 +10,7 @@ export default function Home() {
       <section className="mb-5 p-5 mx-auto rounded-lg">
         <div className=" grid md:grid-cols-2 place-items-center ">
           <div className="text-center ">
-            <h1 className="text-2xl md:text-4xl font-bold mb-3 text-blue-600">في بورسعيد</h1>
+            <h1 className="text-2xl md:text-4xl font-bold mb-3 text-seaBlue">في بورسعيد</h1>
             {/* تضمين الفيديو */}
             
               <iframe
@@ -21,10 +20,9 @@ export default function Home() {
                 height="100%"
                 src="/videos/portsaidin2.mp4"
                 title="Portsaidin"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
-            <p className="mb-4 mt-2 text-gray-600">اكتشف جمال بورسعيد من خلال مناظرها الخلابة </p>
+            <p className="mb-4 mt-2 text-gray-500 dark:text-seagullGray">اكتشف جمال بورسعيد من خلال مناظرها الخلابة </p>
 
             </div>
             
