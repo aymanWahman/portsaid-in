@@ -7,7 +7,7 @@ import 'leaflet/dist/leaflet.css';
 import LocationsList from "@/components/LocationsList";
 import { SetStateAction, useState } from "react";
 
-export default function Museum() {
+export default function Garden() {
   const [selectedRegion, setSelectedRegion] = useState(null);
 
   const handleRegionClick = (region: SetStateAction<null>) => {

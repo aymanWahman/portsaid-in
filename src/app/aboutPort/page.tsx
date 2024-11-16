@@ -6,7 +6,7 @@ import data from '@/components/dataAboutPort'
 
 export default function aboutPort() {
   return (
-    <div className='mt-32'>
+    <div className='mt-16'>
     
     {/* <div className='text-center font-bold text-2xl text-y'>
   <Link href="/"><button className='text-xl hover:text-2xl md:text-4xl hover:md:text-5xl text-yellow-600 hover:text-gray-400 font-serif'>Home</button></Link>

@@ -94,12 +94,13 @@ const Header = () => {
           {/* <Link href="/local-services" className="text-lg text-sandyGold  hover:text-seaBlue transition">
             الخدمات المحلية
           </Link> */}
+            <Link href="/tourist-spots" className="text-lg text-sandyGold  hover:text-seaBlue transition">
+            الأماكن السياحية
+          </Link>
           <Link href="/aboutPort" className="text-lg text-sandyGold  hover:text-seaBlue transition">
             عن بورسعيد
           </Link>
-          <Link href="/tourist-spots" className="text-lg text-sandyGold  hover:text-seaBlue transition">
-            الأماكن السياحية
-          </Link>
+        
 
        {/* <div className="relative">
         <button onClick={() => setIsOpen(!isOpen)} className="text-lg text-sandyGold hover:text-seaBlue">
@@ -163,23 +164,24 @@ const Header = () => {
       </div>
 
       {/* Dropdown Menu for Mobile */}
-      <ul
+      <ul dir="rtl"
         className={`${
           isMenuOpen ? "block" : "hidden"
-        } absolute top-16 left-0 w-full bg-seaBlue dark:bg-gray-900 shadow-lg rounded-lg p-2 text-gray-600 dark:text-gray-300 transition-all duration-300 ease-in-out`}
+        } absolute top-16 right-0 w-fit bg-sandyGold dark:bg-gray-900 shadow-lg rounded-lg p-2 text-gray-600 dark:text-gray-300 transition-all duration-300 ease-in-out`}
       >
         {/* <li className="text-sm py-1 px-2 hover:bg-yellow-100 dark:hover:bg-gray-700 rounded-md transition duration-300">
           <Link href="/news" onClick={handleMenuClick}>الأخبار</Link>
         </li> */}
+          <li className="text-sm py-1 px-2 hover:bg-yellow-100 dark:hover:bg-gray-700 rounded-md transition duration-300">
+          <Link href="/tourist-spots" onClick={handleMenuClick}>الأماكن السياحية</Link>
+        </li>
         <li className="text-sm py-1 px-2 hover:bg-yellow-100 dark:hover:bg-gray-700 rounded-md transition duration-300">
           <Link href="/aboutPort" onClick={handleMenuClick}>عن بورسعيد</Link>
         </li>
         {/* <li className="text-sm py-1 px-2 hover:bg-yellow-100 dark:hover:bg-gray-700 rounded-md transition duration-300">
           <Link href="/local-services" onClick={handleMenuClick}>خدمات محلية</Link>
         </li> */}
-        <li className="text-sm py-1 px-2 hover:bg-yellow-100 dark:hover:bg-gray-700 rounded-md transition duration-300">
-          <Link href="/tourist-spots" onClick={handleMenuClick}>الأماكن السياحية</Link>
-        </li>
+      
         <li className="text-sm py-1 px-2 hover:bg-yellow-100 dark:hover:bg-gray-700 rounded-md transition duration-300">
           <Link href="/contact" onClick={handleMenuClick}>اتصل بنا</Link>
         </li>

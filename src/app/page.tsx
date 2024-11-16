@@ -4,22 +4,23 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="mt-20 md:mt-24 shadow-xl">
+    <div className="mt-14 md:mt-16 shadow-xl">
       
       {/* قسم الفيديو الرئيسي */}
       <section className="mb-5 p-5 mx-auto rounded-lg">
         <div className=" grid md:grid-cols-2 place-items-center ">
           <div className="text-center ">
-            <h1 className="text-2xl md:text-4xl font-bold mb-3 text-seaBlue">في بورسعيد</h1>
+            <h1 className="text-2xl md:text-3xl font-bold mb-4 text-seaBlue">في بورسعيد</h1>
             {/* تضمين الفيديو */}
             
               <iframe
-                className="rounded-lg shadow-2xl border-4 border-gray-500"
+                className="rounded-lg shadow-2xl border-4 border-gray-500 w-fit mx-auto"
                 loading="lazy"
                 width="100%"
                 height="100%"
                 src="/videos/portsaidin2.mp4"
-                title="Portsaidin"
+                title="Portsaid-in"
+                allow="autoplay"
                 allowFullScreen
               ></iframe>
             <p className="mb-4 mt-2 text-gray-500 dark:text-seagullGray">اكتشف جمال بورسعيد من خلال مناظرها الخلابة </p>
