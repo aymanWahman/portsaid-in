@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import Image from "next/image";
 
@@ -39,37 +39,41 @@ export default function Home() {
       {/* باقي محتوى الصفحة */}
       <section className="pb-6 px-4">
         <h2 className="text-2xl font-bold text-center">أحدث الأخبار</h2>
-        <div className="mt-3 grid grid-cols-1 md:grid-cols-3 gap-4 place-items-center">
+        <div className="mt-3 grid grid-cols-1 md:grid-cols-3 gap-4 ">
           {/* بطاقات الأخبار */}
           <div className="">
           <Image
-           className="rounded-xl border-2 border-gray-600 shadow-xl w-[300px] h-[200px]"
-           src="/imgs/portsaid1.jpg"
+           className="rounded-xl border-2 border-gray-600 shadow-xl w-full h-[250px]"
+           src="/imgs/news1.jpg"
            alt="Portsaidin"
            width={250}
            height={220}
            priority
          />
+         <p className="text-center p-2">انتعاش في السياحة العالمية: شهدت بورسعيد عودة قوية للسياحة، حيث استقبلت أكثر من 10,000 سائح خلال شهر واحد. تضمنت الفعاليات أجواء احتفالية في ساحة مصر واستقبال السفن السياحية بعروض السمسمية الشهيرة​
+ </p>
           </div>
           <div className="">
           <Image
-           className="rounded-xl border-2 border-gray-600 shadow-xl w-[300px] h-[200px]"
-           src="/imgs/portsaid3.jpg"
+           className="rounded-xl border-2 border-gray-600 shadow-xl w-full h-[250px]"
+           src="/imgs/news3.jpg"
            alt="Portsaidin"
            width={250}
            height={220}
            priority
          />
+         <p className="text-center p-2">يشهد ميناء بورسعيد السياحي، فجر غد الثلاثاء، استقبال السفينة السياحية الفاخرة (LIRICA 2) ضمن رحلات سياحة اليوم الواحد، حيث وجه المحافظ اللواء محب حبشي، بتوفير كافة الخدمات والترتيبات اللازمة لاستقبال الضيوف الكرام، وذلك في إطار حرص المحافظة على تعزيز السياحة ورفع شأن مصر</p>
           </div>
           <div className="">
           <Image
-           className="rounded-xl border-2 border-gray-600 shadow-xl w-[300px] h-[200px]"
-           src="/imgs/portsaid4.jpg"
+           className="rounded-xl border-2 border-gray-600 shadow-xl w-full h-[250px]"
+           src="/imgs/news2.jpg"
            alt="Portsaidin"
            width={250}
            height={220}
            priority
          />
+         <p className="text-center p-2">ميناء بورسعيد السياحى يستقبل 4 سفن سياحية ويختا فى 20 يوما.. الأهالى: بشائر الخير هلت علينا.. حمام السلام يستقبل الزوار فى ساحة مصر.. ومسئولو السياحة يقدمون الورود لأكثر من 5 آلاف سائح خلال الشهر الحالى</p>
           </div>
         </div>
       </section>

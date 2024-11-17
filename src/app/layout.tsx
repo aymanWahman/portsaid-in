@@ -24,7 +24,7 @@ export default function RootLayout({
        <Head>
         <title>Portsaid-in</title>
         <meta name="description" content="Knowing everything about portsaid, and more." />
-        <meta name="keywords" content="Portsaid, Port, Beaches, Sea, Museum, Restaurant, Hotel, Garden" />
+        <meta name="keywords" content="Portsaid, Port, Beaches, Sea, Museum, Restaurant, Hotel, Garden, بورسعيد, حجز, صيف,مطاعم, ملابس" />
       </Head>
       <body>
         <ThemeProvider attribute="class" defaultTheme="dark"> 
