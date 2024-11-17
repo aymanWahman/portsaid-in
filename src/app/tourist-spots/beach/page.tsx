@@ -1,57 +1,116 @@
 "use client";
-
-import Image from "next/image";
-
+import { DataTypes } from '@/dataTypes';
 import beaches from "@/components/DataBeach";
-export default function Restaurant() {
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
 
+
+
+type Props = {
+  beaches: DataTypes[];
+};
+
+const BeachPage: React.FC<Props> = ({ beaches }) => {
+  const [filter, setFilter] = useState<string>("All");
+
+  const filteredRestaurants =
+    filter === "All"
+      ? beaches
+      : beaches.filter(
+          (beach) =>
+            beach.region === filter || beach.category === filter
+        );
+
+  const uniqueRegions = Array.from(new Set(beaches.map((d) => d.region)));
+  // const uniqueCategories = Array.from(
+  //   new Set(restaurants.map((r) => r.category))
+  // );
 
   return (
-    <div className="mt-20 md:mt-24 shadow-xl">
-      <h1 className="text-center text-xl mb-3">الشواطئ في بورسعيد</h1>
+    <div dir="rtl" className="p-4 mt-14">
+  <div className="text-center">
+  <Link
+        href="/tourist-spots"
+        className="text-xl  text-sandyGold  hover:text-seaBlue transition"
+      >
+        الأماكن السياحية
+      </Link>
+  </div>
+      <h1 className="text-center text-2xl font-bold mt-3 mb-4"> الشواطئ</h1>
 
+      {/* فلتر */}
+      <div className="flex flex-wrap gap-2 mb-6">
+        <button
+          onClick={() => setFilter("All")}
+          className={`px-4 py-2 rounded ${
+            filter === "All" ? "bg-seaBlue text-white" : "bg-gray-500"
+          }`}
+        >
+          الكل
+        </button>
+        {uniqueRegions.map((region) => (
+          <button
+            key={region}
+            onClick={() => setFilter(region)}
+            className={`px-4 py-2 rounded ${
+              filter === region ? "bg-seaBlue text-white" : "bg-gray-500"
+            }`}
+          >
+            {region}
+          </button>
+        ))}
+        {/* {uniqueCategories.map((category) => (
+          <button
+            key={category}
+            onClick={() => setFilter(category)}
+            className={`px-4 py-2 rounded ${
+              filter === category ? "bg-blue-500 text-white" : "bg-gray-200"
+            }`}
+          >
+            {category}
+          </button>
+        ))} */}
+      </div>
 
-      <section>
-        {beaches &&
-          beaches.map((d) => (
-            <div
-              key={d.id}
-              className="grid grid-cols-1 md:grid-cols-3 mb-3 place-items-center md:gap-2"
-            >
-              <div className="">
-                <h1 className="text-center font-bold text-2xl mb-4 text-seaBlue">
-                  {d.name}
-                </h1>
+      {/* عرض المطاعم */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {filteredRestaurants.map((d) => (
+          <div
+            key={d.id}
+            className="border rounded-lg overflow-hidden shadow-md bg-white"
+          >
+            <Image
+              src={d.image}
+              alt={d.name}
+              className="w-full h-40 object-cover"
+              width="300"
+              height="200"
+            />
+            <div className="p-4">
+              <h2 className="text-lg font-bold text-seaBlue">{d.name}</h2>
+              <p className="text-gray-500">{d.description}</p>
 
-                <Image
-                  className="rounded shadow-2xl shadow-black mb-2 w-64 h-56"
-                  src={d.image}
-                  alt={d.name}
-                  width="260"
-                  height="130"
-                  priority
-                />
-              </div>
-
-              <div
-                dir="rtl"
-                className="col-span-2 p-3 mx-auto shadow-2xl shadow-black space-y-3  "
-              >
-                <p className="text-center text-lg text-gray-500  ">
-                  ({d.cuisine})
-                </p>
-                <p className="text-center text-xl font-bold ">
-                  {d.description}
-                </p>
-                <p className="text-center text-lg font-bold "> {d.address} </p>
-                <p className="text-center text-lg font-bold ">
-                  Mob:{d.contact}
-                </p>
-                {/* <p className='text-center text-xl font-bold '>{r.coords}</p> */}
-              </div>
+              <p className="text-gray-700">
+                <strong>المنطقة:</strong> {d.region}
+              </p>
+              {/* <p className="text-gray-700">
+                <strong>التصنيف:</strong> {d.category}
+              </p> */}
+              <p className="text-gray-700">
+                <strong>العنوان:</strong> {d.address}
+              </p>
+              <p className="text-gray-700">
+                <strong>التلفون:</strong> {d.contact}
+              </p>
             </div>
-          ))}
-      </section>
+          </div>
+        ))}
+      </div>
     </div>
   );
+};
+
+export default function Page() {
+  return <BeachPage beaches={beaches} />;
 }

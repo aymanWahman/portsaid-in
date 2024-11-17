@@ -1,41 +1,43 @@
 "use client";
-
+import { DataTypes } from '@/dataTypes';
 import restaurants from "@/components/DataRestaurant";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
-type Restaurant = {
-  id: number;
-  name: string;
-  region: string;
-  category: string;
-  address: string;
-  description: string;
-  image: string;
-};
+
 
 type Props = {
-  restaurants: Restaurant[];
+  restaurants: DataTypes[];
 };
 
 const RestaurantPage: React.FC<Props> = ({ restaurants }) => {
   const [filter, setFilter] = useState<string>("All");
 
-  const filteredRestaurants = filter === "All"
-    ? restaurants
-    : restaurants.filter(
-        (restaurant) =>
-          restaurant.region === filter || restaurant.category === filter
-      );
+  const filteredRestaurants =
+    filter === "All"
+      ? restaurants
+      : restaurants.filter(
+          (restaurant) =>
+            restaurant.region === filter || restaurant.category === filter
+        );
 
-  const uniqueRegions = Array.from(new Set(restaurants.map((r) => r.region)));
+  const uniqueRegions = Array.from(new Set(restaurants.map((d) => d.region)));
   // const uniqueCategories = Array.from(
   //   new Set(restaurants.map((r) => r.category))
   // );
 
   return (
-    <div className="p-4 mt-14">
-      <h1 className="text-center text-2xl font-bold mb-4">قائمة المطاعم</h1>
+    <div dir="rtl" className="p-4 mt-14">
+  <div className="text-center">
+  <Link
+        href="/tourist-spots"
+        className="text-xl  text-sandyGold  hover:text-seaBlue transition"
+      >
+        الأماكن السياحية
+      </Link>
+  </div>
+      <h1 className="text-center text-2xl font-bold mt-3 mb-4"> المطاعم</h1>
 
       {/* فلتر */}
       <div className="flex flex-wrap gap-2 mb-6">
@@ -72,32 +74,35 @@ const RestaurantPage: React.FC<Props> = ({ restaurants }) => {
       </div>
 
       {/* عرض المطاعم */}
-      <div dir="rtl" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {filteredRestaurants.map((restaurant) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {filteredRestaurants.map((d) => (
           <div
-            key={restaurant.id}
+            key={d.id}
             className="border rounded-lg overflow-hidden shadow-md bg-white"
           >
             <Image
-              src={restaurant.image}
-              alt={restaurant.name}
+              src={d.image}
+              alt={d.name}
               className="w-full h-40 object-cover"
               width="300"
               height="200"
-            
             />
             <div className="p-4">
-              <h2 className="text-lg font-bold">{restaurant.name}</h2>
+              <h2 className="text-lg font-bold text-seaBlue">{d.name}</h2>
+              <p className="text-gray-500">{d.description}</p>
+
               <p className="text-gray-700">
-                <strong>المنطقة:</strong> {restaurant.region}
+                <strong>المنطقة:</strong> {d.region}
+              </p>
+              {/* <p className="text-gray-700">
+                <strong>التصنيف:</strong> {d.category}
+              </p> */}
+              <p className="text-gray-700">
+                <strong>العنوان:</strong> {d.address}
               </p>
               <p className="text-gray-700">
-                <strong>التصنيف:</strong> {restaurant.category}
+                <strong>التلفون:</strong> {d.contact}
               </p>
-              <p className="text-gray-700">
-                <strong>العنوان:</strong> {restaurant.address}
-              </p>
-              <p className="text-gray-500">{restaurant.description}</p>
             </div>
           </div>
         ))}
@@ -105,8 +110,6 @@ const RestaurantPage: React.FC<Props> = ({ restaurants }) => {
     </div>
   );
 };
-
-// export default RestaurantPage;
 
 export default function Page() {
   return <RestaurantPage restaurants={restaurants} />;

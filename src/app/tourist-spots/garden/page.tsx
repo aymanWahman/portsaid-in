@@ -1,36 +1,116 @@
-'use client'
+"use client";
+import { DataTypes } from '@/dataTypes';
+import gardens from "@/components/DataGarden";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
 
-// import Image from "next/image";
-// import Link from "next/link";
-import MapPage from '@/components/map';
-import 'leaflet/dist/leaflet.css';
-import LocationsList from "@/components/LocationsList";
-import { SetStateAction, useState } from "react";
 
-export default function Garden() {
-  const [selectedRegion, setSelectedRegion] = useState(null);
 
-  const handleRegionClick = (region: SetStateAction<null>) => {
-  setSelectedRegion(region);
-}
+type Props = {
+  gardens: DataTypes[];
+};
+
+const GardenPage: React.FC<Props> = ({ gardens }) => {
+  const [filter, setFilter] = useState<string>("All");
+
+  const filteredRestaurants =
+    filter === "All"
+      ? gardens
+      : gardens.filter(
+          (garden) =>
+            garden.region === filter || garden.category === filter
+        );
+
+  const uniqueRegions = Array.from(new Set(gardens.map((d) => d.region)));
+  // const uniqueCategories = Array.from(
+  //   new Set(restaurants.map((r) => r.category))
+  // );
 
   return (
-    <div className="mt-20 md:mt-24 shadow-xl">
-      
-    
+    <div dir="rtl" className="p-4 mt-14">
+  <div className="text-center">
+  <Link
+        href="/tourist-spots"
+        className="text-xl  text-sandyGold  hover:text-seaBlue transition"
+      >
+        الأماكن السياحية
+      </Link>
+  </div>
+      <h1 className="text-center text-2xl font-bold mt-3 mb-4"> الحدائق</h1>
 
-    <section className="grid grid-col-1 md:grid-cols-2 gap-4 p-4 place-items-center">
-    <div className="h-full">
-      <MapPage selectedRegion={selectedRegion}/>
-    </div>
-    <div className="">
-      <LocationsList onRegionClick={handleRegionClick} />
-    </div>
-    </section>
-    
+      {/* فلتر */}
+      <div className="flex flex-wrap gap-2 mb-6">
+        <button
+          onClick={() => setFilter("All")}
+          className={`px-4 py-2 rounded ${
+            filter === "All" ? "bg-seaBlue text-white" : "bg-gray-500"
+          }`}
+        >
+          الكل
+        </button>
+        {uniqueRegions.map((region) => (
+          <button
+            key={region}
+            onClick={() => setFilter(region)}
+            className={`px-4 py-2 rounded ${
+              filter === region ? "bg-seaBlue text-white" : "bg-gray-500"
+            }`}
+          >
+            {region}
+          </button>
+        ))}
+        {/* {uniqueCategories.map((category) => (
+          <button
+            key={category}
+            onClick={() => setFilter(category)}
+            className={`px-4 py-2 rounded ${
+              filter === category ? "bg-blue-500 text-white" : "bg-gray-200"
+            }`}
+          >
+            {category}
+          </button>
+        ))} */}
+      </div>
+
+      {/* عرض المطاعم */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {filteredRestaurants.map((d) => (
+          <div
+            key={d.id}
+            className="border rounded-lg overflow-hidden shadow-md bg-white"
+          >
+            <Image
+              src={d.image}
+              alt={d.name}
+              className="w-full h-40 object-cover"
+              width="300"
+              height="200"
+            />
+            <div className="p-4">
+              <h2 className="text-lg font-bold text-seaBlue">{d.name}</h2>
+              <p className="text-gray-500">{d.description}</p>
+
+              <p className="text-gray-700">
+                <strong>المنطقة:</strong> {d.region}
+              </p>
+              {/* <p className="text-gray-700">
+                <strong>التصنيف:</strong> {d.category}
+              </p> */}
+              <p className="text-gray-700">
+                <strong>العنوان:</strong> {d.address}
+              </p>
+              <p className="text-gray-700">
+                <strong>التلفون:</strong> {d.contact}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
+};
+
+export default function Page() {
+  return <GardenPage gardens={gardens} />;
 }
-
-
-
