@@ -29,9 +29,9 @@ const RestaurantPage: React.FC<Props> = ({ restaurants }) => {
       );
 
   const uniqueRegions = Array.from(new Set(restaurants.map((r) => r.region)));
-  const uniqueCategories = Array.from(
-    new Set(restaurants.map((r) => r.category))
-  );
+  // const uniqueCategories = Array.from(
+  //   new Set(restaurants.map((r) => r.category))
+  // );
 
   return (
     <div className="p-4 mt-14">
@@ -42,7 +42,7 @@ const RestaurantPage: React.FC<Props> = ({ restaurants }) => {
         <button
           onClick={() => setFilter("All")}
           className={`px-4 py-2 rounded ${
-            filter === "All" ? "bg-blue-500 text-white" : "bg-gray-200"
+            filter === "All" ? "bg-seaBlue text-white" : "bg-gray-500"
           }`}
         >
           الكل
@@ -52,13 +52,13 @@ const RestaurantPage: React.FC<Props> = ({ restaurants }) => {
             key={region}
             onClick={() => setFilter(region)}
             className={`px-4 py-2 rounded ${
-              filter === region ? "bg-blue-500 text-white" : "bg-gray-200"
+              filter === region ? "bg-seaBlue text-white" : "bg-gray-500"
             }`}
           >
             {region}
           </button>
         ))}
-        {uniqueCategories.map((category) => (
+        {/* {uniqueCategories.map((category) => (
           <button
             key={category}
             onClick={() => setFilter(category)}
@@ -68,7 +68,7 @@ const RestaurantPage: React.FC<Props> = ({ restaurants }) => {
           >
             {category}
           </button>
-        ))}
+        ))} */}
       </div>
 
       {/* عرض المطاعم */}
@@ -84,6 +84,7 @@ const RestaurantPage: React.FC<Props> = ({ restaurants }) => {
               className="w-full h-40 object-cover"
               width="300"
               height="200"
+            
             />
             <div className="p-4">
               <h2 className="text-lg font-bold">{restaurant.name}</h2>
