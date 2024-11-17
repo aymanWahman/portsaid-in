@@ -32,8 +32,6 @@ const TouristSpots: FC = () => {
           </Link>
         </div>
 
-      
-
         <div className="mx-auto">
           <Link href="/tourist-spots/hotel">
             <h2 className="font-extrabold text-xl md:text-4xl my-7 hover:text-seaBlue">
@@ -64,7 +62,7 @@ const TouristSpots: FC = () => {
           <Link href="/tourist-spots/garden">
             <Image
               className="rounded-xl shadow-2xl shadow-black w-[300px] h-[220px] hover:scale-105 transition-transform duration-300"
-              src="/imgs/garden.jfif"
+              src="/imgs/garden2.jpg"
               alt="Garden"
               width={280}
               height={140}

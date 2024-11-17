@@ -11,7 +11,7 @@ const restaurants: DataTypes[] = [
     description: "مطعم يقدم مأكولات بحرية طازجة وأطباق مميزة مع إطلالة رائعة على البحر.",
     coords: [31.265, 32.3018],
     image: "/imgs/seafood.jpg",
-    category: "مطعم",
+    category: " مطاعم أسماك",
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ const restaurants: DataTypes[] = [
     description: "مطعم شرقي يقدم أشهى أطباق المشويات والمقبلات.",
     coords: [31.257, 32.295],
     image: "/imgs/seafoodsoup.jpg",
-    category: "مطعم",
+    category: "مطاعم مشويات",
   },
   {
     id: 3,
@@ -35,7 +35,7 @@ const restaurants: DataTypes[] = [
     description: "مطعم يقدم البيتزا والباستا الطازجة مع خيارات وجبات سريعة.",
     coords: [31.269, 32.307],
     image: "/imgs/seafood5.jpg",
-    category: "مطعم",
+    category: " مطاعم الوجبات السريعة",
   },
   {
     id: 4,
@@ -47,7 +47,7 @@ const restaurants: DataTypes[] = [
     description: "مطعم يقدم مشويات لذيذة وحلويات شرقية تقليدية.",
     coords: [31.272, 32.298],
     image: "/imgs/seafood2.jpg",
-    category: "مطعم",
+    category: "مطاعم مشويات",
   },
   {
     id: 5,
@@ -71,7 +71,7 @@ const restaurants: DataTypes[] = [
     description: "مطعم شعبي يقدم وجبات شرقية وأجواء عائلية.",
     coords: [31.274, 32.303],
     image: "/imgs/seafood3.jpg",
-    category: "مطعم",
+    category: "مطاعم شرقي",
   },
 ];
 
