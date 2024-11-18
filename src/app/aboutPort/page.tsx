@@ -32,7 +32,7 @@ export default function aboutPort() {
     
     <div dir='rtl' className='col-span-2 p-3 md:mr-9 shadow-2xl shadow-black space-y-3 md:h-64 '>
     <h1 className='text-center font-bold text-2xl md:text-4xl md:mt-8 text-seaBlue'>{d.title}</h1>
-    <p className='text-center text-lg md:text-xl font-bold '>{d.discription}</p>
+    <p className='text-center text-lg md:text-xl font-bold '>{d.description}</p>
     <p className='text-center text-lg md:text-xl font-bold '>{d.history}</p>
     </div>
   
