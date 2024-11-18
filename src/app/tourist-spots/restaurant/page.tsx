@@ -70,7 +70,7 @@ const RestaurantPage: React.FC<Props> = ({ restaurants }) => {
       </div>
 
       {/* عرض المطاعم */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid md:grid-cols-3 gap-3">
         {filteredRestaurants.map((d) => (
           <div
             key={d.id}
@@ -79,20 +79,22 @@ const RestaurantPage: React.FC<Props> = ({ restaurants }) => {
             <Image
               src={d.image}
               alt={d.name}
-              className="w-full h-40 object-cover"
+              className="w-full h-[200px] object-cover"
               width="300"
               height="200"
+              loading="lazy"
+              priority={false}
             />
-            <div className="p-4">
+            <div className="px-4 py-2 space-y-1">
               <h2 className="text-lg font-bold text-seaBlue">{d.name}</h2>
-              <p className="text-gray-500">{d.description}</p>
-              <p className="text-gray-700">
+              <p className="text-md text-gray-500">{d.description}</p>
+              <p className="text-sm text-gray-700">
                 <strong>المنطقة:</strong> {d.region}
               </p>
-              <p className="text-gray-700">
+              <p className="text-sm text-gray-700">
                 <strong>العنوان:</strong> {d.address}
               </p>
-              <p className="text-gray-700">
+              <p className="text-sm text-gray-700">
                 <strong>التلفون:</strong> {d.contact}
               </p>
             </div>

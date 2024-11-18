@@ -15,10 +15,11 @@ export default function Home() {
               في بورسعيد
             </h1>
             {/* تضمين الفيديو مع ضبط المقاسات */}
-            <div className="relative w-full h-[250px] md:h-[300px] rounded-lg overflow-hidden shadow-2xl border-4 border-gray-500">
+            <div className="relative w-full  rounded-lg overflow-hidden shadow-2xl border-4 border-gray-500">
               <video
                 className="w-full h-full object-cover"
                 autoPlay
+                controls
                 preload="metadata"
                 src="/videos/portsaidin2.mp4"
               >
