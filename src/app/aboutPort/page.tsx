@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image'
-import data from '@/components/DataAboutPort'
+import data from '../../components/DataAboutPort'
 // import Link from 'next/link'
 
 export default function aboutPort() {
@@ -23,10 +23,11 @@ export default function aboutPort() {
     <Image
       className="rounded shadow-2xl shadow-black w-64 h-56"
       src={d.image}
-      alt="Logo"
+      alt={d.title}
       width='260'
       height='130'
       priority
+      loading='lazy'
     />
     </div>
     
