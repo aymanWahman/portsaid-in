@@ -1,4 +1,7 @@
-const DataAboutPort = [ 
+
+import { NewsTypes } from '../Types/newsTypes';
+
+const DataAboutPort: NewsTypes[] = [ 
   {
     "id": 1,
     "title": "نشأة بورسعيد",

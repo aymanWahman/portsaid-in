@@ -1,5 +1,5 @@
 "use client";
-import { DataTypes } from '@/dataTypes';
+import { DataTypes } from '@/Types/dataTypes';
 import beaches from "@/components/DataBeach";
 import Image from "next/image";
 import Link from "next/link";

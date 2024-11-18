@@ -14,7 +14,7 @@ interface NewsCardProps {
 
 }
 
-const NewsCard: React.FC<NewsCardProps> = ({ news }) => {
+const NewsCard: React.FC<NewsCardProps> = ({news }) => {
   return (
     <article className="grid md:grid-cols-3 gap-4 items-center p-4 rounded-lg shadow-xl transition-shadow duration-300">
       <div className='mx-auto'>

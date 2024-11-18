@@ -1,4 +1,7 @@
-const DataNews = [
+import { NewsTypes } from '../Types/newsTypes';
+
+
+const DataNews:  NewsTypes[]= [
   {
     id: 1,
     title: "رجوع السياحة في بورسعيد",

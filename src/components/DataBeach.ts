@@ -1,4 +1,4 @@
-import { DataTypes } from '../dataTypes';
+import { DataTypes } from '../Types/dataTypes';
 
 const beaches: DataTypes[] = [
   {
