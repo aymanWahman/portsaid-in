@@ -167,22 +167,22 @@ const Header = () => {
       <ul dir="rtl"
         className={`${
           isMenuOpen ? "block" : "hidden"
-        } absolute top-16 right-0 w-fit bg-sandyGold dark:bg-gray-900 shadow-lg rounded-lg p-2 text-gray-600 dark:text-gray-300 transition-all duration-300 ease-in-out`}
+        } absolute top-16 right-0 w-fit bg-transparent  shadow-xl rounded-2xl p-4 space-y-5 text-seaBlue hover:text-sandyGold transition-all duration-300 ease-in-out`}
       >
         {/* <li className="text-sm py-1 px-2 hover:bg-yellow-100 dark:hover:bg-gray-700 rounded-md transition duration-300">
           <Link href="/news" onClick={handleMenuClick}>الأخبار</Link>
         </li> */}
-          <li className="text-sm py-1 px-2 hover:bg-yellow-100 dark:hover:bg-gray-700 rounded-md transition duration-300">
+          <li className="text-lg py-1 px-2 bg-seagullGray rounded-md transition duration-300">
           <Link href="/tourist-spots" onClick={handleMenuClick}>الأماكن السياحية</Link>
         </li>
-        <li className="text-sm py-1 px-2 hover:bg-yellow-100 dark:hover:bg-gray-700 rounded-md transition duration-300">
+        <li className="text-lg py-1 px-2 bg-seagullGray hover:bg-yellow-100 dark:hover:bg-gray-700 rounded-md transition duration-300">
           <Link href="/aboutPort" onClick={handleMenuClick}>عن بورسعيد</Link>
         </li>
         {/* <li className="text-sm py-1 px-2 hover:bg-yellow-100 dark:hover:bg-gray-700 rounded-md transition duration-300">
           <Link href="/local-services" onClick={handleMenuClick}>خدمات محلية</Link>
         </li> */}
       
-        <li className="text-sm py-1 px-2 hover:bg-yellow-100 dark:hover:bg-gray-700 rounded-md transition duration-300">
+        <li className="text-lg py-1 px-2 bg-seagullGray rounded-md transition duration-300">
           <Link href="/contact" onClick={handleMenuClick}>اتصل بنا</Link>
         </li>
       
