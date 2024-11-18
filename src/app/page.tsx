@@ -1,8 +1,8 @@
 "use client";
 
 // import Image from "next/image";
-import DataNews from "../components/DataNews";
-import NewsCard from "../components/NewsCard";
+import DataNews from "@/components/DataNews";
+import NewsCard from "@/components/NewsCard";
 
 export default function Home() {
   return (
