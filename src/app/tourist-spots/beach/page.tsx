@@ -37,7 +37,7 @@ const BeachPage: React.FC<Props> = ({ beaches }) => {
         الأماكن السياحية
       </Link>
   </div>
-      <h1 className="text-center text-2xl font-bold mt-3 mb-4"> الشواطئ</h1>
+      <h1 className="text-center text-2xl font-bold mt-3 mb-4 text-seaBlue"> الشواطئ</h1>
 
       {/* فلتر */}
       <div className="flex flex-wrap gap-2 mb-6">
@@ -78,7 +78,7 @@ const BeachPage: React.FC<Props> = ({ beaches }) => {
         {filteredRestaurants.map((d) => (
           <div
             key={d.id}
-            className="border rounded-lg overflow-hidden shadow-md bg-white"
+            className="border rounded-lg overflow-hidden shadow-2xl bg-seagullGray"
           >
             <Image
               src={d.image}
@@ -91,18 +91,18 @@ const BeachPage: React.FC<Props> = ({ beaches }) => {
               <h2 className="text-lg font-bold text-seaBlue">{d.name}</h2>
               <p className="text-gray-500">{d.description}</p>
 
-              <p className="text-gray-700">
+              <p className="text-sm text-gray-700">
                 <strong>المنطقة:</strong> {d.region}
               </p>
               {/* <p className="text-gray-700">
                 <strong>التصنيف:</strong> {d.category}
               </p> */}
-              <p className="text-gray-700">
+              <p className="text-sm text-gray-700">
                 <strong>العنوان:</strong> {d.address}
               </p>
-              <p className="text-gray-700">
+              {/* <p className="text-gray-700">
                 <strong>التلفون:</strong> {d.contact}
-              </p>
+              </p> */}
             </div>
           </div>
         ))}

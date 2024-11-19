@@ -37,7 +37,7 @@ const HotelPage: React.FC<Props> = ({ hotels }) => {
         الأماكن السياحية
       </Link>
   </div>
-      <h1 className="text-center text-2xl font-bold mt-3 mb-4"> الفنادق</h1>
+      <h1 className="text-center text-2xl font-bold mt-3 mb-4 text-seaBlue"> الفنادق</h1>
 
       {/* فلتر */}
       <div className="flex flex-wrap gap-2 mb-6">

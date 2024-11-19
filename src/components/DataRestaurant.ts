@@ -10,7 +10,7 @@ const restaurants: DataTypes[] = [
       "cuisine": ["مأكولات بحرية"],
       "contact": "01234567890",
       "description": "مطعم يقدم الأسماك الطازجة مع أطباق مميزة.",
-      "coords": [31.265, 32.3018],
+      "coordinates": [31.265, 32.3018],
       "image": "/imgs/seafood.jpg",
       "category": "مطاعم أسماك"
     },
@@ -22,7 +22,7 @@ const restaurants: DataTypes[] = [
       "cuisine": ["مأكولات بحرية", "مشويات"],
       "contact": "01098765432",
       "description": "يوفر أطباق الأسماك المميزة والمشويات الطازجة.",
-      "coords": [31.257, 32.295],
+      "coordinates": [31.257, 32.295],
       "image": "/imgs/seafood2.jpg",
       "category": "مطاعم أسماك"
     },
@@ -34,7 +34,7 @@ const restaurants: DataTypes[] = [
       "cuisine": ["مشويات"],
       "contact": "01112345678",
       "description": "يشتهر بالمشويات الشرقية وأطباق المقبلات.",
-      "coords": [31.272, 32.298],
+      "coordinates": [31.272, 32.298],
       "image": "/imgs/seafood3.jpg",
       "category": "مطاعم مشويات"
     },
@@ -46,7 +46,7 @@ const restaurants: DataTypes[] = [
       "cuisine": ["بيتزا", "وجبات سريعة"],
       "contact": "19000",
       "description": "سلسلة عالمية متخصصة في البيتزا.",
-      "coords": [31.268, 32.301],
+      "coordinates": [31.268, 32.301],
       "image": "/imgs/pizzaHut.jpg",
       "category": "مطاعم بيتزا"
     },
@@ -58,7 +58,7 @@ const restaurants: DataTypes[] = [
       "cuisine": ["وجبات سريعة"],
       "contact": "19991",
       "description": "وجبات سريعة وخدمة توصيل.",
-      "coords": [31.259, 32.299],
+      "coordinates": [31.259, 32.299],
       "image": "/imgs/macdo.jpg",
       "category": "مطاعم وجبات سريعة"
     },
@@ -70,7 +70,7 @@ const restaurants: DataTypes[] = [
       "cuisine": ["مشروبات", "مأكولات خفيفة"],
       "contact": "01065432109",
       "description": "كافيه يتميز بإطلالة مباشرة على البحر.",
-      "coords": [31.254, 32.319],
+      "coordinates": [31.254, 32.319],
       "image": "/imgs/seafood5.jpg",
       "category": "كافيه"
     },
@@ -82,7 +82,7 @@ const restaurants: DataTypes[] = [
       "cuisine": ["مشويات", "شرقي"],
       "contact": "01234567890",
       "description": "مكان عائلي يقدم أشهى الأطباق الشرقية.",
-      "coords": [31.269, 32.307],
+      "coordinates": [31.269, 32.307],
       "image": "/imgs/seafoodsoup.jpg",
       "category": "مطاعم مشويات"
     },
@@ -94,7 +94,7 @@ const restaurants: DataTypes[] = [
       "cuisine": ["مشروبات", "مخبوزات"],
       "contact": "01198765432",
       "description": "مكان هادئ يقدم القهوة والحلويات.",
-      "coords": [31.259, 32.300],
+      "coordinates": [31.259, 32.300],
       "image": "/imgs/cafe2.jpg",
       "category": "كافيه"
     },  {
@@ -105,7 +105,7 @@ const restaurants: DataTypes[] = [
       "cuisine": ["مأكولات بحرية", "مشويات"],
       "contact": "01234567891",
       "description": "مطعم يقدم أطباق بحرية مميزة وأجواء رائعة.",
-      "coords": [31.270, 32.306],
+      "coordinates": [31.270, 32.306],
       "image": "/imgs/seafoodsoup2.jpg",
       "category": "مطاعم أسماك"
     },
@@ -117,7 +117,7 @@ const restaurants: DataTypes[] = [
       "cuisine": ["مشروبات", "حلويات"],
       "contact": "01112345679",
       "description": "مكان يقدم القهوة والحلويات الطازجة.",
-      "coords": [31.262, 32.302],
+      "coordinates": [31.262, 32.302],
       "image": "/imgs/cafe3.jpg",
       "category": "كافيه"
     },
@@ -129,7 +129,7 @@ const restaurants: DataTypes[] = [
       "cuisine": ["شرقي", "وجبات عائلية"],
       "contact": "01087654321",
       "description": "مطعم عائلي يتميز بأطباق شرقية تقليدية.",
-      "coords": [31.259, 32.299],
+      "coordinates": [31.259, 32.299],
       "image": "/imgs/grills3.jpg",
       "category": "مطاعم شرقي"
     },
@@ -141,7 +141,7 @@ const restaurants: DataTypes[] = [
       "cuisine": ["بيتزا", "وجبات سريعة"],
       "contact": "19002",
       "description": "بيتزا شهية وخدمة توصيل مميزة.",
-      "coords": [31.273, 32.304],
+      "coordinates": [31.273, 32.304],
       "image": "/imgs/pizza2.jpg",
       "category": "مطاعم بيتزا"
     },
@@ -153,7 +153,7 @@ const restaurants: DataTypes[] = [
       "cuisine": ["مشروبات", "وجبات خفيفة"],
       "contact": "01198765431",
       "description": "إطلالة رائعة مع مشروبات متنوعة.",
-      "coords": [31.253, 32.318],
+      "coordinates": [31.253, 32.318],
       "image": "/imgs/cafe.jpg",
       "category": "كافيه"
     },{
@@ -164,7 +164,7 @@ const restaurants: DataTypes[] = [
       "cuisine": ["أطباق عالمية", "وجبات خفيفة"],
       "contact": "01234567811",
       "description": "مطعم فخم يقدم أطباق عالمية وخدمات مميزة.",
-      "coords": [31.262, 32.305],
+      "coordinates": [31.262, 32.305],
       "image": "/imgs/crystal.jpg",
       "category": "مطاعم عالمية"
     },
@@ -176,7 +176,7 @@ const restaurants: DataTypes[] = [
       "cuisine": ["مشروبات", "وجبات خفيفة"],
       "contact": "01056789011",
       "description": "كافيه يتميز بموقعه الفريد على البحر.",
-      "coords": [31.258, 32.298],
+      "coordinates": [31.258, 32.298],
       "image": "/imgs/cafe2.jpg",
       "category": "كافيه"
     },
@@ -188,7 +188,7 @@ const restaurants: DataTypes[] = [
       "cuisine": ["مشويات", "أطباق شرقية"],
       "contact": "01122334455",
       "description": "يقدم أشهى المشويات الشرقية في أجواء عائلية.",
-      "coords": [31.265, 32.303],
+      "coordinates": [31.265, 32.303],
       "image": "/imgs/leader.jpg",
       "category": "مطاعم شرقي"
     },
@@ -200,7 +200,7 @@ const restaurants: DataTypes[] = [
       "cuisine": ["مشروبات", "أطباق خفيفة"],
       "contact": "01098765433",
       "description": "مكان مثالي للاستمتاع بمشروباتك المفضلة.",
-      "coords": [31.252, 32.317],
+      "coordinates": [31.252, 32.317],
       "image": "/imgs/orchid.jpg",
       "category": "كافيه"
     },
@@ -212,7 +212,7 @@ const restaurants: DataTypes[] = [
       "cuisine": ["أطباق شامية", "مشويات"],
       "contact": "01234567822",
       "description": "يقدم أطباق شامية تقليدية ومميزة.",
-      "coords": [31.270, 32.308],
+      "coordinates": [31.270, 32.308],
       "image": "/imgs/shami.jpg",
       "category": "مطاعم شامية"
     },
@@ -224,7 +224,7 @@ const restaurants: DataTypes[] = [
       "cuisine": ["مشروبات", "حلويات"],
       "contact": "01022334455",
       "description": "مكان يقدم القهوة والحلويات في جو مريح.",
-      "coords": [31.262, 32.302],
+      "coordinates": [31.262, 32.302],
       "image": "/imgs/starscafe.jpg",
       "category": "كافيه"
     },
@@ -236,7 +236,7 @@ const restaurants: DataTypes[] = [
       "cuisine": ["مشويات", "أطباق شرقية"],
       "contact": "01198765432",
       "description": "يقدم ألذ المشويات مع المقبلات الطازجة.",
-      "coords": [31.258, 32.297],
+      "coordinates": [31.258, 32.297],
       "image": "/imgs/abuomar.jpg",
       "category": "مطاعم مشويات"
     },
@@ -248,7 +248,7 @@ const restaurants: DataTypes[] = [
       "cuisine": ["بيتزا", "وجبات خفيفة"],
       "contact": "01223334455",
       "description": "بيتزا طازجة وأجواء شبابية ممتعة.",
-      "coords": [31.267, 32.306],
+      "coordinates": [31.267, 32.306],
       "image": "/imgs/pizzanight.jpg",
       "category": "مطاعم بيتزا"
     }

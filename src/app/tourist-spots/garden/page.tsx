@@ -37,7 +37,7 @@ const GardenPage: React.FC<Props> = ({ gardens }) => {
         الأماكن السياحية
       </Link>
   </div>
-      <h1 className="text-center text-2xl font-bold mt-3 mb-4"> الحدائق</h1>
+      <h1 className="text-center text-2xl font-bold mt-3 mb-4 text-seaBlue"> الحدائق</h1>
 
       {/* فلتر */}
       <div className="flex flex-wrap gap-2 mb-6">
@@ -60,17 +60,7 @@ const GardenPage: React.FC<Props> = ({ gardens }) => {
             {region}
           </button>
         ))}
-        {/* {uniqueCategories.map((category) => (
-          <button
-            key={category}
-            onClick={() => setFilter(category)}
-            className={`px-4 py-2 rounded ${
-              filter === category ? "bg-blue-500 text-white" : "bg-gray-200"
-            }`}
-          >
-            {category}
-          </button>
-        ))} */}
+  
       </div>
 
       {/* عرض المطاعم */}
@@ -78,12 +68,12 @@ const GardenPage: React.FC<Props> = ({ gardens }) => {
         {filteredRestaurants.map((d) => (
           <div
             key={d.id}
-            className="border rounded-lg overflow-hidden shadow-md bg-white"
+            className="border rounded-lg overflow-hidden shadow-2xl bg-seagullGray"
           >
             <Image
               src={d.image}
               alt={d.name}
-              className="w-full h-40 object-cover"
+              className="w-full h-50 object-cover"
               width="300"
               height="200"
             />
@@ -91,18 +81,14 @@ const GardenPage: React.FC<Props> = ({ gardens }) => {
               <h2 className="text-lg font-bold text-seaBlue">{d.name}</h2>
               <p className="text-gray-500">{d.description}</p>
 
-              <p className="text-gray-700">
+              <p className="text-sm text-gray-700">
                 <strong>المنطقة:</strong> {d.region}
               </p>
-              {/* <p className="text-gray-700">
-                <strong>التصنيف:</strong> {d.category}
-              </p> */}
-              <p className="text-gray-700">
+            
+              <p className="text-sm text-gray-700">
                 <strong>العنوان:</strong> {d.address}
               </p>
-              <p className="text-gray-700">
-                <strong>التلفون:</strong> {d.contact}
-              </p>
+            
             </div>
           </div>
         ))}

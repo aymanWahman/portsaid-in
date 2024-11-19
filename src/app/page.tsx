@@ -1,4 +1,3 @@
-"use client";
 
 import Image from "next/image";
 import DataNews from "../components/DataNews";
@@ -59,8 +58,8 @@ export default function Home() {
                     src={news.image}
                     alt={news.title}
                     width={260}
-                    height={130}
-                    className="rounded shadow-xl w-full h-80 " />
+                    height={230}
+                    className="rounded shadow-2xl w-full h-60 pt-2" />
                 </div>
 
                 <div className='md:col-span-2 p-6 space-y-3'>

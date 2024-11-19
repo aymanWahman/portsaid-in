@@ -1,9 +1,11 @@
 "use client";
+
+import { useState } from "react";
+import { useRouter } from "next/navigation"; // استخدم navigation من App Router
+import Image from "next/image";
 import { DataTypes } from "@/Types/dataTypes";
 import restaurants from "@/components/DataRestaurant";
-import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 
 type Props = {
   restaurants: DataTypes[];
@@ -12,6 +14,7 @@ type Props = {
 const RestaurantPage: React.FC<Props> = ({ restaurants }) => {
   const [regionFilter, setRegionFilter] = useState<string>("All");
   const [categoryFilter, setCategoryFilter] = useState<string>("All");
+  const router = useRouter(); // App Router
 
   const filteredRestaurants = restaurants.filter(
     (restaurant) =>
@@ -22,23 +25,28 @@ const RestaurantPage: React.FC<Props> = ({ restaurants }) => {
   const uniqueRegions = ["All", ...new Set(restaurants.map((d) => d.region))];
   const uniqueCategories = ["All", ...new Set(restaurants.map((d) => d.category))];
 
+  const handleViewOnMap = (coordinates: [number, number], name: string) => {
+    router.push(
+      `/map?coordinates=${encodeURIComponent(coordinates.join(','))}&name=${encodeURIComponent(name)}`
+    );
+  };
+  
+
   return (
     <div dir="rtl" className="p-4 mt-14">
-      <div className="text-center">
-        <Link
-          href="/tourist-spots"
-          className="text-xl text-sandyGold hover:text-seaBlue transition"
-        >
-          الأماكن السياحية
-        </Link>
-      </div>
-      <h1 className="text-center text-2xl font-bold mt-3 mb-4">المطاعم</h1>
+        <div className="text-center">
+  <Link
+        href="/tourist-spots"
+        className="text-xl  text-sandyGold  hover:text-seaBlue transition"
+      >
+        الأماكن السياحية
+      </Link>
+  </div>
+      <h1 className="text-center text-2xl font-bold mt-3 mb-4 text-seaBlue">المطاعم والكافيهات</h1>
 
-      {/* قوائم التصفية */}
       <div className="flex flex-wrap gap-6 mb-6 justify-center">
-        {/* القائمة المنسدلة للمنطقة */}
         <div>
-          <label className="block text-lg text-seaBlue font-bold mb-2">اختر المنطقة:</label>
+          <label className="block text-lg text-sandyGold font-bold mb-2">اختر المنطقة:</label>
           <select
             value={regionFilter}
             onChange={(e) => setRegionFilter(e.target.value)}
@@ -51,10 +59,8 @@ const RestaurantPage: React.FC<Props> = ({ restaurants }) => {
             ))}
           </select>
         </div>
-
-        {/* القائمة المنسدلة للفئة */}
         <div>
-          <label className="block text-lg text-seaBlue font-bold mb-2">اختر الفئة:</label>
+          <label className="block text-lg text-sandyGold font-bold mb-2">اختر الفئة:</label>
           <select
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value)}
@@ -69,7 +75,6 @@ const RestaurantPage: React.FC<Props> = ({ restaurants }) => {
         </div>
       </div>
 
-      {/* عرض المطاعم */}
       <div className="grid md:grid-cols-3 gap-3">
         {filteredRestaurants.map((d) => (
           <div
@@ -79,11 +84,10 @@ const RestaurantPage: React.FC<Props> = ({ restaurants }) => {
             <Image
               src={d.image}
               alt={d.name}
-              className="w-full h-[200px] object-cover"
+              className="w-full h-[200px] object-cover cursor-pointer"
               width="300"
               height="200"
-              loading="lazy"
-              priority={false}
+              onClick={() => handleViewOnMap(d.coordinates, d.name)}
             />
             <div className="px-4 py-2 space-y-1">
               <h2 className="text-lg font-bold text-seaBlue">{d.name}</h2>
@@ -97,6 +101,12 @@ const RestaurantPage: React.FC<Props> = ({ restaurants }) => {
               <p className="text-sm text-gray-700">
                 <strong>التلفون:</strong> {d.contact}
               </p>
+              <button
+                className="mt-2 text-white bg-seaBlue px-4 py-2 rounded"
+                onClick={() => handleViewOnMap(d.coordinates, d.name)}
+              >
+                عرض الموقع
+              </button>
             </div>
           </div>
         ))}
