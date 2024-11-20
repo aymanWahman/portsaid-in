@@ -1,16 +1,11 @@
 'use client';
 
-import dynamic from 'next/dynamic';
-import { useSearchParams } from 'next/navigation';
-import Image from 'next/image';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
-
-// تعطيل SSR لمكون الخريطة فقط
-const MapContainer = dynamic(() => import('react-leaflet').then((mod) => mod.MapContainer), { ssr: false });
-const TileLayer = dynamic(() => import('react-leaflet').then((mod) => mod.TileLayer), { ssr: false });
-const Marker = dynamic(() => import('react-leaflet').then((mod) => mod.Marker), { ssr: false });
-const Popup = dynamic(() => import('react-leaflet').then((mod) => mod.Popup), { ssr: false });
+import { useSearchParams } from 'next/navigation';
+import Image from 'next/image';
+// import { useEffect } from 'react';
 
 // إصلاح الأيقونات الافتراضية
 L.Icon.Default.mergeOptions({
@@ -58,7 +53,7 @@ const MyMapComponent = () => {
             {/* التحقق من وجود الصورة وعرضها */}
             {image && (
               <Image
-                className="rounded-xl shadow-2xl shadow-black w-[220px] h-[150px] hover:scale-105 transition-transform duration-300"
+                className="rounded-xl shadow-2xl shadow-black w-[220px] h-[150px] hover:scale-105 transition-transform duration-300 mx-auto"
                 src={image}
                 alt={name || 'صورة الموقع'}
                 width={280}
@@ -67,8 +62,8 @@ const MyMapComponent = () => {
                 priority={false}
               />
             )}
-            <p className="text-center text-gray-500">{address}</p>
-            <p className="text-xs text-gray-300">الإحداثيات: {lat.toFixed(4)}°N, {lng.toFixed(4)}°E</p>
+            <p className='text-center text-gray-500 '>{address}</p>
+            {/* <p>الإحداثيات: {lat.toFixed(4)}°N, {lng.toFixed(4)}°E</p> */}
           </Popup>
         </Marker>
       </MapContainer>

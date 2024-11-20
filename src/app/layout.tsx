@@ -27,7 +27,7 @@ export default function RootLayout({
         <meta name="keywords" content="Portsaid, Port, Beaches, Sea, Museum, Restaurant, Hotel, Garden, بورسعيد, حجز, صيف,مطاعم, ملابس" />
       </Head>
       <body>
-        <ThemeProvider attribute="class" defaultTheme="dark"> 
+        <ThemeProvider attribute="class" > 
            {/* <SessionProvider> */}
             <Header />
             <main className={tajawal.className}>

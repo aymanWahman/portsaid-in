@@ -6,7 +6,7 @@ const restaurants: DataTypes[] = [
       "id": 1,
       "name": "مطعم غنيم  ",
       "region": "حي العرب",
-      "address": "7883+R2P, شارع محمد على واحمد الجيار عرابى سابقا امام مجمع محاكم بور سعيد،،, Al Arab, Port Said Governorate",
+      "address": " شارع محمد على واحمد الجيار عرابى سابقا امام مجمع محاكم بور سعيد،،, Al Arab, Port Said Governorate",
       "cuisine": ["وجبات سريعة "],
       "contact": "01203360063",
       "description": "مطعم يقدم الوجبات الطازجة مع أطباق مميزة.",
