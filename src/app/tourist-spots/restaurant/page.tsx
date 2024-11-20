@@ -32,7 +32,7 @@ const RestaurantPage: React.FC<Props> = ({ restaurants }) => {
     router.push(
       `/map?coordinates=${encodeURIComponent(
         coordinates.join(",")
-      )}&name=${encodeURIComponent(name)}&image=${encodeURIComponent(image)}`
+      )}&name=${encodeURIComponent(name)}&image=${encodeURIComponent(image)}&address=${encodeURIComponent(address)}`
     );
   };
 
