@@ -1,11 +1,16 @@
 'use client';
 
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
-import L from 'leaflet';
+import dynamic from 'next/dynamic';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
-// import { useEffect } from 'react';
+import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
+
+// تعطيل SSR لمكون الخريطة فقط
+const MapContainer = dynamic(() => import('react-leaflet').then((mod) => mod.MapContainer), { ssr: false });
+const TileLayer = dynamic(() => import('react-leaflet').then((mod) => mod.TileLayer), { ssr: false });
+const Marker = dynamic(() => import('react-leaflet').then((mod) => mod.Marker), { ssr: false });
+const Popup = dynamic(() => import('react-leaflet').then((mod) => mod.Popup), { ssr: false });
 
 // إصلاح الأيقونات الافتراضية
 L.Icon.Default.mergeOptions({
@@ -62,8 +67,8 @@ const MyMapComponent = () => {
                 priority={false}
               />
             )}
-            <p className='text-center text-gray-500 '>{address}</p>
-            <p className='text-xs text-gray-300'>الإحداثيات: {lat.toFixed(4)}°N, {lng.toFixed(4)}°E</p>
+            <p className="text-center text-gray-500">{address}</p>
+            <p className="text-xs text-gray-300">الإحداثيات: {lat.toFixed(4)}°N, {lng.toFixed(4)}°E</p>
           </Popup>
         </Marker>
       </MapContainer>
