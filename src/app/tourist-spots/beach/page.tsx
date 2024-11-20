@@ -23,9 +23,7 @@ const BeachPage: React.FC<Props> = ({ beaches }) => {
         );
 
   const uniqueRegions = Array.from(new Set(beaches.map((d) => d.region)));
-  // const uniqueCategories = Array.from(
-  //   new Set(restaurants.map((r) => r.category))
-  // );
+
 
   return (
     <div dir="rtl" className="p-4 mt-14">

@@ -23,30 +23,38 @@ const RestaurantPage: React.FC<Props> = ({ restaurants }) => {
   );
 
   const uniqueRegions = ["All", ...new Set(restaurants.map((d) => d.region))];
-  const uniqueCategories = ["All", ...new Set(restaurants.map((d) => d.category))];
+  const uniqueCategories = [
+    "All",
+    ...new Set(restaurants.map((d) => d.category)),
+  ];
 
-  const handleViewOnMap = (coordinates: [number, number], name: string) => {
+  const handleViewOnMap = (coordinates: [number, number], name: string, image: string, address: string) => {
     router.push(
-      `/map?coordinates=${encodeURIComponent(coordinates.join(','))}&name=${encodeURIComponent(name)}`
+      `/map?coordinates=${encodeURIComponent(
+        coordinates.join(",")
+      )}&name=${encodeURIComponent(name)}&image=${encodeURIComponent(image)}`
     );
   };
-  
 
   return (
     <div dir="rtl" className="p-4 mt-14">
-        <div className="text-center">
-  <Link
-        href="/tourist-spots"
-        className="text-xl  text-sandyGold  hover:text-seaBlue transition"
-      >
-        الأماكن السياحية
-      </Link>
-  </div>
-      <h1 className="text-center text-2xl font-bold mt-3 mb-4 text-seaBlue">المطاعم والكافيهات</h1>
+      <div className="text-center">
+        <Link
+          href="/tourist-spots"
+          className="text-xl  text-sandyGold  hover:text-seaBlue transition"
+        >
+          الأماكن السياحية
+        </Link>
+      </div>
+      <h1 className="text-center text-2xl font-bold mt-3 mb-4 text-seaBlue">
+        المطاعم والكافيهات
+      </h1>
 
       <div className="flex flex-wrap gap-6 mb-6 justify-center">
         <div>
-          <label className="block text-lg text-sandyGold font-bold mb-2">اختر المنطقة:</label>
+          <label className="block text-lg text-sandyGold font-bold mb-2">
+            اختر المنطقة:
+          </label>
           <select
             value={regionFilter}
             onChange={(e) => setRegionFilter(e.target.value)}
@@ -60,7 +68,9 @@ const RestaurantPage: React.FC<Props> = ({ restaurants }) => {
           </select>
         </div>
         <div>
-          <label className="block text-lg text-sandyGold font-bold mb-2">اختر الفئة:</label>
+          <label className="block text-lg text-sandyGold font-bold mb-2">
+            اختر الفئة:
+          </label>
           <select
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value)}
@@ -79,7 +89,7 @@ const RestaurantPage: React.FC<Props> = ({ restaurants }) => {
         {filteredRestaurants.map((d) => (
           <div
             key={d.id}
-            className="border rounded-lg overflow-hidden shadow-md bg-white"
+            className="border rounded-lg overflow-hidden shadow-md bg-seagullGray"
           >
             <Image
               src={d.image}
@@ -87,7 +97,7 @@ const RestaurantPage: React.FC<Props> = ({ restaurants }) => {
               className="w-full h-[200px] object-cover cursor-pointer"
               width="300"
               height="200"
-              onClick={() => handleViewOnMap(d.coordinates, d.name)}
+              
             />
             <div className="px-4 py-2 space-y-1">
               <h2 className="text-lg font-bold text-seaBlue">{d.name}</h2>
@@ -103,10 +113,20 @@ const RestaurantPage: React.FC<Props> = ({ restaurants }) => {
               </p>
               <button
                 className="mt-2 text-white bg-seaBlue px-4 py-2 rounded"
-                onClick={() => handleViewOnMap(d.coordinates, d.name)}
+                onClick={() => handleViewOnMap(d.coordinates, d.name, d.image, d.address)}
               >
-                عرض الموقع
+          عرض الخريطة
               </button>
+
+              {/* <button
+                className="mt-2 text-white bg-seaBlue mx-1 px-4 py-2 rounded"
+                onClick={() => {
+                  const url = `https://www.google.com/maps/search/?api=1&query=${d.coordinates[0]},${d.coordinates[1]}`;
+                  window.open(url, "_blank"); // فتح الرابط في نافذة جديدة
+                }}
+              >
+                عرض الخريطة
+              </button> */}
             </div>
           </div>
         ))}

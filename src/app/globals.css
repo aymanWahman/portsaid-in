@@ -26,15 +26,6 @@ html[lang="ar"] body {
   color: #f0f0f0; /* لون النص في الوضع الليلي */
 }
 
-.dark .button {
-  background-color: #333; /* لون الزر في الوضع الليلي */
-  color: #f0f0f0;
-}
-
-.dark .button:hover {
-  background-color: #555; /* لون عند تمرير الماوس في الوضع الليلي */
-}
-
 /* الأزرار */
 .button {
   background-color: #007BFF; /* لون الزر في الوضع الفاتح */
