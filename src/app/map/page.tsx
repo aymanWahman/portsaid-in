@@ -5,7 +5,7 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
-// import { useEffect } from 'react';
+import { useRef } from 'react';
 
 // إصلاح الأيقونات الافتراضية
 L.Icon.Default.mergeOptions({
@@ -16,21 +16,19 @@ L.Icon.Default.mergeOptions({
 
 const MyMapComponent = () => {
   const searchParams = useSearchParams();
+  const mapRef = useRef(null);
 
-  // استرجاع الإحداثيات واسم الموقع من الرابط
   const coordinatesParam = searchParams.get('coordinates');
   const name = searchParams.get('name');
   const image = searchParams.get('image');
   const address = searchParams.get('address');
 
-  // إذا لم تتوفر الإحداثيات، عرض رسالة
   if (!coordinatesParam) {
     return <p className="text-center text-lg mt-10">لم يتم توفير إحداثيات لعرض الموقع.</p>;
   }
 
   const [lat, lng] = coordinatesParam.split(',').map(Number);
 
-  // التحقق من الإحداثيات بشكل صحيح
   if (isNaN(lat) || isNaN(lng)) {
     return <p className="text-center text-lg mt-10">الإحداثيات المدخلة غير صالحة.</p>;
   }
@@ -38,19 +36,16 @@ const MyMapComponent = () => {
   return (
     <div className="mt-14 h-[500px] w-full">
       <MapContainer
-        center={[lat, lng]} // مركز الخريطة بناءً على الإحداثيات
-        zoom={15} // تكبير مناسب
+        center={[lat, lng]}
+        zoom={15}
         className="w-[100%] h-[100%]"
+        ref={mapRef}
+        whenReady={() => console.log('الخريطة جاهزة')} // يمكن تعديل هذا الجزء أو حذفه إذا لم يكن ضروريًا
       >
-        {/* طبقة العرض */}
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-
-        {/* العلامة الخاصة بالموقع */}
         <Marker position={[lat, lng]}>
           <Popup>
             <h3 className="font-bold text-center text-seaBlue p-2">{name || 'موقع غير مُسمى'}</h3>
-
-            {/* التحقق من وجود الصورة وعرضها */}
             {image && (
               <Image
                 className="rounded-xl shadow-2xl shadow-black w-[220px] h-[150px] hover:scale-105 transition-transform duration-300 mx-auto"
@@ -62,8 +57,7 @@ const MyMapComponent = () => {
                 priority={false}
               />
             )}
-            <p className='text-center text-gray-500 '>{address}</p>
-            {/* <p>الإحداثيات: {lat.toFixed(4)}°N, {lng.toFixed(4)}°E</p> */}
+            <p className="text-center text-gray-500">{address}</p>
           </Popup>
         </Marker>
       </MapContainer>
