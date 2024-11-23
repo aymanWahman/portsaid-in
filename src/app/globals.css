@@ -26,7 +26,7 @@ html[lang="ar"] body {
   color: #f0f0f0; /* لون النص في الوضع الليلي */
 }
 
-/* الأزرار */
+
 .button {
   background-color: #007BFF; /* لون الزر في الوضع الفاتح */
   color: #fff;
@@ -43,6 +43,11 @@ html[lang="ar"] body {
 .leaflet-container {
   height: 100%;
   width: 100%;
+  background: transparent; /* لتجنب لون الخلفية الافتراضي */
+}
+
+.dark .leaflet-container {
+  background: #121212; /* إذا كان للخريطة خلفية */
 }
 
 

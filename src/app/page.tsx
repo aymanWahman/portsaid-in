@@ -6,7 +6,6 @@ import DataNews from "../components/DataNews";
 export default function Home() {
   return (
     <div className="mt-14 md:mt-16 shadow-xl">
-      {/* قسم الفيديو الرئيسي */}
 
       <section className="mb-5 p-5 mx-auto rounded-lg">
         <div className="grid md:grid-cols-2 place-items-center">
@@ -29,6 +28,7 @@ export default function Home() {
             <p className="mb-4 mt-2 text-gray-500 dark:text-seagullGray">
               اكتشف جمال بورسعيد من خلال مناظرها الخلابة
             </p>
+          
           </div>
 
           <div dir="rtl" className="px-7 space-y-5">
@@ -43,6 +43,10 @@ export default function Home() {
               سميت المدينة بهذا الأسم نسبة إلي الخديوي سعيد باشا، الذي حكم مصر
               في ذلك الوقت ووافق علي حفر قناة السويس.
             </p>
+            <audio controls autoPlay className="mx-auto">
+        <source src="/audios/smsmea1.mp3" type="audio/mp3" />
+        Your browser does not support the audio element.
+      </audio>
           </div>
         </div>
       </section>

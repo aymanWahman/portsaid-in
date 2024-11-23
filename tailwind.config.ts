@@ -6,12 +6,20 @@ export default {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class", // تفعيل الوضع الداكن بناءً على الـ class
   theme: {
     extend: {
+      fontFamily: {
+        cairo: ["Cairo", "sans-serif"],
+        tajawal: ["Tajawal", "sans-serif"],
+      },
       colors: {
-        seaBlue: '#4A90E2',
-        seagullGray: '#D9E2EC',
-        sandyGold: '#D2B48C',
+        seaBlue: "#4A90E2",
+        seagullGray: "#D9E2EC",
+        sandyGold: "#D2B48C",
+      },
+      transitionTimingFunction: {
+        "in-out-soft": "ease-in-out",
       },
     },
   },

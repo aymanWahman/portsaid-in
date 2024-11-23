@@ -20,20 +20,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={cairo.className}>
+    <html lang="en" className={`${cairo.className} ${tajawal.className}`}>
+
        <Head>
         <title>Portsaid-in</title>
         <meta name="description" content="Knowing everything about portsaid, and more." />
         <meta name="keywords" content="Portsaid, Port, Beaches, Sea, Museum, Restaurant, Hotel, Garden, بورسعيد, حجز, صيف,مطاعم, ملابس" />
       </Head>
       <body>
-        <ThemeProvider attribute="class" > 
+        <ThemeProvider attribute="class" defaultTheme="system"> 
            {/* <SessionProvider> */}
             <Header />
             <main className={tajawal.className}>
               {children}
             </main>
-            {/* تطبيق خط Tajawal للنصوص العربية */}
+            
             <Footer />
           {/* </SessionProvider>  */}
         </ThemeProvider>

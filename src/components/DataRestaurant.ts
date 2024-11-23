@@ -12,7 +12,7 @@ const restaurants: DataTypes[] = [
       "description": "مطعم يقدم الوجبات الطازجة مع أطباق مميزة",
       "coordinates": [31.267139621942786, 32.30296904110538],
       "image": "/imgs/rGhoneem.jpg",
-      "category": "مطاعم وجبات سريعة"
+      "category": "وجبات سريعة"
     },
     {
       "id": 2,
@@ -24,7 +24,7 @@ const restaurants: DataTypes[] = [
       "description": "Sandwich Shop ",
       "coordinates": [31.26708653504781, 32.30803714413726],
       "image": "/imgs/rMoodz.jpg",
-      "category": "تيك أوي "
+      "category": "وجبات سريعة"
     },
     {
       "id": 3,
@@ -48,7 +48,7 @@ const restaurants: DataTypes[] = [
       "description": " https://www.bazookaegy.com/ar",
       "coordinates": [31.27085835496532, 32.30739903177334],
       "image": "/imgs/rBazooka.jpg",
-      "category": " وجبات سريعة "
+      "category": "وجبات سريعة"
     },
     {
       "id": 5,
@@ -60,7 +60,7 @@ const restaurants: DataTypes[] = [
       "description": " ساندوتشات ووجبات سريعة مع طعم مميز",
       "coordinates": [31.270619904260418, 32.30714153958909],
       "image": "/imgs/rBurgerKing.jpg",
-      "category": " وجبات سريعة "
+      "category": "وجبات سريعة"
     },
     {
       "id": 6,
@@ -72,7 +72,7 @@ const restaurants: DataTypes[] = [
       "description": " ساندوتشات بأطعم مختلفة ومميزة ",
       "coordinates": [31.270496074016002, 32.30752781741508],
       "image": "/imgs/rHeartAttack.jpg",
-      "category": " وجبات سريعة "
+      "category": "وجبات سريعة"
     },
     {
       "id": 7,
@@ -84,7 +84,7 @@ const restaurants: DataTypes[] = [
       "description": "تقديم السمك بطرق جديدة بطواجن متنوعة  ",
       "coordinates": [31.258791096338662, 32.29233999620486],
       "image": "/imgs/rKingsOfFish.jpg",
-      "category": " مطعم أسماك "
+      "category": "مطعم أسماك"
     },
     {
       "id": 8,
@@ -96,7 +96,7 @@ const restaurants: DataTypes[] = [
       "description": " مطعم سمك بالطرق البورسعيدية",
       "coordinates": [31.25774361704145, 32.29241078396901],
       "image": "/imgs/rBta3Smak.jpg",
-      "category": " مطعم أسماك "
+      "category": "مطعم أسماك"
     },
     {
       "id": 9,
@@ -108,7 +108,7 @@ const restaurants: DataTypes[] = [
       "description": " ",
       "coordinates": [32,31],
       "image": "/imgs/rAlmElbehar.jpg",
-      "category": " مطعم أسماك "
+      "category": "مطعم أسماك"
     },
     {
       "id": 10,
@@ -120,7 +120,7 @@ const restaurants: DataTypes[] = [
       "description": " الجندي للمأكولات البحرية",
       "coordinates": [31.253207390434817, 32.317167612774206],
       "image": "/imgs/rElgendy.jpg",
-      "category": "  مطعم أسماك"
+      "category": "مطعم أسماك"
     },
     {
       "id": 11,
@@ -132,7 +132,7 @@ const restaurants: DataTypes[] = [
       "description": "مطاعم البرج للمأكولات البحرية ",
       "coordinates": [31.27369295360549, 32.29335662845996],
       "image": "/imgs/rElborg.jpg",
-      "category": " حي المناخ "
+      "category": "مطعم أسماك"
     },
     {
       "id": 12,
@@ -141,10 +141,10 @@ const restaurants: DataTypes[] = [
       "address": "ش طرح البحر، حى المناخ، بور سعيد, Port Said Governorate 8568004",
       "cuisine": [""],
       "contact": "0663235242",
-      "description": " ",
+      "description": "جميع طرق السمك البورسعيدية علي البحر مباشرة ",
       "coordinates": [31.27398639011396, 32.29554531096708],
       "image": "/imgs/rElkastan.jpg",
-      "category": "مطعم أسماك  "
+      "category": "مطعم أسماك"
     },
     {
       "id": 13,
@@ -168,7 +168,7 @@ const restaurants: DataTypes[] = [
       "description": " الساندوتش عندنا مختلف",
       "coordinates": [31.2601043413088, 32.29460637560696],
       "image": "/imgs/rHook.jpg",
-      "category": " وجبات سريعة "
+      "category": "وجبات سريعة"
     },
     {
       "id": 15,
