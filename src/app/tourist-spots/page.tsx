@@ -22,7 +22,7 @@ const TouristSpots: FC = () => {
           <Link href="/tourist-spots/restaurant">
             <Image
               className="rounded-xl shadow-2xl shadow-black w-[300px] h-[220px] hover:scale-105 transition-transform duration-300"
-              src="/imgs/portsaidPizzaPino.jpg"
+              src="/imgs/rPizzaPino.jpg"
               alt="Restaurant"
               width={280}
               height={140}

@@ -85,15 +85,15 @@ const RestaurantPage: React.FC = () => {
             <Image
               src={restaurant.image}
               alt={restaurant.name}
-              className="w-full h-[200px] object-cover cursor-pointer"
+              className="w-full h-[200px] object-cover "
               width="300"
               height="200"
             />
             <div className="px-4 py-2 space-y-1">
-              <h2 className="text-lg font-bold text-seaBlue">
+              <h2 className="text-lg font-bold text-seaBlue text-center">
                 {restaurant.name}
               </h2>
-              <p className="text-md text-gray-500">{restaurant.description}</p>
+              <p className="text-md text-gray-500 text-center px-2">{restaurant.description}</p>
               <p className="text-sm text-gray-700">
                 <strong>المنطقة:</strong> {restaurant.region}
               </p>
