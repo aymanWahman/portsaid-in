@@ -20,7 +20,7 @@ export default function Home() {
                 autoPlay
                 controls
                 preload="metadata"
-                src="/videos/portsaidin2.mp4"
+                src="/videos/portsaidView.mp4"
               >
                 متصفحك لا يدعم تشغيل الفيديو.
               </video>
@@ -43,10 +43,10 @@ export default function Home() {
               سميت المدينة بهذا الأسم نسبة إلي الخديوي سعيد باشا، الذي حكم مصر
               في ذلك الوقت ووافق علي حفر قناة السويس.
             </p>
-            <audio controls autoPlay className="mx-auto">
+            {/* <audio controls autoPlay className="mx-auto">
         <source src="/audios/smsmea1.mp3" type="audio/mp3" />
         Your browser does not support the audio element.
-      </audio>
+      </audio> */}
           </div>
         </div>
       </section>
