@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 
-export default {
+const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -21,7 +21,13 @@ export default {
       transitionTimingFunction: {
         "in-out-soft": "ease-in-out",
       },
+      boxShadow: {
+        "custom-light": "0 4px 6px rgba(0, 0, 0, 0.1)",
+        "custom-dark": "0 4px 6px rgba(0, 0, 0, 0.4)",
+      },
     },
   },
   plugins: [],
-} satisfies Config;
+};
+
+export default config;

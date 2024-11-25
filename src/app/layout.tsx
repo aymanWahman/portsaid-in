@@ -1,46 +1,41 @@
 'use client';
 
 import { ThemeProvider } from "next-themes";
-import { Cairo, Tajawal } from "next/font/google"; // استيراد الخطوط
+import { Cairo, Tajawal } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Navbar";
 import Footer from "@/components/Footer";
-// import { SessionProvider } from "next-auth/react";
-import Head from 'next/head';
+import Head from "next/head";
 
-// تحميل الخطوط
-const cairo = Cairo({ subsets: ["latin"], weight: "700" }); // خط الإنجليزي
-const tajawal = Tajawal({ subsets: ["arabic"], weight: "400" }); // خط العربي
+// تحميل الخطوط مع تحديد الأنماط
+const cairo = Cairo({ subsets: ["latin"], weight: ["400", "700"] });
+const tajawal = Tajawal({ subsets: ["arabic"], weight: ["400", "700"] });
 
-
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${cairo.className} ${tajawal.className}`}>
-
-       <Head>
+    <html lang="ar" >
+      {/* تحسين تعريف الميتا تاغز */}
+      <Head>
         <title>Portsaid-in</title>
-        <meta name="description" content="Knowing everything about portsaid, and more." />
-        <meta name="keywords" content="Portsaid, Port, Beaches, Sea, Museum, Restaurant, Hotel, Garden, بورسعيد, حجز, صيف,مطاعم, ملابس" />
+        <meta
+          name="description"
+          content="Knowing everything about Portsaid, including its beaches, museums, restaurants, and more."
+        />
+        <meta
+          name="keywords"
+          content="Portsaid, Port, Beaches, Sea, Museum, Restaurant, Hotel, Garden, بورسعيد, حجز, صيف, مطاعم, ملابس"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <body>
-        <ThemeProvider attribute="class" defaultTheme="system"> 
-           {/* <SessionProvider> */}
-            <Header />
-            <main className={tajawal.className}>
-              {children}
-            </main>
-            
-            <Footer />
-          {/* </SessionProvider>  */}
+      <body className={`${tajawal.className} ${cairo.className}`}>
+        <ThemeProvider attribute="class" enableSystem={true} defaultTheme="system">
+          <Header />
+          <main className="min-h-screen">
+            {children}
+          </main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
   );
 }
-
-

@@ -1,8 +1,10 @@
 'use client';
+
 import DarkmodeToggle from "./DarkmodeToggle";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { FiMenu } from 'react-icons/fi';
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -26,12 +28,12 @@ const Header = () => {
   };
 
   return (
-    <header className="flex fixed top-0 w-full px-4 py-3 z-50 justify-between items-center rounded-b-2xl shadow-lg bg-transparent backdrop-blur-md">
-      {/* Logo */}
+    <header className="fixed top-0 w-full px-4 py-3 z-50 flex justify-between items-center bg-transparent backdrop-blur-md shadow-lg rounded-b-2xl">
+      {/* الشعار */}
       <div className="flex items-center gap-x-3">
         <Link href="/">
           <h1
-            className="font-extrabold text-xl hover:text-2xl md:text-4xl hover:md:text-5xl text-seaBlue hover:text-sandyGold font-serif transition duration-300"
+            className="font-extrabold text-xl md:text-4xl text-seaBlue hover:text-sandyGold font-serif transition duration-300"
             aria-label="العودة إلى الصفحة الرئيسية"
           >
             Portsaid-in
@@ -39,23 +41,24 @@ const Header = () => {
         </Link>
       </div>
 
-      {/* زر الهامبرغر ووضع الليل */}
-      <div className="md:hidden flex items-center gap-x-6">
+      {/* القائمة وعناصر الوضع الليلي */}
+      <div className="flex items-center gap-x-6 md:hidden">
         <DarkmodeToggle />
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
+          className="transition duration-300"
         >
-        <FiMenu className="w-6 h-6 text-gray-400" />
+          <FiMenu className="w-6 h-6 text-gray-400" />
         </button>
       </div>
 
       {/* القائمة الكاملة */}
       <div className="hidden md:flex items-center gap-x-6">
         <nav className="flex items-center gap-x-8">
-          {menuItems.map((item, index) => (
+          {menuItems.map((item) => (
             <Link
-              key={index}
+              key={item.href}
               href={item.href}
               className="text-lg text-sandyGold hover:text-seaBlue transition"
             >
@@ -67,23 +70,23 @@ const Header = () => {
       </div>
 
       {/* قائمة الجوال */}
-      <ul
-        dir="rtl"
-        className={`${
-          isMenuOpen ? "block" : "hidden"
-        } absolute top-16 right-0 w-fit bg-transparent shadow-xl rounded-2xl p-4 space-y-5 text-seaBlue hover:text-sandyGold transition-all duration-300 ease-in-out`}
-      >
-        {menuItems.map((item, index) => (
-          <li
-            key={index}
-            className="text-lg py-1 px-2 bg-seagullGray hover:bg-yellow-100 dark:hover:bg-gray-700 rounded-md transition duration-300"
-          >
-            <Link href={item.href} onClick={handleMenuClick}>
-              {item.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
+      {isMenuOpen && (
+        <ul
+          dir="rtl"
+          className="absolute top-16 right-0 bg-white dark:bg-gray-800 shadow-xl rounded-2xl p-4 space-y-5 text-seaBlue transition-all duration-300"
+        >
+          {menuItems.map((item) => (
+            <li
+              key={item.href}
+              className="text-lg py-1 px-2 bg-seagullGray hover:bg-yellow-100 dark:hover:bg-gray-700 rounded-md transition duration-300"
+            >
+              <Link href={item.href} onClick={handleMenuClick}>
+                {item.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
     </header>
   );
 };

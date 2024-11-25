@@ -12,7 +12,6 @@ const nextConfig: NextConfig = {
         },
       ],
     },
-    // swcMinify: true,  // يستخدم SWC لتقليل حجم الحزم
   };
 
 
