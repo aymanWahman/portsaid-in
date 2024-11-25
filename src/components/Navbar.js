@@ -49,7 +49,7 @@ const Header = () => {
           aria-label="Toggle menu"
           className="transition duration-300"
         >
-          <FiMenu className="w-6 h-6 text-gray-400" />
+          <FiMenu className="w-8 h-8 text-gray-400" />
         </button>
       </div>
 

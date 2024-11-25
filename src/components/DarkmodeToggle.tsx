@@ -24,7 +24,7 @@ const DarkmodeToggle = () => {
         className="transition duration-300"
       >
         {theme === "dark" ? (
-          <HiSun className="w-6 h-6 text-yellow-400" />
+          <HiSun className="w-6 h-6 text-yellow-300" />
         ) : (
           <HiMoon className="w-6 h-6 text-gray-800" />
         )}

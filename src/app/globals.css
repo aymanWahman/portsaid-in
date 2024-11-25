@@ -15,14 +15,11 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* النصوص العربية */
-/* html[lang="ar"] body {
-  font-family: 'Tajawal', sans-serif; 
-} */
+
 
 /* وضع الـ dark mode */
 .dark body{
-  background-color: #333;
+  background-color: #212121;
   color: white;
 }
 
