@@ -10,7 +10,7 @@ const DarkmodeToggle = () => {
 
   return (
   
-      <div className="md:hidden flex items-center gap-x-6">
+      <div className=" flex items-center gap-x-6">
       
         <button
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}

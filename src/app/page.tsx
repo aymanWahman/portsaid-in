@@ -22,7 +22,7 @@ export default function Home() {
                 preload="metadata"
                 src="/videos/portsaidView.mp4"
               >
-                متصفحك لا يدعم تشغيل الفيديو.
+                متصفحك لا يدعم تشغيل الفيديو
               </video>
             </div>
             <p className="mb-4 mt-2 text-gray-500 dark:text-seagullGray">
