@@ -6,6 +6,7 @@ import "./globals.css";
 import Header from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Head from "next/head";
+import ScrollToTop from "@/components/ScrollToTop";
 
 // تحميل الخطوط مع تحديد الأنماط
 const cairo = Cairo({ subsets: ["latin"], weight: ["400", "700"] });
@@ -13,6 +14,7 @@ const tajawal = Tajawal({ subsets: ["arabic"], weight: ["400", "700"] });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
+    
     <html lang="ar" >
       {/* تحسين تعريف الميتا تاغز */}
       <Head>
@@ -29,6 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </Head>
       <body className={`${tajawal.className} ${cairo.className}`}>
         <ThemeProvider attribute="class"  defaultTheme="dark">
+        <ScrollToTop />
           <Header />
           <main className="min-h-screen">
             {children}

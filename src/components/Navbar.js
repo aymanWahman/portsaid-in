@@ -49,7 +49,7 @@ const Header = () => {
           aria-label="Toggle menu"
           className="transition duration-300"
         >
-          <FiMenu className="w-8 h-8 text-gray-400" />
+          <FiMenu className="w-10 h-10 text-gray-300" />
         </button>
       </div>
 
@@ -73,12 +73,12 @@ const Header = () => {
       {isMenuOpen && (
         <ul
           dir="rtl"
-          className="absolute top-16 right-0 bg-white dark:bg-gray-800 shadow-xl rounded-2xl p-4 space-y-5 text-seaBlue transition-all duration-300"
+          className="absolute top-10 right-0  shadow-xl rounded-2xl p-4 space-y-5 text-seaBlue transition-all duration-300"
         >
           {menuItems.map((item) => (
             <li
               key={item.href}
-              className="text-lg py-1 px-2 bg-seagullGray hover:bg-yellow-100 dark:hover:bg-gray-700 rounded-md transition duration-300"
+              className="text-lg py-1 px-2 bg-gray-300 rounded-md transition duration-300"
             >
               <Link href={item.href} onClick={handleMenuClick}>
                 {item.label}

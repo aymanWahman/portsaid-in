@@ -1,5 +1,5 @@
 'use client';
-
+// import Modal from "@/components/Modal";
 import Image from "next/image";
 import DataNews from "../components/DataNews";
 
@@ -19,8 +19,9 @@ export default function Home() {
                 className="w-full h-full object-cover"
                 autoPlay
                 controls
-                preload="metadata"
+                preload="none"
                 src="/videos/portsaidView.mp4"
+            
               >
                 متصفحك لا يدعم تشغيل الفيديو
               </video>

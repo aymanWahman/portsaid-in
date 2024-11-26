@@ -1,5 +1,6 @@
 // 'use client';
 
+import Modal from "@/components/Modal";
 import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
@@ -100,7 +101,11 @@ const TouristSpots: FC = () => {
           className="font-bold text-lg md:text-2xl hover:text-sandyGold transition-colors duration-300"
         >
        تعرف على أفضل الأماكن في بورسعيد
-        </h3>
+        </h3>   <Modal
+        title="About Port Said"
+        content="Port Said is one of Egypt's most famous coastal cities. It serves as a gateway to the Suez Canal, rich with cultural heritage and scenic beauty."
+      />
+
       </section>
     </div>
   );

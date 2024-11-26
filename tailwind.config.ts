@@ -17,6 +17,7 @@ const config: Config = {
         seaBlue: "#4A90E2",
         seagullGray: "#D9E2EC",
         sandyGold: "#D2B48C",
+        greenN: "#2E7D32",
       },
       transitionTimingFunction: {
         "in-out-soft": "ease-in-out",
