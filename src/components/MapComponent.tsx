@@ -1,27 +1,31 @@
-"use client";
+'use client';
 
-interface MapComponentProps {
-  coordinates: [number, number];
-}
+import { useEffect, useRef } from 'react';
+import L from 'leaflet';
 
-const MapComponent: React.FC<MapComponentProps> = ({ coordinates }) => {
-  const [lat, lng] = coordinates;
+const MapComponent = () => {
+  const mapContainerRef = useRef(null);
+  const mapInstance = useRef<L.Map | null>(null);
 
-  const openGoogleMaps = () => {
-    const googleMapsUrl = `https://www.google.com/maps?q=${lat},${lng}`;
-    window.open(googleMapsUrl, "_blank");
-  };
+  useEffect(() => {
+    // Initialize map if not already created
+    if (!mapInstance.current) {
+      mapInstance.current = L.map(mapContainerRef.current!).setView([51.505, -0.09], 13);
 
-  return (
-    <div className="flex justify-center items-center mt-14">
-      <button
-        onClick={openGoogleMaps}
-        className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition shadow-lg"
-      >
-        عرض الخريطة
-      </button>
-    </div>
-  );
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      }).addTo(mapInstance.current);
+    }
+
+    // Cleanup on unmount to avoid map reuse conflicts
+    return () => {
+      if (mapInstance.current) {
+        mapInstance.current.remove(); // This removes the map instance safely
+      }
+    };
+  }, []); // Empty dependency array ensures this runs only on mount and unmount
+
+  return <div ref={mapContainerRef} style={{ height: '400px' }} />;
 };
 
 export default MapComponent;

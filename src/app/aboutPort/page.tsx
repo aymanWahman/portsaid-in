@@ -1,7 +1,6 @@
-'use client';
 
 import Image from 'next/image'
-import data from '../../components/DataAboutPort'
+import data from '@/components/DataAboutPort'
 // import Link from 'next/link'
 
 export default function aboutPort() {
@@ -37,12 +36,12 @@ export default function aboutPort() {
     <p className='text-center text-lg md:text-xl font-bold '>{d.history}</p>
     </div>
   
-  
+      
     
     </main>
    ))}
 
-
+  
   </div>
   
   )

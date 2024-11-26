@@ -1,5 +1,5 @@
 'use client';
-// import Modal from "@/components/Modal";
+import ReviewsSection from "@/components/ReviewsSection";
 import Image from "next/image";
 import DataNews from "../components/DataNews";
 
@@ -20,9 +20,11 @@ export default function Home() {
                 autoPlay
                 controls
                 preload="none"
-                src="/videos/portsaidView.mp4"
+                poster="https://res.cloudinary.com/dktod7mod/image/upload/v1732627109/photo_4_2024-11-24_15-47-45_k9dapv.jpg"
+                >
+                <source src="https://res.cloudinary.com/dktod7mod/video/upload/v1732624266/portsaidView_i63tmz.mp4" type="video/mp4" />
             
-              >
+            
                 متصفحك لا يدعم تشغيل الفيديو
               </video>
             </div>
@@ -33,21 +35,18 @@ export default function Home() {
           </div>
 
           <div dir="rtl" className="px-7 space-y-5">
-            <p className="text-gray-600">
+            <p className="">
               بورسعيد هي مدينة ساحلية مصرية تقع علي المدخل الشمالي لقناة السويس.
             </p>
-            <p className="text-gray-600">
+            <p className="">
               تأسست بورسعيد عام 1859م مع بدء أعمال حفر قناة السويس، وقد أنشئت
               خصيصا لتكون ميناء ومقرا للعاملين في مشروع القناة.
             </p>
-            <p className="text-gray-600">
+            <p className="">
               سميت المدينة بهذا الأسم نسبة إلي الخديوي سعيد باشا، الذي حكم مصر
               في ذلك الوقت ووافق علي حفر قناة السويس.
             </p>
-            {/* <audio controls autoPlay className="mx-auto">
-        <source src="/audios/smsmea1.mp3" type="audio/mp3" />
-        Your browser does not support the audio element.
-      </audio> */}
+          
           </div>
         </div>
       </section>
@@ -78,6 +77,9 @@ export default function Home() {
           })}
         </div>
       </section>
+
+<ReviewsSection/>
+
     </div>
   );
 }

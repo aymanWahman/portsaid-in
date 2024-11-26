@@ -58,17 +58,7 @@ const BeachPage: React.FC<Props> = ({ beaches }) => {
             {region}
           </button>
         ))}
-        {/* {uniqueCategories.map((category) => (
-          <button
-            key={category}
-            onClick={() => setFilter(category)}
-            className={`px-4 py-2 rounded ${
-              filter === category ? "bg-blue-500 text-white" : "bg-gray-200"
-            }`}
-          >
-            {category}
-          </button>
-        ))} */}
+
       </div>
 
       {/* عرض المطاعم */}

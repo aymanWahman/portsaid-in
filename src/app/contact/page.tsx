@@ -14,6 +14,9 @@ export default function Contact() {
           <button className="bg-blue-500 text-white px-4 py-2 rounded">إرسال</button>
         </form>
       </section>
+      <div>
+        <p className='p-5 text-center text-seaBlue text-xl'>Mob: 01080644564</p>
+      </div>
     </div>
   );
 }
