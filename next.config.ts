@@ -1,5 +1,14 @@
 import type { NextConfig } from "next";
 
+module.exports = {
+  reactStrictMode: true,
+  experimental: {
+    appDir: true,
+    serverComponentsExternalPackages: ['useSearchParams'],
+  },
+};
+
+
 const nextConfig: NextConfig = {
   /* config options here */
 

@@ -10,18 +10,18 @@ import ScrollToTop from "@/components/ScrollToTop";
 const cairo = Cairo({ subsets: ["latin"], weight: ["400", "700"] });
 const tajawal = Tajawal({ subsets: ["arabic"], weight: ["400", "700"] });
 
-export const metadata = {
-  title: "Portsaid-in",
-  description:
-    "Knowing everything about Portsaid, including its beaches, museums, restaurants, and more.",
-  keywords:
-    "Portsaid, Port, Beaches, Sea, Museum, Restaurant, Hotel, Garden, بورسعيد, حجز, صيف, مطاعم, ملابس",
-  viewport: "width=device-width, initial-scale=1.0",
-};
+import type { Viewport } from 'next'
+ 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: 'cyan' },
+    { media: '(prefers-color-scheme: dark)', color: 'black' },
+  ],
+}
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ar" className="dark">
+    <html lang="ar" className="dark" >
       <body className={`${tajawal.className} ${cairo.className}`}>
         <ThemeProvider attribute="class" >
           <ScrollToTop />

@@ -11,7 +11,7 @@ const RestaurantPage: React.FC = () => {
 
   const handleViewMap = (coordinates: [number, number], name: string, image: string, address: string) => {
     // نقوم بتحويل الإحداثيات وبعض المعلومات الأخرى إلى رابط
-    router.push(`/map?coordinates=${encodeURIComponent(coordinates.join(','))}&name=${encodeURIComponent(name)}&image=${encodeURIComponent(image)}&address=${encodeURIComponent(address)}`);
+    router.push(`/tourist-spots/map?coordinates=${encodeURIComponent(coordinates.join(','))}&name=${encodeURIComponent(name)}&image=${encodeURIComponent(image)}&address=${encodeURIComponent(address)}`);
   };
 
   const [regionFilter, setRegionFilter] = useState<string>('All');

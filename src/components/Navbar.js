@@ -42,7 +42,7 @@ const Header = () => {
       </div>
 
       {/* القائمة وعناصر الوضع الليلي */}
-      <div className="flex items-center gap-x-6 md:hidden">
+      <div className="flex items-center gap-x-6 md:hidden z-50 ">
         <DarkmodeToggle />
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}

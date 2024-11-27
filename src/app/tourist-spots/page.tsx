@@ -1,11 +1,18 @@
-// 'use client';
+
 
 import Modal from "@/components/Modal";
 import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
 
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
+
 const TouristSpots: FC = () => {
+  
   return (
     <div className="mt-20 md:mt-24 mb-7 px-5">
       <h1 className="text-lg md:text-2xl font-semibold text-seaBlue hover:text-sandyGold text-center">
@@ -13,6 +20,7 @@ const TouristSpots: FC = () => {
       </h1>
 
       <section className="grid md:grid-cols-2 gap-4 p-5 text-center text-gray-600 font-serif">
+        {/* Restaurants */}
         <div className="mx-auto">
           <Link href="/tourist-spots/restaurant">
             <h2 className="font-extrabold text-xl md:text-4xl my-7 hover:text-seaBlue">
@@ -27,12 +35,13 @@ const TouristSpots: FC = () => {
               alt="Restaurant"
               width={280}
               height={140}
-              loading="lazy"
-              priority={false}
+              
+              priority
             />
           </Link>
         </div>
 
+        {/* Hotels */}
         <div className="mx-auto">
           <Link href="/tourist-spots/hotel">
             <h2 className="font-extrabold text-xl md:text-4xl my-7 hover:text-seaBlue">
@@ -48,13 +57,14 @@ const TouristSpots: FC = () => {
               width={280}
               height={140}
               loading="lazy"
-              priority={false}
+            
             />
           </Link>
         </div>
 
+        {/* Gardens */}
         <div className="mx-auto">
-          <Link href="/tourist-spots/hotel">
+          <Link href="/tourist-spots/garden">
             <h2 className="font-extrabold text-xl md:text-4xl my-7 hover:text-seaBlue">
               Gardens
             </h2>
@@ -72,6 +82,8 @@ const TouristSpots: FC = () => {
             />
           </Link>
         </div>
+
+        {/* Beaches */}
         <div className="mx-auto">
           <Link href="/tourist-spots/beach">
             <h2 className="font-extrabold text-xl md:text-4xl my-7 hover:text-seaBlue">
@@ -86,12 +98,11 @@ const TouristSpots: FC = () => {
               alt="Beaches"
               width={280}
               height={140}
-              loading="lazy"
-              priority={false}
+              
+              priority
             />
           </Link>
         </div>
-
       </section>
 
       {/* Section: Final Message */}
@@ -100,12 +111,12 @@ const TouristSpots: FC = () => {
           dir="rtl"
           className="font-bold text-lg md:text-2xl hover:text-sandyGold transition-colors duration-300"
         >
-       تعرف على أفضل الأماكن في بورسعيد
-        </h3>   <Modal
-        title="About Port Said"
-        content="Port Said is one of Egypt's most famous coastal cities. It serves as a gateway to the Suez Canal, rich with cultural heritage and scenic beauty."
-      />
-
+          تعرف على أفضل الأماكن في بورسعيد
+        </h3>
+        <Modal
+          title="About Port Said"
+          content="Port Said is one of Egypt's most famous coastal cities. It serves as a gateway to the Suez Canal, rich with cultural heritage and scenic beauty."
+        />
       </section>
     </div>
   );
