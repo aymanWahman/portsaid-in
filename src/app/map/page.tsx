@@ -2,41 +2,40 @@
 
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState, useRef } from 'react';
-import L from 'leaflet'; // استيراد مكتبة Leaflet
-
-import 'leaflet/dist/leaflet.css'; // استيراد CSS الخاص بـ Leaflet
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 
 const MapPage = () => {
   const searchParams = useSearchParams();
   const [isMounted, setIsMounted] = useState(false);
-  const mapContainerRef = useRef<HTMLDivElement | null>(null); // استخدام useRef للإشارة إلى العنصر
+  const mapContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
-  const coordinates = searchParams.get('coordinates')?.split(',');
-  // بيانات المطعم التي تأتي من الرابط أو مصدر آخر
-  const restaurantName = searchParams.get('name'); // جلب اسم المطعم من معلمات الرابط
-  const restaurantAddress = searchParams.get('address'); // جلب عنوان المطعم
-  const restaurantImage = searchParams.get('image'); // جلب رابط الصورة
+  const coordinates = searchParams.get('coordinates')?.split(',') || [];
+  const restaurantName = searchParams.get('name');
+  const restaurantAddress = searchParams.get('address');
+  const restaurantImage = searchParams.get('image');
 
   useEffect(() => {
-    if (coordinates && mapContainerRef.current) {
-      // التأكد من أن العنصر موجود قبل إنشاء الخريطة
-      const map = L.map(mapContainerRef.current).setView([parseFloat(coordinates[0]), parseFloat(coordinates[1])], 13);
+    let map: L.Map | null = null;
 
-      // إضافة طبقة الخريطة باستخدام OpenStreetMap
+    if (coordinates.length === 2 && mapContainerRef.current) {
+      map = L.map(mapContainerRef.current).setView(
+        [parseFloat(coordinates[0]), parseFloat(coordinates[1])],
+        13
+      );
+
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       }).addTo(map);
 
-      // إضافة Marker عند الإحداثيات المحددة
       const marker = L.marker([parseFloat(coordinates[0]), parseFloat(coordinates[1])]).addTo(map);
 
-      // التأكد من أن جميع البيانات متوفرة
       if (restaurantName && restaurantAddress && restaurantImage) {
-        // إنشاء المحتوى داخل نافذة منبثقة (Popup)
         const popupContent = `
           <div style="text-align: center;">
             <h3>${restaurantName}</h3>
@@ -44,21 +43,27 @@ const MapPage = () => {
             <p>${restaurantAddress}</p>
           </div>
         `;
-
-        // ربط نافذة منبثقة (Popup) بالمعلم
         marker.bindPopup(popupContent).openPopup();
+      } else if (restaurantName) {
+        marker.bindPopup(restaurantName).openPopup(); // عرض اسم المطعم فقط إذا كان متاحًا
       } else {
-        marker.bindPopup('مكان المطعم').openPopup(); // في حالة عدم توفر البيانات
+        marker.bindPopup('مكان المطعم').openPopup(); // نص افتراضي في حال عدم وجود اسم
       }
     }
+
+    return () => {
+      if (map) {
+        map.remove();
+      }
+    };
   }, [coordinates, restaurantName, restaurantAddress, restaurantImage]);
 
   if (!isMounted) {
-    return null; // لا تحاول الوصول إلى الـ params قبل تحميل المكون
+    return null;
   }
 
-  if (!coordinates) {
-    return <div>إحداثيات غير موجودة!</div>;
+  if (!coordinates.length) {
+    return <div>يرجى توفير إحداثيات صالحة لعرض الخريطة!</div>;
   }
 
   return (
