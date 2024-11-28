@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import restaurants from '@/components/DataRestaurant';
+import ReviewsSection from "@/components/ReviewsSection";
 
 const RestaurantPage: React.FC = () => {
   const router = useRouter();
@@ -107,6 +108,7 @@ const RestaurantPage: React.FC = () => {
           </div>
         ))}
       </div>
+      <ReviewsSection/>
     </div>
   );
 };

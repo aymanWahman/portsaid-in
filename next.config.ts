@@ -1,27 +1,18 @@
-import type { NextConfig } from "next";
-
-module.exports = {
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        pathname: '/**', // يسمح بتحميل الصور من جميع المسارات تحت هذا النطاق
+      },
+    ],
+  },
   reactStrictMode: true,
   experimental: {
-    appDir: true,
-    serverComponentsExternalPackages: ['useSearchParams'],
+    // إذا كنت تستخدم ميزات أخرى تجريبية، يمكنك إضافتها هنا
   },
+  serverExternalPackages: ['useSearchParams'], // تحديث الإعداد الجديد
 };
 
-
-const nextConfig: NextConfig = {
-  /* config options here */
-
-    images: {
-      remotePatterns: [
-        {
-          protocol: 'https',
-          hostname: 'res.cloudinary.com',
-          pathname: '/**', // يسمح بتحميل الصور من جميع المسارات تحت هذا النطاق
-        },
-      ],
-    },
-  };
-
-
-export default nextConfig;
+module.exports = nextConfig;

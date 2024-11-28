@@ -1,5 +1,4 @@
 'use client';
-import ReviewsSection from "@/components/ReviewsSection";
 import Image from "next/image";
 import DataNews from "../components/DataNews";
 
@@ -78,7 +77,20 @@ export default function Home() {
         </div>
       </section>
 
-<ReviewsSection/>
+      <div className="relative md:w-1/2 p-5 my-5 mx-auto rounded-lg overflow-hidden shadow-2xl border-4 border-gray-500">
+              <video
+                className="w-full h-full object-cover"
+                autoPlay
+                controls
+                preload="none"
+                poster="https://res.cloudinary.com/dktod7mod/image/upload/v1732627109/photo_4_2024-11-24_15-47-45_k9dapv.jpg"
+                >
+                <source src="/videos/محمد منير وأنغام - يبهروك .mp4" />
+            
+            
+                متصفحك لا يدعم تشغيل الفيديو
+              </video>
+            </div>
 
     </div>
   );

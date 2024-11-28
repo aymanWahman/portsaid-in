@@ -40,7 +40,7 @@ const InnerMapPage = ({ searchParams }: { searchParams: URLSearchParams }) => {
   }
 
   return (
-    <div className="mt-16 ">
+    <div className="mt-16 map-container">
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>

@@ -47,7 +47,7 @@ const Header = () => {
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
-          className="transition duration-300"
+          className="dropdown-menu transition duration-300"
         >
           <FiMenu className="w-10 h-10 text-gray-300" />
         </button>

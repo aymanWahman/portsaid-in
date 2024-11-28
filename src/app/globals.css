@@ -39,6 +39,16 @@ body {
   background-color: #0056b3; /* لون عند تمرير الماوس في الوضع الفاتح */
 }
 
+.dropdown-menu {
+  position: relative; /* أو absolute إذا لزم الأمر */
+  z-index: 9999; /* قيمة عالية تجعلها تظهر فوق الخريطة */
+}
+.map-container {
+  position: relative; /* أو absolute حسب التصميم */
+  z-index: 1;
+}
+
+
 /* .leaflet-container {
   height: 100%;
   width: 100%;
