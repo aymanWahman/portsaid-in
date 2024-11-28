@@ -6,9 +6,18 @@ import Header from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 
+
 // تحميل الخطوط مع تحديد الأنماط
-const cairo = Cairo({ subsets: ["latin"], weight: ["400", "700"] });
-const tajawal = Tajawal({ subsets: ["arabic"], weight: ["400", "700"] });
+const cairo = Cairo({
+  subsets: ["arabic"],
+  weight: ["400", "700"],
+  display: "swap",
+});
+const tajawal = Tajawal({ 
+  subsets: ["arabic"], 
+  weight: ["400", "700"],
+  display: "swap",
+});
 
 import type { Viewport } from 'next'
  

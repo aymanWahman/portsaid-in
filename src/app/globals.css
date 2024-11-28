@@ -43,10 +43,13 @@ body {
   position: relative; /* أو absolute إذا لزم الأمر */
   z-index: 9999; /* قيمة عالية تجعلها تظهر فوق الخريطة */
 }
+
 .map-container {
+  
   position: relative; /* أو absolute حسب التصميم */
   z-index: 1;
 }
+
 
 
 /* .leaflet-container {
