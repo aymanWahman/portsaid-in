@@ -116,6 +116,7 @@ const TouristSpots: FC = () => {
         <Modal
           title="About Port Said"
           content="Port Said is one of Egypt's most famous coastal cities. It serves as a gateway to the Suez Canal, rich with cultural heritage and scenic beauty."
+        contentA="بورسعيد هي إحدى أشهر المدن الساحلية في مصر. تُعد بوابةً لقناة السويس وتتميز بتراثها الثقافي الغني وجمالها الطبيعي الخلاب."
         />
       </section>
     </div>

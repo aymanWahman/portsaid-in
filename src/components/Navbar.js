@@ -18,6 +18,7 @@ const Header = () => {
   }, []);
 
   const menuItems = [
+    { href: "/essentialPlaces", label: "الأماكن الهامة" },
     { href: "/tourist-spots", label: "الأماكن السياحية" },
     { href: "/aboutPort", label: "عن بورسعيد" },
     { href: "/contact", label: "اتصل بنا" },
