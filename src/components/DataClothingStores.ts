@@ -3,7 +3,7 @@ import { DataTypes } from '../Types/dataTypes';
 const clothing: DataTypes[] = [
   {
     id: 1,
-    name: "محل غراب",
+    name: " غراب",
     region: "حي الشرق",
     address: "شارع الجمهورية",
     contact: "01000000",
@@ -24,7 +24,7 @@ const clothing: DataTypes[] = [
     category: "مستعمل",
   },  {
     id: 3,
-    name: "محل خضير",
+    name: " خضير",
     region: "حي الشرق",
     address: "شارع طرح البحر",
     contact: "01000000",

@@ -74,12 +74,12 @@ const Header = () => {
       {isMenuOpen && (
         <ul
           dir="rtl"
-          className="absolute top-10 right-0  shadow-xl rounded-2xl p-4 space-y-5 text-seaBlue transition-all duration-300"
+          className="absolute top-10 right-0  shadow-xl rounded-2xl p-4 space-y-5 bg-gray-700 text-seaBlue font-semibold transition-all duration-300"
         >
           {menuItems.map((item) => (
             <li
               key={item.href}
-              className="text-lg py-1 px-2 bg-gray-300 rounded-md transition duration-300"
+              className="text-2xl py-1 px-2 bg-gray-300 rounded-md transition duration-300"
             >
               <Link href={item.href} onClick={handleMenuClick}>
                 {item.label}
