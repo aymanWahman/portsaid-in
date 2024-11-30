@@ -1,47 +1,133 @@
-import Image from "next/image";
-import Link from "next/link";
-import { FC } from "react";
+'use client';
 
-const ClothingStores: FC = () => {
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import clothing from '@/components/DataClothingStores';
+import ReviewsSection from "@/components/ReviewsSection";
+
+const ClothingStores: React.FC = () => {
+  const router = useRouter();
+
+  const handleViewMap = (coordinates: [number, number], name: string, image: string, address: string) => {
+    router.push(`/tourist-spots/map?coordinates=${encodeURIComponent(coordinates.join(','))}&name=${encodeURIComponent(name)}&image=${encodeURIComponent(image)}&address=${encodeURIComponent(address)}`);
+  };
+
+  const [regionFilter, setRegionFilter] = useState<string>('All');
+  const [categoryFilter, setCategoryFilter] = useState<string>('All');
+
+  // حالة لإظهار وإخفاء التقييمات لكل مطعم
+  const [showReviews, setShowReviews] = useState<{ [key: number]: boolean }>({});
+
+  const toggleReviews = (id: number) => {
+    setShowReviews((prev) => ({
+      ...prev,
+      [id]: !prev[id], // قلب الحالة (true/false) للمحل المحدد
+    }));
+  };
+
+  const filteredClothing = clothing.filter(
+    (DATA) =>
+      (regionFilter === 'All' || DATA.region === regionFilter) &&
+      (categoryFilter === 'All' || DATA.category === categoryFilter)
+  );
+
+  const uniqueRegions = ['All', ...new Set(clothing.map((d) => d.region))];
+  const uniqueCategories = ['All', ...new Set(clothing.map((d) => d.category))];
+
   return (
-    <div className="mt-20 md:mt-24 mb-7 px-5">
-      <h1 className="text-lg md:text-2xl font-semibold text-seaBlue hover:text-sandyGold text-center">
-        محلات الملابس الجديدة في بورسعيد
+    <div dir="rtl" className="p-4 mt-14">
+      <div className="text-center">
+        <Link href="/essentialPlaces" className="text-xl text-sandyGold hover:text-seaBlue transition">
+          الأماكن الهامة
+        </Link>
+      </div>
+      <h1 className="text-center text-2xl font-bold mt-3 mb-4 text-seaBlue">
+        محلات الملابس
       </h1>
 
-      <section className="grid md:grid-cols-2 gap-4 p-5 text-center text-gray-600 font-serif">
-        {/* Clothing Store 1 */}
-        <div className="mx-auto">
-          <h2 className="font-bold text-xl md:text-2xl my-7 text-seaBlue">
-            متجر الأناقة الحديثة
-          </h2>
-          <Image
-            className="rounded-xl shadow-2xl shadow-black w-[300px] h-[220px] hover:scale-105 transition-transform duration-300"
-            src="/imgs/portsaid1.jpg"
-            alt="Modern Elegance Store"
-            width={280}
-            height={140}
-            priority
-          />
-          <p className="mt-3 text-gray-700">أفضل تشكيلات الملابس العصرية في بورسعيد.</p>
+      <div className="flex flex-wrap gap-6 mb-6 justify-center">
+        <div>
+          <label className="block text-lg text-sandyGold font-bold mb-2">اختر المنطقة:</label>
+          <select
+            value={regionFilter}
+            onChange={(e) => setRegionFilter(e.target.value)}
+            className="border px-4 py-2 rounded"
+          >
+            {uniqueRegions.map((region) => (
+              <option key={region} value={region}>
+                {region === 'All' ? 'الكل' : region}
+              </option>
+            ))}
+          </select>
         </div>
+        <div>
+          <label className="block text-lg text-sandyGold font-bold mb-2">اختر الفئة:</label>
+          <select
+            value={categoryFilter}
+            onChange={(e) => setCategoryFilter(e.target.value)}
+            className="border px-4 py-2 rounded"
+          >
+            {uniqueCategories.map((category) => (
+              <option key={category} value={category}>
+                {category === 'All' ? 'الكل' : category}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
 
-        {/* Clothing Store 2 */}
-        <div className="mx-auto">
-          <h2 className="font-bold text-xl md:text-2xl my-7 text-seaBlue">
-            بوتيك الموضة الراقي
-          </h2>
-          <Image
-            className="rounded-xl shadow-2xl shadow-black w-[300px] h-[220px] hover:scale-105 transition-transform duration-300"
-            src="/imgs/portsaid20.jpg"
-            alt="Elegant Fashion Boutique"
-            width={280}
-            height={140}
-            loading="lazy"
-          />
-          <p className="mt-3 text-gray-700">وجهتك الأولى للأزياء الراقية.</p>
-        </div>
-      </section>
+      <div className="grid md:grid-cols-3 gap-3">
+        {filteredClothing.map((DATA) => (
+          <div key={DATA.id} className="border rounded-lg overflow-hidden shadow-xl bg-seagullGray">
+            <Image
+              src={DATA.image}
+              alt={DATA.name}
+              className="w-full h-[200px] object-cover"
+              width="300"
+              height="200"
+            />
+            <div className="px-4 py-2 space-y-1 ">
+              <h2 className="text-xl font-bold text-greenN p-2 mb-3 text-center bg-sandyGold rounded-lg border-t-2 border-seaBlue shadow shadow-greenN">{DATA.name}</h2>
+              <p className="text-md text-gray-500 text-center px-2">{DATA.description}</p>
+              <p className="text-sm text-gray-700">
+                <strong>المنطقة:</strong> {DATA.region}
+              </p>
+              <p className="text-sm text-gray-700">
+                <strong>العنوان:</strong> {DATA.address}
+              </p>
+              <p className="text-sm text-gray-700">
+                <strong>التلفون:</strong> {DATA.contact}
+              </p>
+              <div className="flex justify-center gap-4 mt-4">
+    <button
+      className="text-sandyGold bg-seaBlue px-4 py-2 rounded-s-xl border-2 border-sandyGold"
+      onClick={() =>
+        handleViewMap(
+          DATA.coordinates,
+          DATA.name,
+          DATA.image,
+          DATA.address
+        )
+      }
+    >
+      عرض الخريطة
+    </button>
+    <button
+      className="text-sandyGold bg-greenN px-4 py-2 rounded-e-xl border-2 border-sandyGold"
+      onClick={() => toggleReviews(DATA.id)}
+    >
+      {showReviews[DATA.id] ? 'إخفاء التقييمات' : 'عرض التقييمات'}
+    </button>
+  </div>
+            </div>
+
+            {/* عرض التقييمات إذا كانت الحالة true */}
+            {showReviews[DATA.id] && <ReviewsSection />}
+          </div>
+        ))}
+      </div>
 
       <section className="text-center mt-3">
         <Link href="/essentialPlaces">
@@ -50,6 +136,7 @@ const ClothingStores: FC = () => {
           </button>
         </Link>
       </section>
+
     </div>
   );
 };

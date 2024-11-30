@@ -63,7 +63,7 @@ export default function Home() {
                     alt={news.title}
                     width={260}
                     height={230}
-                    className="rounded shadow-2xl w-full h-60 pt-2" />
+                    className="rounded shadow-2xl w-80 h-64 pt-2" />
                 </div>
 
                 <div className='md:col-span-2 p-6 space-y-3'>

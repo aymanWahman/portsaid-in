@@ -89,7 +89,7 @@ const RestaurantPage: React.FC = () => {
               height="200"
             />
             <div className="px-4 py-2 space-y-1 ">
-              <h2 className="text-xl font-bold text-greenN p-2 mb-3 text-center bg-sandyGold rounded-lg border-t-2 border-seaBlue shadow shadow-greenN">{restaurant.name}</h2>
+              <h2 className="text-xl font-bold text-seaBlue p-2 mb-3 text-center rounded-lg border-t-2 border-seaBlue shadow shadow-seaBlue">{restaurant.name}</h2>
               <p className="text-md text-gray-500 text-center px-2">{restaurant.description}</p>
               <p className="text-sm text-gray-700">
                 <strong>المنطقة:</strong> {restaurant.region}
@@ -102,7 +102,7 @@ const RestaurantPage: React.FC = () => {
               </p>
               <div className="flex justify-center gap-4 mt-4">
     <button
-      className="text-sandyGold bg-seaBlue px-4 py-2 rounded-s-xl border-2 border-sandyGold"
+      className=" bg-seaBlue px-4 py-2 rounded-s-xl border-2 border-seaBlue"
       onClick={() =>
         handleViewMap(
           restaurant.coordinates,
@@ -115,7 +115,7 @@ const RestaurantPage: React.FC = () => {
       عرض الخريطة
     </button>
     <button
-      className="text-sandyGold bg-greenN px-4 py-2 rounded-e-xl border-2 border-sandyGold"
+      className=" px-4 py-2 rounded-e-xl border-2 border-seaBlue text-seaBlue"
       onClick={() => toggleReviews(restaurant.id)}
     >
       {showReviews[restaurant.id] ? 'إخفاء التقييمات' : 'عرض التقييمات'}
