@@ -1,43 +1,44 @@
-
-import { ThemeProvider } from "next-themes";
+import { Providers } from '@/components/Providers';
 import { Cairo, Tajawal } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 
-
-// تحميل الخطوط مع تحديد الأنماط
 const cairo = Cairo({
   subsets: ["arabic"],
-  weight: ["400", "700"],
-  display: "swap",
-});
-const tajawal = Tajawal({ 
-  subsets: ["arabic"], 
-  weight: ["400", "700"],
-  display: "swap",
+  variable: "--font-cairo",
+  display: 'swap',
 });
 
-import type { Viewport } from 'next'
- 
-export const viewport: Viewport = {
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'seaBlue' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' },
-  ],
-}
+const tajawal = Tajawal({
+  weight: ["400", "500", "700"],
+  subsets: ["arabic"],
+  variable: "--font-tajawal",
+  display: 'swap',
+});
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export const metadata = {
+  title: "بورسعيد",
+  description: "دليلك الشامل لمدينة بورسعيد",
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="ar" className="dark" >
-      <body className={`${tajawal.className} ${cairo.className}`}>
-        <ThemeProvider attribute="class" >
-          <ScrollToTop />
+    <html lang="ar"  suppressHydrationWarning>
+      <body className={`${tajawal.variable} ${cairo.variable}`}>
+        <Providers>
           <Header />
-          <main className="min-h-screen">{children}</main>
+          <main className="min-h-screen pt-16">
+            {children}
+          </main>
           <Footer />
-        </ThemeProvider>
+          <ScrollToTop />
+        </Providers>
       </body>
     </html>
   );

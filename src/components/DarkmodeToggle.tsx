@@ -4,33 +4,24 @@ import { useTheme } from "next-themes";
 import { HiSun, HiMoon } from "react-icons/hi";
 import { useEffect, useState } from "react";
 
-const DarkmodeToggle = () => {
-  const { theme, setTheme } = useTheme();
+export default function DarkmodeToggle() {
   const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
 
-  // التأكد من أن الكومبوننت تم تركيبه
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  useEffect(() => setMounted(true), []);
 
-  if (!mounted || !theme) {
-    return null; // لا تعرض أي شيء حتى يتم تحميل السمة
-  }
+  if (!mounted) return null;
 
   return (
-    <div className="flex items-center gap-x-6">
-      <button
-        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-        className="transition duration-300"
-      >
-        {theme === "dark" ? (
-          <HiSun className="w-6 h-6 text-yellow-300" />
-        ) : (
-          <HiMoon className="w-6 h-6 text-gray-800" />
-        )}
-      </button>
-    </div>
+    <button
+      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+      className="p-2 rounded-full hover:bg-gray-100/50 dark:hover:bg-gray-700/50 transition-colors"
+    >
+      {theme === 'dark' ? (
+        <HiSun className="w-5 h-5 text-yellow-500" />
+      ) : (
+        <HiMoon className="w-5 h-5 text-gray-700" />
+      )}
+    </button>
   );
-};
-
-export default DarkmodeToggle;
+}

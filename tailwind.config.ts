@@ -1,12 +1,12 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss'
 
 const config: Config = {
+  darkMode: 'class',
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  darkMode: "class", // تفعيل الوضع الداكن بناءً على الـ class
   theme: {
     extend: {
       fontFamily: {
@@ -14,9 +14,9 @@ const config: Config = {
         tajawal: ["Tajawal", "sans-serif"],
       },
       colors: {
-        seaBlue: "#4A90E2",
+        seaBlue: "#1e3d59",
         seagullGray: "#D9E2EC",
-        sandyGold: "#D2B48C",
+        sandyGold: "#f5b461",
         greenN: "#2E7D32",
       },
       transitionTimingFunction: {
@@ -29,6 +29,6 @@ const config: Config = {
     },
   },
   plugins: [],
-};
+}
 
-export default config;
+export default config

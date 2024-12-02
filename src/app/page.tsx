@@ -1,11 +1,26 @@
 'use client';
 import Image from "next/image";
+import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
 import DataNews from "../components/DataNews";
+
+// Dynamic imports
+const Hero = dynamic(() => import('@/components/Hero'), {
+  loading: () => <div className="h-[60vh] bg-gray-100 animate-pulse" />
+});
+
+const FeaturedPlaces = dynamic(() => import('@/components/FeaturedPlaces'), {
+  loading: () => <div className="h-96 bg-gray-100 animate-pulse" />
+});
 
 export default function Home() {
   return (
-    <div className="mt-14 md:mt-16 shadow-xl">
+    <div className="min-h-screen mt-14 md:mt-16 shadow-xl">
 
+      <Suspense fallback={<div className="h-[60vh] bg-gray-100 animate-pulse" />}>
+        <Hero />
+      </Suspense>
+      
       <section className="mb-5 p-5 mx-auto rounded-lg">
         <div className="grid md:grid-cols-2 place-items-center">
           <div className="text-center">
@@ -49,6 +64,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse" />}>
+        <FeaturedPlaces />
+      </Suspense>
 
       {/* قسم الأخبار */}
       <section className="pb-6 px-4">
