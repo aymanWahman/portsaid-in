@@ -36,11 +36,12 @@ export async function POST(req: Request) {
     } catch (err: unknown) {
       console.error('خطأ في إنشاء الحساب:', err);
       return NextResponse.json(
-        { message: "فشل في إنشاء الحساب" },
+        { message: 'حدث خطأ أثناء إنشاء الحساب' },
         { status: 500 }
       );
     }
   } catch (error: any) {
+    console.error('خطأ في إنشاء الحساب:', error);
     return NextResponse.json(
       { message: 'حدث خطأ أثناء إنشاء الحساب' },
       { status: 500 }
