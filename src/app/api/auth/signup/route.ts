@@ -34,9 +34,14 @@ export async function POST(req: Request) {
       });
       return NextResponse.json({ message: "تم إنشاء الحساب بنجاح", user }, { status: 201 });
     } catch (err: unknown) {
-      console.error('خطأ في إنشاء الحساب:', err);
+      if (err instanceof Error) {
+        return NextResponse.json(
+          { message: err.message || 'حدث خطأ أثناء إنشاء الحساب' },
+          { status: 500 }
+        );
+      }
       return NextResponse.json(
-        { message: 'حدث خطأ أثناء إنشاء الحساب' },
+        { message: 'حدث خطأ غير متوقع' },
         { status: 500 }
       );
     }

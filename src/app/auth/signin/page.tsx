@@ -7,8 +7,6 @@ import Link from 'next/link';
 
 export default function SignIn() {
   const router = useRouter();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -16,15 +14,13 @@ export default function SignIn() {
     e.preventDefault();
     try {
       const formData = new FormData(e.currentTarget);
-      const email = formData.get('email') as string;
-      const password = formData.get('password') as string;
-
       const result = await signIn('credentials', {
-        email,
-        password,
+        email: formData.get('email') as string,
+        password: formData.get('password') as string,
         redirect: true,
         callbackUrl: '/'
       });
+      
       if (!result?.ok) {
         setError('فشل تسجيل الدخول. تحقق من بريدك الإلكتروني وكلمة المرور.');
       }
