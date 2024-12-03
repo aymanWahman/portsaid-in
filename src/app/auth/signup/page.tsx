@@ -11,36 +11,36 @@ export default function SignUp() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsLoading(true);
-    setError('');
-
-    const formData = new FormData(e.currentTarget);
-    const name = formData.get('name') as string;
-    const email = formData.get('email') as string;
-    const password = formData.get('password') as string;
-
     try {
-      const res = await fetch('/api/auth/signup', {
+      setIsLoading(true);
+      setError('');
+
+      const formData = new FormData(e.currentTarget);
+      const response = await fetch('/api/auth/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          name,
-          email,
-          password,
+          name: formData.get('name'),
+          email: formData.get('email'),
+          password: formData.get('password'),
         }),
       });
 
-      const data = await res.json();
-
-      if (!res.ok) {
-        throw new Error(data.message || 'حدث خطأ أثناء التسجيل');
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.message || 'حدث خطأ أثناء إنشاء الحساب');
       }
 
       router.push('/auth/signin');
-    } catch (error: any) {
-      setError(error.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError('حدث خطأ غير متوقع');
+      }
     } finally {
       setIsLoading(false);
     }

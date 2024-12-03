@@ -12,28 +12,23 @@ export default function SignIn() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsLoading(true);
-    setError('');
-
-    const formData = new FormData(e.currentTarget);
-    const email = formData.get('email') as string;
-    const password = formData.get('password') as string;
-
     try {
+      const formData = new FormData(e.currentTarget);
+      const email = formData.get('email') as string;
+      const password = formData.get('password') as string;
+
       const result = await signIn('credentials', {
-        redirect: false,
         email,
         password,
+        redirect: true,
+        callbackUrl: '/'
       });
-
-      if (result?.error) {
-        setError(result.error);
-      } else {
-        router.push('/profile');
-        router.refresh();
+      if (!result?.ok) {
+        setError('فشل تسجيل الدخول. تحقق من بريدك الإلكتروني وكلمة المرور.');
       }
-    } catch (error) {
-      setError('حدث خطأ أثناء تسجيل الدخول');
+    } catch (err) {
+      console.error('خطأ في تسجيل الدخول:', err);
+      setError('حدث خطأ أثناء محاولة تسجيل الدخول');
     } finally {
       setIsLoading(false);
     }
