@@ -28,7 +28,12 @@ export default function SignUp() {
         }),
       });
 
-      const data = await response.json();
+      let data;
+      try {
+        data = await response.json();
+      } catch (e) {
+        throw new Error('فشل في قراءة الاستجابة من الخادم');
+      }
       
       if (!response.ok) {
         throw new Error(data.error || 'حدث خطأ أثناء إنشاء الحساب');

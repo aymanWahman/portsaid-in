@@ -5,21 +5,35 @@ import User from '@/models/User';
 
 export async function POST(request: Request) {
   try {
-    const db = await connectDB();
-    if (!db) {
+    // التحقق من صحة JSON في الطلب
+    let body;
+    try {
+      body = await request.json();
+    } catch (e) {
       return NextResponse.json(
-        { error: 'فشل الاتصال بقاعدة البيانات' },
-        { status: 500 }
+        { error: 'خطأ في تنسيق البيانات المرسلة' },
+        { status: 400 }
       );
     }
 
-    const { name, email, password } = await request.json();
+    const { name, email, password } = body;
 
     // التحقق من المدخلات
     if (!name || !email || !password) {
       return NextResponse.json(
         { error: 'جميع الحقول مطلوبة' },
         { status: 400 }
+      );
+    }
+
+    // الاتصال بقاعدة البيانات
+    try {
+      await connectDB();
+    } catch (e) {
+      console.error('خطأ في الاتصال بقاعدة البيانات:', e);
+      return NextResponse.json(
+        { error: 'فشل الاتصال بقاعدة البيانات' },
+        { status: 500 }
       );
     }
 
@@ -41,7 +55,7 @@ export async function POST(request: Request) {
     }
 
     // التحقق من وجود المستخدم
-    const existingUser = await User.findOne({ email }).exec();
+    const existingUser = await User.findOne({ email }).lean().exec();
     if (existingUser) {
       return NextResponse.json(
         { error: 'البريد الإلكتروني مستخدم بالفعل' },
@@ -58,25 +72,36 @@ export async function POST(request: Request) {
       password: hashedPassword,
     });
 
-    return NextResponse.json(
-      { 
+    // إرجاع استجابة نجاح
+    return new NextResponse(
+      JSON.stringify({
         success: true,
         message: 'تم إنشاء الحساب بنجاح',
         user: {
-          id: user._id,
+          id: user._id.toString(),
           name: user.name,
           email: user.email
         }
-      },
-      { status: 201 }
+      }),
+      {
+        status: 201,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
     );
 
   } catch (error) {
     console.error('خطأ في التسجيل:', error);
     
-    return NextResponse.json(
-      { error: 'حدث خطأ في معالجة الطلب' },
-      { status: 500 }
+    return new NextResponse(
+      JSON.stringify({ error: 'حدث خطأ في معالجة الطلب' }),
+      {
+        status: 500,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
     );
   }
 }
