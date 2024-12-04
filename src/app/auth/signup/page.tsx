@@ -35,7 +35,7 @@ export default function SignUp() {
         throw new Error(errorData.message);
       }
 
-      const data = await response.json();
+      await response.json(); // تجاهل البيانات المُرجعة لأننا لا نحتاجها
       router.push('/auth/signin');
     } catch (err: unknown) {
       console.error('خطأ في التسجيل:', err);
