@@ -3,18 +3,19 @@ import bcrypt from 'bcryptjs';
 import connectDB from '@/lib/db';
 import User from '@/models/User';
 
-export async function POST(req: Request) {
+export async function POST(request: Request) {
   try {
-    const { name, email, password } = await req.json();
+    await connectDB();
 
+    const { name, email, password } = await request.json();
+
+    // Validate input
     if (!name || !email || !password) {
       return NextResponse.json(
-        { message: 'يرجى تقديم جميع المعلومات المطلوبة' },
+        { message: 'جميع الحقول مطلوبة' },
         { status: 400 }
       );
     }
-
-    await connectDB();
 
     // Check if user already exists
     const existingUser = await User.findOne({ email });
@@ -45,10 +46,10 @@ export async function POST(req: Request) {
         { status: 500 }
       );
     }
-  } catch (error: any) {
-    console.error('خطأ في إنشاء الحساب:', error);
+  } catch (err: unknown) {
+    console.error('خطأ في معالجة الطلب:', err);
     return NextResponse.json(
-      { message: 'حدث خطأ أثناء إنشاء الحساب' },
+      { message: 'حدث خطأ في معالجة الطلب' },
       { status: 500 }
     );
   }

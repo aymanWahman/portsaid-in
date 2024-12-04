@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <div className="relative h-[60vh] w-full">
       <Image
-        src="/imgs/portsaid1.jpg"
+        src="/imgs/portsaid8.jpg"
         alt="بورسعيد"
         fill
         priority
