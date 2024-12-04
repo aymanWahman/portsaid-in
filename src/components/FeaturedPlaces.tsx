@@ -7,7 +7,7 @@ const places = [
   {
     id: 1,
     name: 'قناة السويس',
-    image: '/imgs/portsaid1.jpg',
+    image: '/imgs/portFuad.jpg',
     description: 'شريان الملاحة العالمي',
     link: '/places/suez-canal'
   },
@@ -21,7 +21,7 @@ const places = [
   {
     id: 3,
     name: 'المتحف الحربي',
-    image: '/imgs/portsaid1.jpg',
+    image: '/imgs/museum.jpg',
     description: 'تاريخ المقاومة الشعبية',
     link: '/places/military-museum'
   }
@@ -34,7 +34,7 @@ export default function FeaturedPlaces() {
         <h2 className="text-3xl font-bold text-center mb-8">
           معالم سياحية مميزة
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
           {places.map((place) => (
             <Link href={place.link} key={place.id}>
               <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
@@ -46,7 +46,7 @@ export default function FeaturedPlaces() {
                     className="object-cover"
                   />
                 </div>
-                <div className="p-4">
+                <div className="p-4 text-center">
                   <h3 className="text-xl font-semibold mb-2">{place.name}</h3>
                   <p className="text-gray-600 dark:text-gray-300">
                     {place.description}

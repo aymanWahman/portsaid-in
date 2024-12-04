@@ -4,9 +4,9 @@ import Image from 'next/image';
 
 export default function Hero() {
   return (
-    <div className="relative h-[60vh] w-full">
+    <div className="relative h-[50vh] w-full px-4 " >
       <Image
-        src="/imgs/portsaid8.jpg"
+        src="/imgs/portsaid21.jpg"
         alt="بورسعيد"
         fill
         priority
