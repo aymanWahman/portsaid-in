@@ -26,26 +26,18 @@ export async function POST(request: Request) {
       );
     }
 
-    try {
-      const hashedPassword = await bcrypt.hash(password, 12);
-      const user = await User.create({
-        email,
-        name,
-        password: hashedPassword,
-      });
-      return NextResponse.json({ message: "تم إنشاء الحساب بنجاح", user }, { status: 201 });
-    } catch (err: unknown) {
-      if (err instanceof Error) {
-        return NextResponse.json(
-          { message: err.message || 'حدث خطأ أثناء إنشاء الحساب' },
-          { status: 500 }
-        );
-      }
-      return NextResponse.json(
-        { message: 'حدث خطأ غير متوقع' },
-        { status: 500 }
-      );
-    }
+    const hashedPassword = await bcrypt.hash(password, 12);
+    const user = await User.create({
+      name,
+      email,
+      password: hashedPassword,
+    });
+
+    return NextResponse.json(
+      { message: 'تم إنشاء الحساب بنجاح', user },
+      { status: 201 }
+    );
+
   } catch (err: unknown) {
     console.error('خطأ في معالجة الطلب:', err);
     return NextResponse.json(

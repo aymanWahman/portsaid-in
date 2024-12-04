@@ -13,31 +13,39 @@ const handler = NextAuth({
         password: { label: "Password", type: "password" }
       },
       async authorize(credentials) {
-        if (!credentials?.email || !credentials?.password) {
-          throw new Error('Please provide all required fields');
+        try {
+          if (!credentials?.email || !credentials?.password) {
+            throw new Error('الرجاء إدخال البريد الإلكتروني وكلمة المرور');
+          }
+
+          await connectDB();
+
+          const user = await User.findOne({ email: credentials.email });
+
+          if (!user) {
+            throw new Error('لم يتم العثور على حساب بهذا البريد الإلكتروني');
+          }
+
+          const isPasswordMatch = await bcrypt.compare(
+            credentials.password,
+            user.password
+          );
+
+          if (!isPasswordMatch) {
+            throw new Error('كلمة المرور غير صحيحة');
+          }
+
+          return {
+            id: user._id.toString(),
+            name: user.name,
+            email: user.email,
+            image: user.image,
+            role: user.role,
+          };
+        } catch (error) {
+          console.error('خطأ في المصادقة:', error);
+          throw error;
         }
-
-        await connectDB();
-
-        const user = await User.findOne({ email: credentials.email });
-
-        if (!user) {
-          throw new Error('No user found with this email');
-        }
-
-        const isPasswordMatch = await bcrypt.compare(credentials.password, user.password);
-
-        if (!isPasswordMatch) {
-          throw new Error('Invalid password');
-        }
-
-        return {
-          id: user._id,
-          name: user.name,
-          email: user.email,
-          image: user.image,
-          role: user.role,
-        };
       }
     })
   ],

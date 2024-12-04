@@ -10,17 +10,23 @@ export default function SignIn() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsLoading(true);
+    setError('');
+    
     try {
       const formData = new FormData(e.currentTarget);
       const result = await signIn('credentials', {
         email: formData.get('email') as string,
         password: formData.get('password') as string,
-        redirect: true,
-        callbackUrl: '/'
+        redirect: false
       });
       
-      if (!result?.ok) {
-        setError('فشل تسجيل الدخول. تحقق من بريدك الإلكتروني وكلمة المرور.');
+      if (result?.error) {
+        setError(result.error === 'CredentialsSignin' 
+          ? 'بيانات الدخول غير صحيحة. تحقق من البريد الإلكتروني وكلمة المرور.'
+          : result.error);
+      } else {
+        window.location.href = '/';
       }
     } catch (err) {
       console.error('خطأ في تسجيل الدخول:', err);
