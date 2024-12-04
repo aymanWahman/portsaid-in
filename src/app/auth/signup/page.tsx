@@ -31,7 +31,7 @@ export default function SignUp() {
       const data = await response.json();
       
       if (!response.ok) {
-        throw new Error(data.message || 'حدث خطأ أثناء إنشاء الحساب');
+        throw new Error(data.error || 'حدث خطأ أثناء إنشاء الحساب');
       }
 
       router.push('/auth/signin');
