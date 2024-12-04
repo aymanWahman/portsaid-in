@@ -7,6 +7,7 @@ import { useTheme } from 'next-themes';
 export default function SignUp() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState(false);
   const router = useRouter();
   const { theme } = useTheme();
 
@@ -15,6 +16,7 @@ export default function SignUp() {
     try {
       setIsLoading(true);
       setError('');
+      setSuccess(false);
 
       const formData = new FormData(e.currentTarget);
       const requestData = {
@@ -36,11 +38,9 @@ export default function SignUp() {
 
       console.log('🟡 حالة الاستجابة:', response.status);
       
-      // قراءة النص الخام من الاستجابة
       const responseText = await response.text();
       console.log('🟡 نص الاستجابة:', responseText);
 
-      // محاولة تحليل JSON
       let data;
       if (responseText) {
         try {
@@ -60,8 +60,11 @@ export default function SignUp() {
         throw new Error(data?.error || 'حدث خطأ أثناء إنشاء الحساب');
       }
 
-      console.log('🟢 تم التسجيل بنجاح، جاري التحويل...');
-      router.push('/auth/signin');
+      setSuccess(true);
+      console.log('🟢 تم التسجيل بنجاح، جاري التحويل إلى الصفحة الرئيسية...');
+      setTimeout(() => {
+        router.push('/');
+      }, 1500);
     } catch (error) {
       console.error('🔴 خطأ:', error);
       setError(error instanceof Error ? error.message : 'حدث خطأ غير متوقع');
@@ -71,8 +74,19 @@ export default function SignUp() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 to-blue-200 dark:from-gray-800 dark:to-gray-900 p-6">
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8 max-w-md w-full space-y-6">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 to-blue-200 dark:from-gray-800 dark:to-gray-900 p-6 relative overflow-hidden">
+      {/* دوائر زخرفية */}
+      <div className="absolute top-0 left-0 w-64 h-64 bg-pink-300/30 rounded-full -translate-x-1/2 -translate-y-1/2 blur-2xl"></div>
+      <div className="absolute top-0 right-0 w-72 h-72 bg-pink-400/20 rounded-full translate-x-1/2 -translate-y-1/2 blur-xl"></div>
+      <div className="absolute bottom-0 left-1/4 w-56 h-56 bg-pink-200/40 rounded-full blur-2xl"></div>
+      
+      {/* نصف دائرة في الزاوية اليمنى */}
+      <div className="absolute -top-40 -right-40 w-80 h-80 bg-pink-300/30 rounded-full"></div>
+      
+      {/* نصف دائرة في الزاوية اليسرى */}
+      <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-pink-400/20 rounded-full"></div>
+
+      <div className="bg-white/80 dark:bg-gray-800/90 backdrop-blur-lg rounded-lg shadow-xl p-8 max-w-md w-full space-y-6 relative z-10">
         <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">
           إنشاء حساب جديد
         </h2>
@@ -80,6 +94,12 @@ export default function SignUp() {
         {error && (
           <div className="bg-red-100 dark:bg-red-900 border border-red-400 text-red-700 dark:text-red-200 px-4 py-3 rounded relative text-right" role="alert">
             <span className="block sm:inline">{error}</span>
+          </div>
+        )}
+
+        {success && (
+          <div className="bg-green-100 dark:bg-green-900 border border-green-400 text-green-700 dark:text-green-200 px-4 py-3 rounded relative text-right" role="alert">
+            <span className="block sm:inline">تم إنشاء حسابك بنجاح! جاري تحويلك...</span>
           </div>
         )}
 
@@ -93,7 +113,7 @@ export default function SignUp() {
               id="name"
               name="name"
               required
-              className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-right placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-gray-900 dark:text-white"
+              className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-right placeholder-gray-400 focus:outline-none focus:ring-pink-500 focus:border-pink-500 text-gray-900 dark:text-white"
               placeholder="أدخل اسمك"
               minLength={2}
               maxLength={50}
@@ -110,7 +130,7 @@ export default function SignUp() {
               id="email"
               name="email"
               required
-              className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-right placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-gray-900 dark:text-white"
+              className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-right placeholder-gray-400 focus:outline-none focus:ring-pink-500 focus:border-pink-500 text-gray-900 dark:text-white"
               placeholder="example@example.com"
               disabled={isLoading}
             />
@@ -125,7 +145,7 @@ export default function SignUp() {
               id="password"
               name="password"
               required
-              className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-right placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-gray-900 dark:text-white"
+              className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-right placeholder-gray-400 focus:outline-none focus:ring-pink-500 focus:border-pink-500 text-gray-900 dark:text-white"
               placeholder="******"
               minLength={6}
               disabled={isLoading}
@@ -135,11 +155,11 @@ export default function SignUp() {
           <button
             type="submit"
             disabled={isLoading}
-            className={`w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white ${
-              isLoading
-                ? 'bg-gray-400 dark:bg-gray-600 cursor-not-allowed'
-                : 'bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500'
-            }`}
+            className={`w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white 
+              ${isLoading 
+                ? 'bg-pink-400 cursor-not-allowed' 
+                : 'bg-pink-600 hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500'
+              } transition-colors duration-200`}
           >
             {isLoading ? 'جاري التسجيل...' : 'تسجيل'}
           </button>
