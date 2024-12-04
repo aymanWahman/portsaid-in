@@ -47,27 +47,49 @@ const userSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   }
+}, {
+  timestamps: true,
+  toJSON: {
+    transform: function(doc, ret) {
+      ret.id = ret._id;
+      delete ret._id;
+      delete ret.__v;
+      delete ret.password;
+    }
+  }
 });
 
-// التحقق من صحة البريد الإلكتروني قبل الحفظ
+// التحقق من تفرد البريد الإلكتروني قبل الحفظ
 userSchema.pre('save', async function(next) {
-  if (!this.isModified('email')) {
-    return next();
-  }
-
   try {
-    const existingUser = await mongoose.models.User.findOne({ 
-      email: this.email,
-      _id: { $ne: this._id }
-    });
-
-    if (existingUser) {
-      throw new Error('البريد الإلكتروني مستخدم بالفعل');
+    if (this.isModified('email')) {
+      const existingUser = await mongoose.models.User.findOne({ 
+        email: this.email,
+        _id: { $ne: this._id }
+      });
+      
+      if (existingUser) {
+        throw new Error('البريد الإلكتروني مستخدم بالفعل');
+      }
     }
-
     next();
   } catch (error) {
-    next(error as Error);
+    next(error);
+  }
+});
+
+// التحقق من تشفير كلمة المرور قبل الحفظ
+userSchema.pre('save', async function(next) {
+  try {
+    if (!this.isModified('password')) {
+      return next();
+    }
+
+    const salt = await bcrypt.genSalt(12);
+    this.password = await bcrypt.hash(this.password, salt);
+    next();
+  } catch (error) {
+    next(error);
   }
 });
 
