@@ -31,10 +31,9 @@ export default function SignUp() {
       const data = await response.json();
       
       if (!response.ok) {
-        throw new Error(data.message);
+        throw new Error(data.message || 'حدث خطأ أثناء إنشاء الحساب');
       }
 
-      // نجاح التسجيل
       router.push('/auth/signin');
     } catch (err: unknown) {
       console.error('خطأ في التسجيل:', err);
@@ -49,16 +48,16 @@ export default function SignUp() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow-lg">
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
+      <div className="max-w-md w-full space-y-8 p-8 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-white">
             إنشاء حساب جديد
           </h2>
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           {error && (
-            <div className="bg-red-50 border-l-4 border-red-400 p-4">
+            <div className="bg-red-50 dark:bg-red-900/50 border-l-4 border-red-400 p-4">
               <div className="flex">
                 <div className="flex-shrink-0">
                   <svg className="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
@@ -66,7 +65,7 @@ export default function SignUp() {
                   </svg>
                 </div>
                 <div className="mr-3">
-                  <p className="text-sm text-red-700">{error}</p>
+                  <p className="text-sm text-red-700 dark:text-red-200">{error}</p>
                 </div>
               </div>
             </div>
@@ -81,7 +80,7 @@ export default function SignUp() {
                 name="name"
                 type="text"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500  rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white bg-white dark:bg-gray-700 rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
                 placeholder="الاسم"
               />
             </div>
@@ -95,7 +94,7 @@ export default function SignUp() {
                 type="email"
                 autoComplete="email"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white bg-white dark:bg-gray-700 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
                 placeholder="البريد الإلكتروني"
               />
             </div>
@@ -109,7 +108,7 @@ export default function SignUp() {
                 type="password"
                 autoComplete="new-password"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500  rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white bg-white dark:bg-gray-700 rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
                 placeholder="كلمة المرور"
               />
             </div>
@@ -132,7 +131,7 @@ export default function SignUp() {
           <div className="text-sm text-center">
             <Link
               href="/auth/signin"
-              className="font-medium text-blue-600 hover:text-blue-500"
+              className="font-medium text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300"
             >
               لديك حساب بالفعل؟ تسجيل الدخول
             </Link>

@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <div className="min-h-screen mt-14 md:mt-16 shadow-xl">
 
-      <Suspense fallback={<div className="h-[60vh] bg-gray-100 animate-pulse" />}>
+      <Suspense fallback={<div className="h-[50vh] w-3/4 px-9 mx-5 bg-gray-100 animate-pulse" />}>
         <Hero />
       </Suspense>
       
@@ -65,7 +65,7 @@ export default function Home() {
         </div>
       </section>
 
-      <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse" />}>
+      <Suspense fallback={<div className="h-64 bg-gray-100 animate-pulse" />}>
         <FeaturedPlaces />
       </Suspense>
 
