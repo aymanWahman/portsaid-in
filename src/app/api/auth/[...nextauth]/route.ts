@@ -1,10 +1,11 @@
-import NextAuth, { NextAuthOptions } from "next-auth";
+import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import connectDB from "@/lib/db";
 import User from "@/models/User";
+import type { NextAuthOptions } from "next-auth";
 
-export const authOptions: NextAuthOptions = {
+const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       name: "Credentials",
@@ -67,8 +68,8 @@ export const authOptions: NextAuthOptions = {
   },
   pages: {
     signIn: '/auth/signin',
-    signUp: '/auth/signup',
     error: '/auth/error',
+    newUser: '/auth/signup'
   },
   session: {
     strategy: 'jwt',
@@ -77,4 +78,5 @@ export const authOptions: NextAuthOptions = {
 };
 
 const handler = NextAuth(authOptions);
+
 export { handler as GET, handler as POST };
