@@ -1,10 +1,7 @@
-
-
 import Modal from "@/components/Modal";
 import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
-
 
 export const viewport = {
   width: 'device-width',
@@ -14,7 +11,7 @@ export const viewport = {
 const TouristSpots: FC = () => {
   
   return (
-    <div className="mt-20 md:mt-24 mb-7 px-5">
+    <div className="mb-7 px-5 mt-7">
       <h1 className="text-lg md:text-2xl font-semibold text-seaBlue hover:text-sandyGold text-center">
         الأماكن السياحية في بورسعيد
       </h1>

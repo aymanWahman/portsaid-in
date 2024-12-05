@@ -15,7 +15,7 @@ const FeaturedPlaces = dynamic(() => import('@/components/FeaturedPlaces'), {
 
 export default function Home() {
   return (
-    <div className="min-h-screen mt-14 md:mt-16 shadow-xl">
+    <div className="min-h-screen mt-20 md:mt-24 shadow-xl">
 
       <Suspense fallback={<div className="h-[50vh] w-3/4 px-9 mx-5 bg-gray-100 animate-pulse" />}>
         <Hero />

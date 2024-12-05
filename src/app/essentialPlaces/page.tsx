@@ -5,7 +5,7 @@ import { FC } from "react";
 
 const EssentialPlaces: FC = () => {
   return (
-    <div className="mt-20 md:mt-24 mb-7 px-5">
+    <div className="mb-7 px-5 mt-7">
       <h1 className="text-lg md:text-2xl font-semibold text-seaBlue hover:text-sandyGold text-center">
         الأماكن الهامة في بورسعيد
       </h1>

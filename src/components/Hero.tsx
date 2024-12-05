@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function Hero() {
   return (
-    <div className="relative h-[50vh] w-full px-4 " >
+    <div className="relative h-[40vh] w-full px-4" >
       <Image
         src="/imgs/portsaid21.jpg"
         alt="بورسعيد"
@@ -14,7 +14,7 @@ export default function Hero() {
       />
       <div className="absolute inset-0 bg-black/40" />
       <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4">
+        <h1 className="text-4xl md:text-6xl font-bold mb-2">
           مرحباً بكم في بورسعيد
         </h1>
         <p className="text-xl md:text-2xl">

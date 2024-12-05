@@ -1,11 +1,10 @@
-
 import Image from 'next/image'
 import data from '@/components/DataAboutPort'
 // import Link from 'next/link'
 
 export default function aboutPort() {
   return (
-    <div className='mt-14'>
+    <div className=''>
     
     {/* <div className='text-center font-bold text-2xl text-y'>
   <Link href="/"><button className='text-xl hover:text-2xl md:text-4xl hover:md:text-5xl text-yellow-600 hover:text-gray-400 font-serif'>Home</button></Link>
@@ -18,7 +17,7 @@ export default function aboutPort() {
     {data && data.map((d) => (
     <main key={d.id} className="grid grid-cols-1 px-3 md:grid-cols-3 mb-3 md:gap-2">
 
-    <div className='my-5'>
+    <div className='my-5 mt-7'>
     <Image
       className="rounded shadow-2xl shadow-black w-[350px] h-[250px] mx-auto"
       src={d.image}
@@ -36,6 +35,7 @@ export default function aboutPort() {
     <p className='text-center text-lg md:text-xl font-bold '>{d.history}</p>
     </div>
   
+      
       
     
     </main>
