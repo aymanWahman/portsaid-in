@@ -3,11 +3,13 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { FiEye, FiEyeOff } from 'react-icons/fi';
 
 export default function SignUp() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -59,16 +61,16 @@ export default function SignUp() {
   return (
     <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* خلفية متدرجة */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-pink-50 dark:from-gray-900 dark:to-gray-800"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-seaBlue-light to-sandyGold-light dark:from-gray-900 dark:to-gray-800"></div>
       
       {/* العناصر الزخرفية */}
-      <div className="absolute top-0 left-0 w-72 h-72 bg-pink-200/20 rounded-full -translate-x-1/3 -translate-y-1/3 blur-3xl"></div>
-      <div className="absolute top-0 right-0 w-72 h-72 bg-pink-300/20 rounded-full translate-x-1/3 -translate-y-1/3 blur-3xl"></div>
-      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-pink-100/30 rounded-full translate-y-1/2 blur-3xl"></div>
+      <div className="absolute top-0 left-0 w-72 h-72 bg-seaBlue-light/20 rounded-full -translate-x-1/3 -translate-y-1/3 blur-3xl"></div>
+      <div className="absolute top-0 right-0 w-72 h-72 bg-sandyGold-light/20 rounded-full translate-x-1/3 -translate-y-1/3 blur-3xl"></div>
+      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-seaBlue-light/30 rounded-full translate-y-1/2 blur-3xl"></div>
       
       {/* نصف دوائر */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-pink-200/20 rounded-full translate-x-1/2 -translate-y-1/2"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-pink-100/30 rounded-full -translate-x-1/2 translate-y-1/2"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-sandyGold-light/20 rounded-full translate-x-1/2 -translate-y-1/2"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-seaBlue-light/30 rounded-full -translate-x-1/2 translate-y-1/2"></div>
 
       {/* النموذج */}
       <div className="relative z-10 w-full max-w-md p-8 mx-4">
@@ -99,7 +101,7 @@ export default function SignUp() {
                 id="name"
                 name="name"
                 required
-                className="w-full px-4 py-2 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-right placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-colors duration-200"
+                className="w-full px-4 py-2 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-right placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-seaBlue focus:border-seaBlue transition-colors duration-200"
                 placeholder="الاسم الكامل"
                 disabled={isLoading}
               />
@@ -114,25 +116,34 @@ export default function SignUp() {
                 id="email"
                 name="email"
                 required
-                className="w-full px-4 py-2 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-right placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-colors duration-200"
+                className="w-full px-4 py-2 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-right placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-seaBlue focus:border-seaBlue transition-colors duration-200"
                 placeholder="example@example.com"
                 disabled={isLoading}
               />
             </div>
 
-            <div>
+            <div className="relative">
               <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300 text-right mb-2">
                 كلمة المرور
               </label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                required
-                className="w-full px-4 py-2 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-right placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-colors duration-200"
-                placeholder="******"
-                disabled={isLoading}
-              />
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  id="password"
+                  name="password"
+                  required
+                  className="w-full px-4 py-2 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-right placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-seaBlue focus:border-seaBlue transition-colors duration-200"
+                  placeholder="******"
+                  disabled={isLoading}
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute left-2 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                >
+                  {showPassword ? <FiEyeOff size={20} /> : <FiEye size={20} />}
+                </button>
+              </div>
             </div>
 
             <button
@@ -140,8 +151,8 @@ export default function SignUp() {
               disabled={isLoading}
               className={`w-full px-4 py-2 text-sm font-medium text-white rounded-lg transition-colors duration-200 ${
                 isLoading
-                  ? 'bg-pink-400 cursor-not-allowed'
-                  : 'bg-pink-600 hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500'
+                  ? 'bg-seaBlue-light cursor-not-allowed'
+                  : 'bg-seaBlue hover:bg-seaBlue-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-seaBlue'
               }`}
             >
               {isLoading ? 'جاري التسجيل...' : 'تسجيل'}
@@ -152,7 +163,7 @@ export default function SignUp() {
                 لديك حساب بالفعل؟{' '}
                 <Link 
                   href="/auth/signin" 
-                  className="text-pink-600 hover:text-pink-700 dark:text-pink-400 dark:hover:text-pink-300 font-medium transition-colors duration-200"
+                  className="text-seaBlue hover:text-seaBlue-dark dark:text-seaBlue-light dark:hover:text-seaBlue font-medium transition-colors duration-200"
                 >
                   سجل دخولك
                 </Link>

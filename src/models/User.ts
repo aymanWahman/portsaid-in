@@ -33,7 +33,8 @@ const userSchema = new mongoose.Schema({
     minlength: [8, 'كلمة المرور يجب أن تكون على الأقل 8 أحرف']
   },
   image: {
-    type: String
+    type: String,
+    default: ''
   },
   role: {
     type: String,

@@ -24,7 +24,7 @@ const options = {
   bufferCommands: false,
 } as const;
 
-async function dbConnect(): Promise<typeof mongoose> {
+const dbConnect = Object.assign(async function(): Promise<typeof mongoose> {
   if (global._mongooseCache.conn) {
     return global._mongooseCache.conn;
   }
@@ -45,6 +45,10 @@ async function dbConnect(): Promise<typeof mongoose> {
   }
 
   return global._mongooseCache.conn;
-}
+}, {
+  connect() {
+    return dbConnect();
+  }
+});
 
 export default dbConnect;
