@@ -14,9 +14,9 @@ const config: Config = {
         tajawal: ["Tajawal", "sans-serif"],
       },
       colors: {
-        seaBlue: "#1e3d59",
+        seaBlue: "#87CEEB",
         seagullGray: "#D9E2EC",
-        sandyGold: "#f5b461",
+        sandyGold: "#F5F5DC",
         greenN: "#2E7D32",
       },
       transitionTimingFunction: {

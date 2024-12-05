@@ -6,25 +6,46 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-  
 /* إعدادات الخطوط الافتراضية */
 body {
-  font-family: 'Cairo', sans-serif; /* الخط الافتراضي للغة الإنجليزية */
-  background-color: #D9E2EC;
-  color: #333;
+  font-family: 'Cairo', sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* تحسين الانتقال بين الأوضاع */
+.transition-theme {
+  transition: background-color 0.3s ease-in-out,
+              color 0.3s ease-in-out,
+              border-color 0.3s ease-in-out;
+}
 
+/* تحسين قراءة النصوص */
+@layer base {
+  body {
+    @apply bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100;
+  }
+}
+
+/* تحسين العناصر التفاعلية */
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg transition-colors duration-200;
+  }
+  
+  .btn-primary {
+    @apply bg-seaBlue text-white hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-500;
+  }
+  
+  .input {
+    @apply bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200;
+  }
+}
 
 /* وضع الـ dark mode */
 .dark body{
   background-color: #212121;
   color: white;
 }
-
-
-
 
 .button {
   background-color: #007BFF;
@@ -50,8 +71,6 @@ body {
   z-index: 1;
 }
 
-
-
 /* .leaflet-container {
   height: 100%;
   width: 100%;
@@ -61,8 +80,3 @@ body {
 .dark .leaflet-container {
   background: #121212; 
 } */
-
-
-
-
-

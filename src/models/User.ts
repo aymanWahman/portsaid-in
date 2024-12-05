@@ -8,6 +8,7 @@ export interface IUser extends mongoose.Document {
   image?: string;
   role: 'user' | 'admin';
   createdAt: Date;
+  comparePassword(candidatePassword: string): Promise<boolean>;
 }
 
 const userSchema = new mongoose.Schema({
@@ -24,33 +25,25 @@ const userSchema = new mongoose.Schema({
     unique: true,
     trim: true,
     lowercase: true,
-    match: [/^[^\s@]+@[^\s@]+\.[^\s@]+$/, 'البريد الإلكتروني غير صالح']
+    match: [/^\S+@\S+\.\S+$/, 'البريد الإلكتروني غير صالح']
   },
   password: {
     type: String,
     required: [true, 'كلمة المرور مطلوبة'],
-    minlength: [6, 'كلمة المرور يجب أن تكون 6 أحرف على الأقل']
+    minlength: [8, 'كلمة المرور يجب أن تكون على الأقل 8 أحرف']
   },
   image: {
-    type: String,
-    default: '/images/default-avatar.png'
+    type: String
   },
   role: {
     type: String,
-    enum: {
-      values: ['user', 'admin'],
-      message: '{VALUE} غير مسموح به كدور للمستخدم'
-    },
+    enum: ['user', 'admin'],
     default: 'user'
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now
   }
 }, {
   timestamps: true,
   toJSON: {
-    transform: function(doc, ret) {
+    transform(doc, ret) {
       ret.id = ret._id;
       delete ret._id;
       delete ret.__v;
@@ -74,11 +67,15 @@ userSchema.pre('save', async function(next) {
     }
     next();
   } catch (error) {
-    next(error);
+    if (error instanceof Error) {
+      next(error);
+    } else {
+      next(new Error('حدث خطأ غير معروف'));
+    }
   }
 });
 
-// التحقق من تشفير كلمة المرور قبل الحفظ
+// تشفير كلمة المرور قبل الحفظ
 userSchema.pre('save', async function(next) {
   try {
     if (!this.isModified('password')) {
@@ -89,9 +86,22 @@ userSchema.pre('save', async function(next) {
     this.password = await bcrypt.hash(this.password, salt);
     next();
   } catch (error) {
-    next(error);
+    if (error instanceof Error) {
+      next(error);
+    } else {
+      next(new Error('حدث خطأ في تشفير كلمة المرور'));
+    }
   }
 });
+
+// دالة مقارنة كلمة المرور
+userSchema.methods.comparePassword = async function(candidatePassword: string): Promise<boolean> {
+  try {
+    return await bcrypt.compare(candidatePassword, this.password);
+  } catch {
+    throw new Error('خطأ في مقارنة كلمة المرور');
+  }
+};
 
 const User = mongoose.models.User || mongoose.model<IUser>('User', userSchema);
 

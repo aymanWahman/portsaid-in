@@ -1,102 +1,128 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { signIn } from 'next-auth/react';
 import Link from 'next/link';
 
 export default function SignIn() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsLoading(true);
-    setError('');
-    
     try {
+      setIsLoading(true);
+      setError('');
+
       const formData = new FormData(e.currentTarget);
+      const email = formData.get('email') as string;
+      const password = formData.get('password') as string;
+
       const result = await signIn('credentials', {
-        email: formData.get('email') as string,
-        password: formData.get('password') as string,
-        redirect: false
+        email,
+        password,
+        redirect: false,
       });
-      
+
       if (result?.error) {
-        setError(result.error === 'CredentialsSignin' 
-          ? 'بيانات الدخول غير صحيحة. تحقق من البريد الإلكتروني وكلمة المرور.'
-          : result.error);
-      } else {
-        window.location.href = '/';
+        throw new Error(result.error);
       }
-    } catch (err) {
-      console.error('خطأ في تسجيل الدخول:', err);
-      setError('حدث خطأ أثناء محاولة تسجيل الدخول');
+
+      // التوجيه إلى الصفحة الرئيسية
+      router.replace('/');
+      router.refresh();
+    } catch (error) {
+      setError(error instanceof Error ? error.message : 'حدث خطأ في تسجيل الدخول');
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow-lg">
-        <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+    <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      {/* خلفية متدرجة */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-pink-50 dark:from-gray-900 dark:to-gray-800"></div>
+      
+      {/* العناصر الزخرفية */}
+      <div className="absolute top-0 left-0 w-72 h-72 bg-pink-200/20 rounded-full -translate-x-1/3 -translate-y-1/3 blur-3xl"></div>
+      <div className="absolute top-0 right-0 w-72 h-72 bg-pink-300/20 rounded-full translate-x-1/3 -translate-y-1/3 blur-3xl"></div>
+      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-pink-100/30 rounded-full translate-y-1/2 blur-3xl"></div>
+      
+      {/* نصف دوائر */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-pink-200/20 rounded-full translate-x-1/2 -translate-y-1/2"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-pink-100/30 rounded-full -translate-x-1/2 translate-y-1/2"></div>
+
+      {/* النموذج */}
+      <div className="relative z-10 w-full max-w-md p-8 mx-4">
+        <div className="bg-white/80 dark:bg-gray-800/90 backdrop-blur-xl rounded-2xl shadow-xl p-8">
+          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">
             تسجيل الدخول
           </h2>
-        </div>
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+
           {error && (
-            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+            <div className="mb-6 bg-red-50 dark:bg-red-900/50 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-200 px-4 py-3 rounded-lg text-right">
               <span className="block sm:inline">{error}</span>
             </div>
           )}
-          <div className="rounded-md shadow-sm -space-y-px">
+
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="email" className="sr-only">
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 text-right mb-2">
                 البريد الإلكتروني
               </label>
               <input
+                type="email"
                 id="email"
                 name="email"
-                type="email"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500  rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-                placeholder="البريد الإلكتروني"
-                dir="rtl"
+                className="w-full px-4 py-2 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-right placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-colors duration-200"
+                placeholder="example@example.com"
+                disabled={isLoading}
               />
             </div>
+
             <div>
-              <label htmlFor="password" className="sr-only">
+              <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300 text-right mb-2">
                 كلمة المرور
               </label>
               <input
+                type="password"
                 id="password"
                 name="password"
-                type="password"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500  rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-                placeholder="كلمة المرور"
-                dir="rtl"
+                className="w-full px-4 py-2 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-right placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-colors duration-200"
+                placeholder="******"
+                disabled={isLoading}
               />
             </div>
-          </div>
 
-          <div>
             <button
               type="submit"
               disabled={isLoading}
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              className={`w-full px-4 py-2 text-sm font-medium text-white rounded-lg transition-colors duration-200 ${
+                isLoading
+                  ? 'bg-pink-400 cursor-not-allowed'
+                  : 'bg-pink-600 hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500'
+              }`}
             >
-              {isLoading ? 'جاري التحميل...' : 'تسجيل الدخول'}
+              {isLoading ? 'جاري تسجيل الدخول...' : 'دخول'}
             </button>
-          </div>
 
-          <div className="text-sm text-center">
-            <Link href="/auth/signup" className="font-medium text-blue-600 hover:text-blue-500">
-              ليس لديك حساب؟ سجل الآن
-            </Link>
-          </div>
-        </form>
+            <div className="mt-4 text-center">
+              <p className="text-sm text-gray-600 dark:text-gray-400">
+                ليس لديك حساب؟{' '}
+                <Link 
+                  href="/auth/signup" 
+                  className="text-pink-600 hover:text-pink-700 dark:text-pink-400 dark:hover:text-pink-300 font-medium transition-colors duration-200"
+                >
+                  سجل الآن
+                </Link>
+              </p>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

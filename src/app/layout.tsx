@@ -29,8 +29,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ar"  suppressHydrationWarning>
-      <body className={`${tajawal.variable} ${cairo.variable}`}>
+    <html lang="ar" suppressHydrationWarning className="light">
+      <body className={`${tajawal.variable} ${cairo.variable} transition-colors duration-200`}>
         <Providers>
           <Header />
           <main className="min-h-screen pt-16">
