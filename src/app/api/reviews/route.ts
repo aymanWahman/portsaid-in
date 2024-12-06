@@ -8,7 +8,7 @@ export async function POST(request: Request) {
     const body = await request.json();
     const review = await Review.create(body);
     return NextResponse.json(review, { status: 201 });
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.json(
       { message: 'Error creating review' },
       { status: 500 }
@@ -21,7 +21,7 @@ export async function GET() {
     await dbConnect();
     const reviews = await Review.find().sort({ createdAt: -1 });
     return NextResponse.json(reviews);
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.json(
       { message: 'Error fetching reviews' },
       { status: 500 }
