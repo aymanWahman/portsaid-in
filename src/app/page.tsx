@@ -15,14 +15,14 @@ const FeaturedPlaces = dynamic(() => import('@/components/FeaturedPlaces'), {
 
 export default function Home() {
   return (
-    <main className="min-h-screen mt-8">
+    <main className="min-h-screen mt-24">
       {/* Hero Section */}
       <Suspense fallback={<div className="h-[50vh] w-full bg-gray-100 animate-pulse" />}>
         <Hero />
       </Suspense>
       
       {/* Video Section */}
-      <section className="container mx-auto mt-8 p-5">
+      <section className="container mx-auto mt-2 p-5">
         <div className="grid md:grid-cols-2 gap-8 place-items-center">
           <div className="text-center space-y-4">
             <h1 className="text-2xl md:text-3xl font-bold text-seaBlue mb-4">

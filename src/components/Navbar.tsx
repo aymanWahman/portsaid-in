@@ -19,7 +19,7 @@ const Header = () => {
   ];
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
+    const handleClickOutside = (event: MouseEvent & { target: Element }) => {
       if (!event.target.closest('.mobile-menu') && !event.target.closest('.menu-button')) {
         setIsMenuOpen(false);
       }

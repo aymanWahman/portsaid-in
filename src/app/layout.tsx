@@ -1,26 +1,20 @@
+import type { Metadata } from 'next';
+import { Noto_Kufi_Arabic } from 'next/font/google';
+import './globals.css';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import ScrollToTop from '@/components/ScrollToTop';
 import { Providers } from '@/components/Providers';
-import { Cairo, Tajawal } from "next/font/google";
-import "./globals.css";
-import Header from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import ScrollToTop from "@/components/ScrollToTop";
 
-const cairo = Cairo({
-  subsets: ["arabic"],
-  variable: "--font-cairo",
+const notoKufiArabic = Noto_Kufi_Arabic({ 
+  subsets: ['arabic'],
   display: 'swap',
+  variable: '--font-noto-kufi-arabic',
 });
 
-const tajawal = Tajawal({
-  weight: ["400", "500", "700"],
-  subsets: ["arabic"],
-  variable: "--font-tajawal",
-  display: 'swap',
-});
-
-export const metadata = {
-  title: "بورسعيد",
-  description: "دليلك الشامل لمدينة بورسعيد",
+export const metadata: Metadata = {
+  title: 'بورسعيد - بوابة مصر الشرقية',
+  description: 'اكتشف جمال وسحر مدينة بورسعيد، بوابة مصر الشرقية وتاريخها العريق',
 };
 
 export default function RootLayout({
@@ -29,14 +23,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ar" suppressHydrationWarning className="light">
-      <body className={`${tajawal.variable} ${cairo.variable} transition-colors duration-200`}>
+    <html lang="ar" suppressHydrationWarning>
+      <body className={`${notoKufiArabic.variable} font-noto-kufi`}>
         <Providers>
-          <Header />
-          <main className="min-h-screen pt-16">
-            {children}
-          </main>
-          <Footer />
+          <div className="flex flex-col min-h-screen">
+            <Navbar />
+            <main className="flex-grow">{children}</main>
+            <Footer />
+          </div>
           <ScrollToTop />
         </Providers>
       </body>

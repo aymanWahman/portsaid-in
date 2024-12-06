@@ -2,6 +2,9 @@ import Modal from "@/components/Modal";
 import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
+import InteractiveMap from '@/components/InteractiveMap';
+import { touristPlaces } from '@/data/places';
+import { Suspense } from 'react';
 
 export const viewport = {
   width: 'device-width',
@@ -15,6 +18,14 @@ const TouristSpots: FC = () => {
       <h1 className="text-lg md:text-2xl font-semibold text-seaBlue hover:text-sandyGold text-center">
         الأماكن السياحية في بورسعيد
       </h1>
+
+      {/* الخريطة التفاعلية */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-semibold mb-4">استكشف الأماكن السياحية على الخريطة</h2>
+        <Suspense fallback={<div className="h-[500px] bg-gray-100 animate-pulse rounded-xl" />}>
+          <InteractiveMap places={touristPlaces} />
+        </Suspense>
+      </section>
 
       <section className="grid md:grid-cols-2 gap-4 p-5 text-center text-gray-600 font-serif">
         {/* Restaurants */}
