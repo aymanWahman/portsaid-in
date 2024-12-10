@@ -149,28 +149,7 @@ const MapComponent: React.FC<MapProps> = ({
         routingControlRef.current.remove();
       }
 
-      if (userLocation) {
-        // routingControlRef.current = L.Routing.control({
-        //   waypoints: [
-        //     L.latLng(userLocation[0], userLocation[1]),
-        //     L.latLng(coordinates[0], coordinates[1])
-        //   ],
-        //   router: L.Routing.osrmv1({
-        //     language: 'ar',
-        //     profile: 'car'
-        //   }),
-        //   lineOptions: {
-        //     styles: [{ color: '#2563eb', weight: 4 }]
-        //   },
-        //   showAlternatives: true,
-        //   altLineOptions: {
-        //     styles: [{ color: '#64748b', weight: 4 }]
-        //   },
-        //   fitSelectedRoutes: true,
-        //   routeWhileDragging: false,
-        //   collapsible: true
-        // }).addTo(map);
-      }
+
     };
 
     // إضافة دالة عرض تفاصيل المكان للنافذة

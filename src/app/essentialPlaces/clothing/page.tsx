@@ -4,8 +4,8 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import clothing from "@/components/DataClothingStores";
-import ReviewsSection from "@/components/ReviewsSection";
+import clothing from "../../../components/DataClothingStores";
+import ReviewsSection from "../../../components/ReviewsSection";
 
 const ClothingStores: React.FC = () => {
   const router = useRouter();
