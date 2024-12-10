@@ -17,16 +17,15 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "baseUrl": ".", // تأكد من وجود هذا السطر
+    "paths": {
+      "@/*": ["src/*"] // تأكد من وجود هذا السطر
+    },
     "plugins": [
       {
         "name": "next"
       }
-    ],
-    "paths": {
-      "@/*": [
-        "./src/*"
-      ]
-    }
+    ]
   },
   "include": [
     "next-env.d.ts",
