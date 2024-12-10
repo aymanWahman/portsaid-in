@@ -5,16 +5,16 @@ import { FC } from "react";
 
 const EssentialPlaces: FC = () => {
   return (
-    <div className="mb-7 px-5 mt-7">
+    <div className="mb-7 px-5 mt-24">
       <h1 className="text-lg md:text-2xl font-semibold text-seaBlue hover:text-sandyGold text-center">
         الأماكن الهامة في بورسعيد
       </h1>
 
-      <section className="grid md:grid-cols-2 gap-4 p-5 text-center text-gray-600 font-serif">
+      <section className="grid md:grid-cols-2 gap-4 p-5 text-center  font-serif">
         {/* Pharmacies Section */}
         <div className="mx-auto">
           <Link href="/essential-places/pharmacies">
-            <h2 className="font-extrabold text-xl md:text-4xl my-7 hover:text-seaBlue">
+            <h2 className="font-extrabold text-xl md:text-4xl my-7 text-gray-600 hover:text-seaBlue">
               Pharmacies
             </h2>
           </Link>
@@ -34,7 +34,7 @@ const EssentialPlaces: FC = () => {
         {/* Clothing Stores Section */}
         <div className="mx-auto">
           <Link href="/essentialPlaces/clothing">
-            <h2 className="font-extrabold text-xl md:text-4xl my-7 hover:text-seaBlue">
+            <h2 className="font-extrabold text-xl md:text-4xl my-7 text-gray-600 hover:text-seaBlue">
               Clothing Stores
             </h2>
           </Link>
@@ -54,7 +54,7 @@ const EssentialPlaces: FC = () => {
         {/* Mobile Stores Section */}
         <div className="mx-auto">
           <Link href="/essentialPlaces/mobile-stores">
-            <h2 className="font-extrabold text-xl md:text-4xl my-7 hover:text-seaBlue">
+            <h2 className="font-extrabold text-xl md:text-4xl my-7 text-gray-600 hover:text-seaBlue">
               Mobile Stores
             </h2>
           </Link>
@@ -74,7 +74,7 @@ const EssentialPlaces: FC = () => {
         {/* Bookstores Section */}
         <div className="mx-auto">
           <Link href="/essentialPlaces/bookstores">
-            <h2 className="font-extrabold text-xl md:text-4xl my-7 hover:text-seaBlue">
+            <h2 className="font-extrabold text-xl md:text-4xl my-7 text-gray-600 hover:text-seaBlue">
               Bookstores
             </h2>
           </Link>

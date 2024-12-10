@@ -11,7 +11,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         cairo: ["Cairo", "sans-serif"],
-        tajawal: ["Tajawal", "sans-serif"],
+        
       },
       colors: {
         seaBlue: {

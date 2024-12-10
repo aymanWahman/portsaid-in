@@ -5,7 +5,7 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet.locatecontrol/dist/L.Control.Locate.css';
 import 'leaflet.locatecontrol';
-import 'leaflet-routing-machine';
+import 'leaflet-routing-machine'; // Add this line
 import 'leaflet-routing-machine/dist/leaflet-routing-machine.css';
 import NearbyPlacesFilter from './NearbyPlacesFilter';
 import NearbyPlaceDetails from './NearbyPlaceDetails';
@@ -150,26 +150,26 @@ const MapComponent: React.FC<MapProps> = ({
       }
 
       if (userLocation) {
-        routingControlRef.current = L.Routing.control({
-          waypoints: [
-            L.latLng(userLocation[0], userLocation[1]),
-            L.latLng(coordinates[0], coordinates[1])
-          ],
-          router: L.Routing.osrmv1({
-            language: 'ar',
-            profile: 'car'
-          }),
-          lineOptions: {
-            styles: [{ color: '#2563eb', weight: 4 }]
-          },
-          showAlternatives: true,
-          altLineOptions: {
-            styles: [{ color: '#64748b', weight: 4 }]
-          },
-          fitSelectedRoutes: true,
-          routeWhileDragging: false,
-          collapsible: true
-        }).addTo(map);
+        // routingControlRef.current = L.Routing.control({
+        //   waypoints: [
+        //     L.latLng(userLocation[0], userLocation[1]),
+        //     L.latLng(coordinates[0], coordinates[1])
+        //   ],
+        //   router: L.Routing.osrmv1({
+        //     language: 'ar',
+        //     profile: 'car'
+        //   }),
+        //   lineOptions: {
+        //     styles: [{ color: '#2563eb', weight: 4 }]
+        //   },
+        //   showAlternatives: true,
+        //   altLineOptions: {
+        //     styles: [{ color: '#64748b', weight: 4 }]
+        //   },
+        //   fitSelectedRoutes: true,
+        //   routeWhileDragging: false,
+        //   collapsible: true
+        // }).addTo(map);
       }
     };
 

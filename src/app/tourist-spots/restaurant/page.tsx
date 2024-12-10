@@ -37,7 +37,7 @@ const RestaurantPage: React.FC = () => {
   const uniqueCategories = ['All', ...new Set(restaurants.map((d) => d.category))];
 
   return (
-    <div dir="rtl" className="p-4 mt-5">
+    <div dir="rtl" className="p-4 mt-24">
       <div className="text-center">
         <Link href="/tourist-spots" className="text-xl text-sandyGold hover:text-seaBlue transition">
           الأماكن السياحية

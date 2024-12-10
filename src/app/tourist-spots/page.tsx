@@ -2,9 +2,9 @@ import Modal from "@/components/Modal";
 import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
-import InteractiveMap from '@/components/InteractiveMap';
-import { touristPlaces } from '@/data/places';
-import { Suspense } from 'react';
+// import InteractiveMap from '@/components/InteractiveMap';
+// import { touristPlaces } from '@/data/places';
+// import { Suspense } from 'react';
 
 export const viewport = {
   width: 'device-width',
@@ -14,24 +14,24 @@ export const viewport = {
 const TouristSpots: FC = () => {
   
   return (
-    <div className="mb-7 px-5 mt-7">
+    <div className="mb-7 px-5 mt-24">
       <h1 className="text-lg md:text-2xl font-semibold text-seaBlue hover:text-sandyGold text-center">
         الأماكن السياحية في بورسعيد
       </h1>
 
       {/* الخريطة التفاعلية */}
-      <section className="mb-12">
+      {/* <section className="mb-12">
         <h2 className="text-2xl font-semibold mb-4">استكشف الأماكن السياحية على الخريطة</h2>
         <Suspense fallback={<div className="h-[500px] bg-gray-100 animate-pulse rounded-xl" />}>
           <InteractiveMap places={touristPlaces} />
         </Suspense>
-      </section>
+      </section> */}
 
-      <section className="grid md:grid-cols-2 gap-4 p-5 text-center text-gray-600 font-serif">
+      <section className="grid md:grid-cols-2 gap-4 p-5 text-center font-serif">
         {/* Restaurants */}
         <div className="mx-auto">
           <Link href="/tourist-spots/restaurant">
-            <h2 className="font-extrabold text-xl md:text-4xl my-7 hover:text-seaBlue">
+            <h2 className="font-extrabold text-xl md:text-4xl my-7 text-gray-600 hover:text-seaBlue">
               Restaurants
             </h2>
           </Link>
@@ -52,7 +52,7 @@ const TouristSpots: FC = () => {
         {/* Hotels */}
         <div className="mx-auto">
           <Link href="/tourist-spots/hotel">
-            <h2 className="font-extrabold text-xl md:text-4xl my-7 hover:text-seaBlue">
+            <h2 className="font-extrabold text-xl md:text-4xl my-7 text-gray-600 hover:text-seaBlue">
               Hotels
             </h2>
           </Link>
@@ -73,7 +73,7 @@ const TouristSpots: FC = () => {
         {/* Gardens */}
         <div className="mx-auto">
           <Link href="/tourist-spots/garden">
-            <h2 className="font-extrabold text-xl md:text-4xl my-7 hover:text-seaBlue">
+            <h2 className="font-extrabold text-xl md:text-4xl my-7 text-gray-600 hover:text-seaBlue">
               Gardens
             </h2>
           </Link>
@@ -94,7 +94,7 @@ const TouristSpots: FC = () => {
         {/* Beaches */}
         <div className="mx-auto">
           <Link href="/tourist-spots/beach">
-            <h2 className="font-extrabold text-xl md:text-4xl my-7 hover:text-seaBlue">
+            <h2 className="font-extrabold text-xl md:text-4xl my-7 text-gray-600 hover:text-seaBlue">
               Beaches
             </h2>
           </Link>
