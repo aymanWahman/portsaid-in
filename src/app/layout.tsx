@@ -1,15 +1,15 @@
 import type { Metadata } from 'next';
-import { Noto_Kufi_Arabic } from 'next/font/google';
+import { Cairo } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 import { Providers } from '@/components/Providers';
 
-const notoKufiArabic = Noto_Kufi_Arabic({ 
+const cairo = Cairo({ 
   subsets: ['arabic'],
   display: 'swap',
-  variable: '--font-noto-kufi-arabic',
+  weight: ['400', '600', '700'],
 });
 
 export const metadata: Metadata = {
@@ -23,17 +23,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ar" suppressHydrationWarning>
-      <body className={`${notoKufiArabic.variable} font-noto-kufi`}>
-        <Providers>
-          <div className="flex flex-col min-h-screen">
+    <html lang="ar"  suppressHydrationWarning>
+      <body className={`${cairo.className}`}>
+    <Providers>
+        <div className="flex flex-col min-h-screen">
             <Navbar />
             <main className="flex-grow">{children}</main>
             <Footer />
-          </div>
-          <ScrollToTop />
-        </Providers>
-      </body>
+        </div>
+        <ScrollToTop />
+    </Providers>
+</body>
+
     </html>
   );
 }

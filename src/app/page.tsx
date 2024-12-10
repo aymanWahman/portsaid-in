@@ -25,7 +25,7 @@ export default function Home() {
       <section className="container mx-auto mt-2 p-5">
         <div className="grid md:grid-cols-2 gap-8 place-items-center">
           <div className="text-center space-y-4">
-            <h1 className="text-2xl md:text-3xl font-bold text-seaBlue mb-4">
+            <h1 className="text-2xl md:text-3xl animate-fade-in font-bold text-seaBlue mb-4">
               في بورسعيد
             </h1>
             <div className="relative w-full rounded-lg overflow-hidden shadow-2xl border-4 border-gray-500">

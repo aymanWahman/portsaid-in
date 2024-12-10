@@ -6,7 +6,6 @@ import ReviewSection from '@/components/ReviewSection';
 import MapComponent from '@/components/MapComponent'; // Import MapComponent
 import { touristPlaces } from '@/data/places';
 
-const Panorama360 = dynamic(() => import('@/components/Panorama360'), { ssr: false });
 
 interface Props {
   params: {
@@ -30,7 +29,7 @@ export default async function PlacePage({ params }: Props) {
   const nearbyPlaces = [
     {
       name: 'مطعم الأسماك',
-      coordinates: [place.latitude + 0.002, place.longitude + 0.002],
+      coordinates: [place.latitude + 0.002, place.longitude + 0.002] as [number, number],
       type: 'restaurant',
       image: '/images/restaurants/fish-restaurant.jpg',
       rating: 4.5,
@@ -41,7 +40,7 @@ export default async function PlacePage({ params }: Props) {
     },
     {
       name: 'فندق بورسعيد',
-      coordinates: [place.latitude - 0.002, place.longitude - 0.001],
+      coordinates: [place.latitude - 0.002, place.longitude - 0.001] as [number, number],
       type: 'hotel',
       image: '/images/hotels/portsaid-hotel.jpg',
       rating: 4,
@@ -52,7 +51,7 @@ export default async function PlacePage({ params }: Props) {
     },
     {
       name: 'متحف النصر',
-      coordinates: [place.latitude + 0.001, place.longitude - 0.002],
+      coordinates: [place.latitude + 0.001, place.longitude - 0.002] as [number, number],
       type: 'attraction',
       image: '/images/attractions/victory-museum.jpg',
       rating: 4.8,
@@ -99,12 +98,7 @@ export default async function PlacePage({ params }: Props) {
         </div>
       </div>
 
-      {place.panoramaUrl && (
-        <div className="mt-8 bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden p-6">
-          <h2 className="text-2xl font-bold mb-4">جولة افتراضية 360 درجة</h2>
-          <Panorama360 imageUrl={place.panoramaUrl} title={place.name} />
-        </div>
-      )}
+   
 
       <div className="mt-8 bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden p-6">
         <h2 className="text-2xl font-bold mb-4">الموقع والأماكن القريبة</h2>

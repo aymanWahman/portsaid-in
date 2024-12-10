@@ -3,8 +3,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import 'leaflet.locatecontrol';
 import 'leaflet.locatecontrol/dist/L.Control.Locate.css';
+import 'leaflet.locatecontrol';
 import 'leaflet-routing-machine';
 import 'leaflet-routing-machine/dist/leaflet-routing-machine.css';
 import NearbyPlacesFilter from './NearbyPlacesFilter';
@@ -136,18 +136,6 @@ const MapComponent: React.FC<MapProps> = ({
         </div>
       `);
     });
-
-    // إضافة زر تحديد الموقع
-    const locateControl = L.control.locate({
-      position: 'topright',
-      strings: {
-        title: 'تحديد موقعي'
-      },
-      flyTo: true,
-      onLocationFound: (e: any) => {
-        setUserLocation([e.latlng.lat, e.latlng.lng]);
-      }
-    }).addTo(map);
 
     // إضافة مقياس الخريطة
     L.control.scale({

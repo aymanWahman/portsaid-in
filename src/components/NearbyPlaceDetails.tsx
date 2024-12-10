@@ -15,6 +15,7 @@ interface NearbyPlaceDetailsProps {
     address?: string;
     openingHours?: string;
     description?: string;
+    coordinates?: [number, number];
   };
   onClose: () => void;
 }
