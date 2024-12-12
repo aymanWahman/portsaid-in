@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
-import connect from '@/lib/db';
-import User from '@/models/User';
+import connect from '../../../../lib/db';
+import User from '../../../../models/User';
 import bcrypt from 'bcryptjs';
 
 export async function PUT(req: NextRequest) {
