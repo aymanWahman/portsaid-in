@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import data from '@/components/DataAboutPort'
+import data from '../../components/DataAboutPort'
 // import Link from 'next/link'
 
 export default function aboutPort() {

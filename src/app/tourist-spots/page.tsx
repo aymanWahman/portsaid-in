@@ -1,4 +1,4 @@
-import Modal from "@/components/Modal";
+import Modal from "../../components/Modal";
 import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";

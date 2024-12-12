@@ -1,10 +1,10 @@
 import { Suspense } from 'react';
 import Image from 'next/image';
-import dynamic from 'next/dynamic';
+// import dynamic from 'next/dynamic';
 import { notFound } from 'next/navigation';
 import ReviewSection from '../../../components/ReviewSection';
 import MapComponent from '../../../components/MapComponent'; // Import MapComponent
-import { touristPlaces } from '@/data/places';
+import { touristPlaces } from '../../../data/places';
 
 
 interface Props {

@@ -15,7 +15,7 @@ export default function Contact() {
         </form>
       </section>
       <div>
-        <p className='p-5 text-center text-seaBlue text-xl'>Mob: 01080644564</p>
+        <p className='p-5 text-center text-seaBlue text-xl'><span className="text-sandyGold">Mob:</span> 01080644564</p>
       </div>
     </div>
   );
