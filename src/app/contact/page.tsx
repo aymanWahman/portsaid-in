@@ -5,7 +5,7 @@ export default function Contact() {
     <div dir="rtl" className="mt-7">
       <section className="py-12 px-4 text-center">
         <h2 className="text-2xl font-bold">اتصل بنا</h2>
-        <p className="mt-4 text-gray-600">إذا كان لديك أي استفسار، لا تتردد في التواصل معنا عبر البريد الإلكتروني أو الهاتف.</p>
+        <p className="my-4 text-gray-600">إذا كان لديك أي استفسار، لا تتردد في التواصل معنا عبر البريد الإلكتروني أو الهاتف.</p>
         {/* نموذج الاتصال */}
         <form className="max-w-md mx-auto">
           <input type="text" placeholder="الاسم" className="w-full p-2 mb-4 border rounded-lg" />

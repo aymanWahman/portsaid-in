@@ -23,18 +23,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ar"  suppressHydrationWarning>
+    <html lang="ar" suppressHydrationWarning>
       <body className={`${cairo.className}`}>
-    <Providers>
-        <div className="flex flex-col min-h-screen">
+        <Providers>
+          <div className="flex flex-col min-h-screen">
             <Navbar />
             <main className="flex-grow">{children}</main>
             <Footer />
-        </div>
-        <ScrollToTop />
-    </Providers>
-</body>
-
+          </div>
+          <ScrollToTop />
+        </Providers>
+      </body>
     </html>
   );
 }

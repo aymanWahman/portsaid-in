@@ -3,17 +3,30 @@ import Image from "next/image";
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 import DataNews from "../components/DataNews";
-
+import WeatherPage from "./api/weather/page";
 // Dynamic imports
-const Hero = dynamic(() => import('@/components/Hero'), {
+const Hero = dynamic(() => import('../components/Hero'), {
   loading: () => <div className="h-[60vh] bg-gray-100 animate-pulse" />
 });
 
-const FeaturedPlaces = dynamic(() => import('@/components/FeaturedPlaces'), {
+const FeaturedPlaces = dynamic(() => import('../components/FeaturedPlaces'), {
   loading: () => <div className="h-96 bg-gray-100 animate-pulse" />
 });
 
-export default function Home() {
+// Define the WeatherType interface
+interface WeatherType {
+  temperature: number;
+  condition: string;
+  description: string;
+  // Add other relevant fields
+}
+
+// Define the Props interface
+interface Props {
+  weather: WeatherType; // Required property
+}
+
+export default function Home({ weather }: Props) {
   return (
     <main className="min-h-screen mt-24">
       {/* Hero Section */}
@@ -98,6 +111,11 @@ export default function Home() {
       <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse rounded-xl" />}>
         <FeaturedPlaces />
       </Suspense>
+
+      <div className="my-5 p-5">
+        {/* Pass the weather data to the WeatherPage component */}
+        <WeatherPage weather={weather} />
+      </div>
     </main>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 import { DataTypes } from '@/Types/dataTypes';
-import gardens from "@/components/DataGarden";
+import gardens from "../../../components/DataGarden";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";

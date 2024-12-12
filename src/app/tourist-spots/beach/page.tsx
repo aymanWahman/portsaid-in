@@ -1,6 +1,6 @@
 "use client";
 import { DataTypes } from '@/Types/dataTypes';
-import beaches from "@/components/DataBeach";
+import beaches from "../../../components/DataBeach";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
