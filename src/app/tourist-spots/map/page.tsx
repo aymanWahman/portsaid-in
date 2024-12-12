@@ -6,7 +6,7 @@ import dynamic from 'next/dynamic';
 import Head from 'next/head';
 
 // تحميل مكون الخريطة بشكل ديناميكي
-const MapComponent = dynamic(() => import('@/components/MapComponent'), {
+const MapComponent = dynamic(() => import('../../../components/MapComponent'), {
   ssr: false,
   loading: () => <div>جاري تحميل الخريطة...</div>,
 });
