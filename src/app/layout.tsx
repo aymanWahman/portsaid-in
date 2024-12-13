@@ -13,7 +13,7 @@ const cairo = Cairo({
 });
 
 export const metadata: Metadata = {
-  title: 'بورسعيد - بوابة مصر الشرقية',
+  title: 'بورسعيد',
   description: 'اكتشف جمال وسحر مدينة بورسعيد، بوابة مصر الشرقية وتاريخها العريق',
 };
 
