@@ -1,9 +1,11 @@
 'use client';
+
 import Image from "next/image";
 import dynamic from 'next/dynamic';
-import { Suspense } from 'react';
+import { Suspense, useState } from 'react';
 import DataNews from "../components/DataNews";
-import WeatherPage from "./api/weather/page";
+import { WeatherType } from '../Types/WeatherType'; // Import WeatherType
+import FetchWeather from './weather/page';
 // Dynamic imports
 const Hero = dynamic(() => import('../components/Hero'), {
   loading: () => <div className="h-[60vh] bg-gray-100 animate-pulse" />
@@ -13,27 +15,17 @@ const FeaturedPlaces = dynamic(() => import('../components/FeaturedPlaces'), {
   loading: () => <div className="h-96 bg-gray-100 animate-pulse" />
 });
 
-// Define the WeatherType interface
-interface WeatherType {
-  temperature: number;
-  condition: string;
-  description: string;
-  // Add other relevant fields
-}
+export default function Home({ setWeather }: { setWeather: React.Dispatch<React.SetStateAction<WeatherType | null>> }) {
+  const [currentWeather, setCurrentWeather] = useState<WeatherType | null>(null);
 
-// Define the Props interface
-interface Props {
-  weather: WeatherType; // Required property
-}
-
-export default function Home({ weather }: Props) {
   return (
     <main className="min-h-screen mt-24">
       {/* Hero Section */}
       <Suspense fallback={<div className="h-[50vh] w-full bg-gray-100 animate-pulse" />}>
         <Hero />
       </Suspense>
-      
+
+
       {/* Video Section */}
       <section className="container mx-auto mt-2 p-5">
         <div className="grid md:grid-cols-2 gap-8 place-items-center">
@@ -49,9 +41,9 @@ export default function Home({ weather }: Props) {
                 preload="none"
                 poster="https://res.cloudinary.com/dktod7mod/image/upload/v1732627109/photo_4_2024-11-24_15-47-45_k9dapv.jpg"
               >
-                <source 
-                  src="https://res.cloudinary.com/dktod7mod/video/upload/v1732624266/portsaidView_i63tmz.mp4" 
-                  type="video/mp4" 
+                <source
+                  src="https://res.cloudinary.com/dktod7mod/video/upload/v1732624266/portsaidView_i63tmz.mp4"
+                  type="video/mp4"
                 />
                 متصفحك لا يدعم تشغيل الفيديو
               </video>
@@ -83,8 +75,8 @@ export default function Home({ weather }: Props) {
           <h2 className="text-3xl font-bold text-center text-seaBlue mb-8">أحدث الأخبار</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {DataNews.map((news) => (
-              <article 
-                key={news.id} 
+              <article
+                key={news.id}
                 className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105"
               >
                 <div className="relative h-48">
@@ -112,10 +104,10 @@ export default function Home({ weather }: Props) {
         <FeaturedPlaces />
       </Suspense>
 
-      <div className="my-5 p-5">
-        {/* Pass the weather data to the WeatherPage component */}
-        <WeatherPage weather={weather} />
+      <div dir="rtl" className="p-5 m-5">
+      <FetchWeather />
       </div>
+      
     </main>
   );
 }
