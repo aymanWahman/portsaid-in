@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  
   content: [
     "./src/**/*.{js,ts,jsx,tsx}",
     "./public/index.html",
@@ -7,8 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        cairo: ["Cairo", "sans-serif"],
-        
+        cairo: ['Cairo', 'sans-serif'],
       },
       colors: {
         seaBlue: {
