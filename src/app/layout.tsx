@@ -24,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ar" suppressHydrationWarning>
-      <body className={`${cairo.className}`}>
+      <body className="font-cairo">
         <Providers>
           <div className="flex flex-col min-h-screen">
             <Navbar />
