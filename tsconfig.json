@@ -34,7 +34,7 @@
     ".next/types/**/*.ts",
     "src/components/Navbar.tsx",
     "src/components/DataNews.ts"
-  ],
+, "tailwind.config.js"  ],
   "exclude": [
     "node_modules"
   ]
