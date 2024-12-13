@@ -4,8 +4,7 @@ import Image from "next/image";
 import dynamic from 'next/dynamic';
 import { Suspense, useState } from 'react';
 import DataNews from "../components/DataNews";
-import { WeatherType } from '../Types/WeatherType'; // Import WeatherType
-import FetchWeather from './weather/page';
+
 // Dynamic imports
 const Hero = dynamic(() => import('../components/Hero'), {
   loading: () => <div className="h-[60vh] bg-gray-100 animate-pulse" />
@@ -15,8 +14,8 @@ const FeaturedPlaces = dynamic(() => import('../components/FeaturedPlaces'), {
   loading: () => <div className="h-96 bg-gray-100 animate-pulse" />
 });
 
-export default function Home({ setWeather }: { setWeather: React.Dispatch<React.SetStateAction<WeatherType | null>> }) {
-  const [currentWeather, setCurrentWeather] = useState<WeatherType | null>(null);
+export default function Home() {
+
 
   return (
     <main className="min-h-screen mt-24">
@@ -104,10 +103,6 @@ export default function Home({ setWeather }: { setWeather: React.Dispatch<React.
         <FeaturedPlaces />
       </Suspense>
 
-      <div dir="rtl" className="p-5 m-5">
-      <FetchWeather />
-      </div>
-      
     </main>
   );
 }
