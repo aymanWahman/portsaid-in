@@ -1,9 +1,10 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import type { NextAuthOptions } from "next-auth";
 import bcrypt from "bcryptjs";
 import connectDB from "../../../../lib/db";
 import User from "../../../../models/User";
-import type { NextAuthOptions } from "next-auth";
+
 
 const authOptions: NextAuthOptions = {
   providers: [
