@@ -1,10 +1,12 @@
-import type { Metadata } from 'next';
-import { Cairo } from 'next/font/google';
+// import type { Metadata } from 'next';
 import './globals.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ScrollToTop from '../components/ScrollToTop';
 import { Providers } from '../components/Providers';
+
+import { Cairo } from 'next/font/google'; 
+
 
 const cairo = Cairo({ 
   subsets: ['arabic'],
@@ -12,10 +14,11 @@ const cairo = Cairo({
   weight: ['400', '600', '700'],
 });
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'بورسعيد',
   description: 'اكتشف جمال وسحر مدينة بورسعيد، بوابة مصر الشرقية وتاريخها العريق',
 };
+
 
 export default function RootLayout({
   children,
