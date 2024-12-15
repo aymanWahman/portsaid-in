@@ -69,7 +69,7 @@ export default function Home() {
       </section>
 
       {/* Latest News */}
-      <section className="py-12 px-4">
+      <section className="py-10 px-4">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-center text-seaBlue mb-8">أحدث الأخبار</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
