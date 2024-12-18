@@ -2,11 +2,11 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
+import 'leaflet-routing-machine/dist/leaflet-routing-machine.css';
 import 'leaflet.locatecontrol/dist/L.Control.Locate.css';
+import 'leaflet/dist/leaflet.css';
 import 'leaflet.locatecontrol';
 import 'leaflet-routing-machine'; // Add this line
-import 'leaflet-routing-machine/dist/leaflet-routing-machine.css';
 import NearbyPlacesFilter from './NearbyPlacesFilter';
 import NearbyPlaceDetails from './NearbyPlaceDetails';
 
