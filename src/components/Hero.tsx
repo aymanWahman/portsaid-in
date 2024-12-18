@@ -17,10 +17,10 @@ export default function Hero() {
           />
           <div className="absolute inset-0 bg-black/40" />
           <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold mb-7">
               مرحباً بكم في بورسعيد
             </h1>
-            <p className="text-xl md:text-2xl">
+            <p className="text-xl md:text-2xl text-gray-500">
               عروس البحر المتوسط
             </p>
           </div>

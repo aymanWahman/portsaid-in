@@ -36,7 +36,7 @@ const Pharmacies: React.FC = () => {
   const uniqueCategories = ['All', ...new Set(PharmaciesData.map((d) => d.category))];
 
   return (
-    <div dir="rtl" className="p-4 mt-14">
+    <div dir="rtl" className="p-4 mt-20">
       <div className="text-center">
         <Link href="/essentialPlaces" className="text-xl text-sandyGold hover:text-seaBlue transition">
           الأماكن الهامة
