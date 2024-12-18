@@ -1,4 +1,4 @@
-import { DataTypes } from '@/Types/dataTypes';
+import { DataTypes } from '../Types/dataTypes';
 
 const gardens: DataTypes[] = [
   {

@@ -59,7 +59,7 @@ export default function SignUp() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center relative overflow- mt-16">
       {/* خلفية متدرجة */}
       <div className="absolute inset-0 bg-gradient-to-br from-seaBlue-light to-sandyGold-light dark:from-gray-900 dark:to-gray-800"></div>
       
