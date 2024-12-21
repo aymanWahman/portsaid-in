@@ -2,11 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import L from 'leaflet';
-import 'leaflet-routing-machine/dist/leaflet-routing-machine.css';
-import 'leaflet.locatecontrol/dist/L.Control.Locate.css';
 import 'leaflet/dist/leaflet.css';
-import 'leaflet.locatecontrol';
-import 'leaflet-routing-machine'; // Add this line
 import NearbyPlacesFilter from './NearbyPlacesFilter';
 import NearbyPlaceDetails from './NearbyPlaceDetails';
 
@@ -41,8 +37,6 @@ const MapComponent: React.FC<MapProps> = ({
 }) => {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<L.Map | null>(null);
-  const routingControlRef = useRef<any>(null);
-  const [userLocation, setUserLocation] = useState<[number, number] | null>(null);
   const [selectedTypes, setSelectedTypes] = useState<string[]>(['restaurant', 'hotel', 'attraction']);
   const [selectedPlace, setSelectedPlace] = useState<NearbyPlace | null>(null);
   const markersRef = useRef<{ [key: string]: L.Marker }>({});
@@ -107,7 +101,6 @@ const MapComponent: React.FC<MapProps> = ({
         <h3 style="margin: 3px; color: #2563eb; font-weight: bold;">${name || 'مكان غير مسمى'}</h3>
         ${image ? `<img src="${image}" alt="${name}" style="width: 150px; height: auto; margin: auto;" />` : ''}
         <p>${address || ''}</p>
-        ${userLocation ? '<button onclick="window.showRoute()" class="route-btn">عرض المسار من موقعي</button>' : ''}
       </div>
     `;
     mainMarker.bindPopup(popupContent).openPopup();
@@ -143,15 +136,6 @@ const MapComponent: React.FC<MapProps> = ({
       position: 'bottomright'
     }).addTo(map);
 
-    // إضافة دالة عرض المسار للنافذة
-    (window as any).showRoute = () => {
-      if (userLocation && routingControlRef.current) {
-        routingControlRef.current.remove();
-      }
-
-
-    };
-
     // إضافة دالة عرض تفاصيل المكان للنافذة
     (window as any).showPlaceDetails = (placeName: string) => {
       const place = nearbyPlaces.find(p => p.name === placeName);
@@ -163,10 +147,9 @@ const MapComponent: React.FC<MapProps> = ({
     // تنظيف عند إزالة المكون
     return () => {
       map.remove();
-      delete (window as any).showRoute;
       delete (window as any).showPlaceDetails;
     };
-  }, [coordinates, name, address, image, markerIcon, nearbyPlaces, userLocation, selectedTypes]);
+  }, [coordinates, name, address, image, markerIcon, nearbyPlaces, selectedTypes]);
 
   return (
     <>
@@ -208,18 +191,6 @@ const MapComponent: React.FC<MapProps> = ({
         }
         .marker-icon.attraction {
           background-image: url('/icons/attraction.svg');
-        }
-        .route-btn {
-          background: #2563eb;
-          color: white;
-          border: none;
-          padding: 5px 10px;
-          border-radius: 5px;
-          margin-top: 5px;
-          cursor: pointer;
-        }
-        .route-btn:hover {
-          background: #1d4ed8;
         }
         .details-btn {
           background: #2563eb;
