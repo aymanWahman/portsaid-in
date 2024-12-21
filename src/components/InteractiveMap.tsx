@@ -15,11 +15,16 @@ interface Place {
   image: string;
 }
 
-interface InteractiveMapProps {
-  places: Place[];
+interface NearbyPlace {
+  // Add properties for NearbyPlace as needed
 }
 
-export default function InteractiveMap({ places }: InteractiveMapProps) {
+interface InteractiveMapProps {
+  places: Place[];
+  nearbyPlaces: NearbyPlace[];
+}
+
+export default function InteractiveMap({ places, nearbyPlaces }: InteractiveMapProps) {
   const [selectedPlace, setSelectedPlace] = useState<Place | null>(null);
 
   return (
