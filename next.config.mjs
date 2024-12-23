@@ -16,7 +16,7 @@ const nextConfig = {
     // إذا كنت تستخدم ميزات أخرى تجريبية، يمكنك إضافتها هنا
   },
 
-  // serverExternalPackages: ['useSearchParams'], // تحديث الإعداد الجديد
+  serverExternalPackages: ['useSearchParams'], // تحديث الإعداد الجديد
 };
 
-module.exports = nextConfig;
+export default nextConfig;
