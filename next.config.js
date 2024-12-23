@@ -12,8 +12,10 @@ const nextConfig = {
   },
   reactStrictMode: true,
   experimental: {
+    outputFileTracing: false,
     // إذا كنت تستخدم ميزات أخرى تجريبية، يمكنك إضافتها هنا
   },
+
   // serverExternalPackages: ['useSearchParams'], // تحديث الإعداد الجديد
 };
 
