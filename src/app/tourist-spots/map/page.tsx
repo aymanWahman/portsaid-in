@@ -1,11 +1,11 @@
 'use client';
 
-import {  useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react'; // Suspense should be imported here
 import { useSearchParams } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 
-// تحميل مكون الخريطة بشكل ديناميكي
+// Load the map component dynamically
 const MapComponent = dynamic(() => import('../../../components/MapComponent'), {
   ssr: false,
   loading: () => <div>جاري تحميل الخريطة...</div>,
@@ -54,12 +54,14 @@ const InnerMapPage = () => {
         <meta name="description" content={`عرض موقع ${restaurantName} على الخريطة.`} />
         {restaurantImage && <meta property="og:image" content={restaurantImage} />}
       </Head>
-      <MapComponent
-        coordinates={coordinates}
-        name={restaurantName}
-        address={restaurantAddress}
-        image={restaurantImage}
-      />
+      <Suspense fallback={<div>Loading map...</div>}>
+        <MapComponent
+          coordinates={coordinates}
+          name={restaurantName}
+          address={restaurantAddress}
+          image={restaurantImage}
+        />
+      </Suspense>
     </div>
   );
 };

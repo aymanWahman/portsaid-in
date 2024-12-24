@@ -1,15 +1,3 @@
 {
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "sourceType": "module",
-    "ecmaVersion": 2020
-  },
-  "env": {
-    "node": true,
-    "es2021": true
-  },
-  "rules": {
-    "require-await": "off",
-    "@typescript-eslint/require-await": "off"
-  }
+  "extends": "next/core-web-vitals"
 }

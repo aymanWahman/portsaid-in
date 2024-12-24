@@ -4,15 +4,13 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ScrollToTop from '../components/ScrollToTop';
 import { Providers } from '../components/Providers';
+import { Tajawal } from "next/font/google"; // استيراد الخطوط
 
-// import { Cairo } from 'next/font/google'; 
+
+// const cairo = Cairo({ subsets: ["latin"], weight: "700" }); // خط الإنجليزي
+const tajawal = Tajawal({ subsets: ["arabic"], weight: "400" }); // خط العربي
 
 
-// const cairo = Cairo({ 
-//   subsets: ['arabic'],
-//   display: 'swap',
-//   weight: ['400', '600', '700'],
-// });
 
 export const metadata = {
   title: 'بورسعيد',
@@ -27,7 +25,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ar" suppressHydrationWarning>
-      <body >
+      <body className={tajawal.className}>
         <Providers>
           <div className="flex flex-col min-h-screen">
             <Navbar />
