@@ -7,9 +7,7 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      // fontFamily: {
-      //   cairo: ['Cairo', 'sans-serif'],
-      // },
+     
       colors: {
         seaBlue: {
           50: '#eff6ff',

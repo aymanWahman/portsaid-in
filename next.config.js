@@ -9,7 +9,7 @@ const nextConfig = {
       },
     ],
   },
-  swcMinify: true,  // يستخدم SWC لتقليل حجم الحزم
+  
 };
 
 module.exports = nextConfig;

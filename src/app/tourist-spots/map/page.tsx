@@ -1,9 +1,10 @@
 'use client';
 
-import { useEffect, useState, Suspense } from 'react'; // Suspense should be imported here
+import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
+import { Suspense } from 'react'; 
 
 // Load the map component dynamically
 const MapComponent = dynamic(() => import('../../../components/MapComponent'), {

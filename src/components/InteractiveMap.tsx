@@ -2,7 +2,9 @@
 
 import { useState } from 'react';
 import Map, { Marker, Popup } from 'react-map-gl';
-// import 'mapbox-gl/dist/mapbox-gl.css';
+import Image from 'next/image';
+
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 // تعريف نوع البيانات للأماكن
 interface Place {
@@ -69,7 +71,7 @@ export default function InteractiveMap({ places, nearbyPlaces }: InteractiveMapP
               <h3 className="font-bold text-lg mb-1">{selectedPlace.name}</h3>
               <p className="text-sm text-gray-600">{selectedPlace.description}</p>
               {selectedPlace.image && (
-                <img
+                <Image
                   src={selectedPlace.image}
                   alt={selectedPlace.name}
                   className="w-full h-32 object-cover rounded-lg mt-2"
