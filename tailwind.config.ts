@@ -1,14 +1,15 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+import type { Config } from 'tailwindcss'
+
+const config: Config = {
   content: [
     "./src/**/*.{js,ts,jsx,tsx}", // ضع المسار الصحيح لملفات المشروع
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
-      fontFamily: {
-        cairo: ['Cairo', 'sans-serif'],
-      },
+      // fontFamily: {
+      //   cairo: ['Cairo', 'sans-serif'],
+      // },
       colors: {
         seaBlue: {
           50: '#eff6ff',
@@ -83,3 +84,4 @@ module.exports = {
 }
 
 
+export default config;

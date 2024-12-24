@@ -1,5 +1,4 @@
 /** @type {import('next').NextConfig} */
-
 const nextConfig = {
   images: {
     remotePatterns: [
@@ -10,13 +9,7 @@ const nextConfig = {
       },
     ],
   },
-  reactStrictMode: true,
-  experimental: {
-  
-    // إذا كنت تستخدم ميزات أخرى تجريبية، يمكنك إضافتها هنا
-  },
-
-  serverExternalPackages: ['useSearchParams'], // تحديث الإعداد الجديد
+  swcMinify: true,  // يستخدم SWC لتقليل حجم الحزم
 };
 
-export default nextConfig;
+module.exports = nextConfig;
