@@ -1,6 +1,5 @@
-import type { Config } from 'tailwindcss'
-
-const config: Config = {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
   content: [
     "./src/**/*.{js,ts,jsx,tsx}", // ضع المسار الصحيح لملفات المشروع
     "./components/**/*.{js,ts,jsx,tsx}",
@@ -81,5 +80,3 @@ const config: Config = {
   plugins: [],
 }
 
-
-export default config;

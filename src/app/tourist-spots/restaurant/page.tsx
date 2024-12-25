@@ -10,9 +10,9 @@ import ReviewsSection from "../../../components/ReviewsSection";
 const RestaurantPage: React.FC = () => {
   const router = useRouter();
 
-  const handleViewMap = (coordinates: [number, number], name: string, image: string, address: string) => {
-    router.push(`/tourist-spots/map?coordinates=${encodeURIComponent(coordinates.join(','))}&name=${encodeURIComponent(name)}&image=${encodeURIComponent(image)}&address=${encodeURIComponent(address)}`);
-  };
+  // const handleViewMap = (coordinates: [number, number], name: string, image: string, address: string) => {
+  //   router.push(`/tourist-spots/map?coordinates=${encodeURIComponent(coordinates.join(','))}&name=${encodeURIComponent(name)}&image=${encodeURIComponent(image)}&address=${encodeURIComponent(address)}`);
+  // };
 
   const [regionFilter, setRegionFilter] = useState<string>('All');
   const [categoryFilter, setCategoryFilter] = useState<string>('All');
@@ -101,7 +101,7 @@ const RestaurantPage: React.FC = () => {
                 <strong>التلفون:</strong> {restaurant.contact}
               </p>
               <div className="flex justify-center gap-4 mt-4">
-    <button
+    {/* <button
       className=" bg-seaBlue px-4 py-2 rounded-s-xl border-2 border-seaBlue"
       onClick={() =>
         handleViewMap(
@@ -113,7 +113,7 @@ const RestaurantPage: React.FC = () => {
       }
     >
       عرض الخريطة
-    </button>
+    </button> */}
     <button
       className=" px-4 py-2 rounded-e-xl border-2 border-seaBlue text-seaBlue"
       onClick={() => toggleReviews(restaurant.id)}
