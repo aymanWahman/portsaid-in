@@ -54,27 +54,7 @@ module.exports = {
           DEFAULT: '#2E7D32',
         }
       },
-      transitionTimingFunction: {
-        "in-out-soft": "ease-in-out",
-      },
-      boxShadow: {
-        "custom-light": "0 4px 6px rgba(0, 0, 0, 0.1)",
-        "custom-dark": "0 4px 6px rgba(0, 0, 0, 0.4)",
-      },
-      animation: {
-        'fade-in': 'fadeIn 0.5s ease-in-out',
-        'slide-in': 'slideIn 0.5s ease-out',
-      },
-      keyframes: {
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
-        },
-        slideIn: {
-          '0%': { transform: 'translateY(-10px)', opacity: '0' },
-          '100%': { transform: 'translateY(0)', opacity: '1' },
-        },
-      },
+
     },
   },
   plugins: [],
