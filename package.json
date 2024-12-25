@@ -2,6 +2,13 @@
   "name": "portsaid-in",
   "version": "0.1.0",
   "private": false,
+  "description": "This is a web for the information of Portsaid city.",
+  "keywords": [
+    "portsaid",
+    "بورسعيد"
+  ],
+  "author": "Ayman Aly",
+  "license": "ISC",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -25,8 +32,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.4.0",
-    "react-leaflet": "^4.2.1",
-    "react-map-gl": "^7.1.7"
+    "react-leaflet": "^4.2.1"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
@@ -42,13 +48,6 @@
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.17",
     "typescript": "^5"
-  },
-  "description": "This is a web for the information of Portsaid city.",
-  "main": "index.js",
-  "keywords": [
-    "portsaid",
-    "بورسعيد"
-  ],
-  "author": "Ayman Aly",
-  "license": "ISC"
+  }
+ 
 }
