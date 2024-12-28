@@ -7,7 +7,7 @@ import DataNews from "../components/DataNews";
 
 // Dynamic imports
 const Hero = dynamic(() => import('../components/Hero'), {
-  loading: () => <div className="h-[40vh] bg-gray-100 animate-pulse" />
+  loading: () => <div className="h-[20vh] bg-gray-100 animate-pulse" />
 });
 
 const FeaturedPlaces = dynamic(() => import('../components/FeaturedPlaces'), {
@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <main className="min-h-screen mt-24">
       {/* Hero Section */}
-      <Suspense fallback={<div className="h-[40vh] w-full bg-gray-100 animate-pulse" />}>
+      <Suspense fallback={<div className="h-[20vh] w-full bg-gray-100 animate-pulse" />}>
         <Hero />
       </Suspense>
 
