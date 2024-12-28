@@ -1,7 +1,7 @@
-import autoprefixer from 'autoprefixer';
-import postcssNested from 'postcss-nested';
+const autoprefixer = require('autoprefixer');
+const postcssNested = require('postcss-nested');
 
-export default {
+module.exports = {
   plugins: [
     autoprefixer,
     postcssNested,
