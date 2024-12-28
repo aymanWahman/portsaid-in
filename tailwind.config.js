@@ -1,5 +1,5 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+// tailwind.config.js
+export default {
   content: [
     "./src/**/*.{js,ts,jsx,tsx}", // ضع المسار الصحيح لملفات المشروع
     "./components/**/*.{js,ts,jsx,tsx}",
