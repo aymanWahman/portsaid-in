@@ -26,7 +26,7 @@ const BeachPage: React.FC<Props> = ({ beaches }) => {
 
 
   return (
-    <div dir="rtl" className="p-4 mt-14">
+    <div dir="rtl" className="p-4 mt-20">
   <div className="text-center">
   <Link
         href="/tourist-spots"

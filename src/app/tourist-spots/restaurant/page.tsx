@@ -37,7 +37,7 @@ const RestaurantPage: React.FC = () => {
   const uniqueCategories = ['All', ...new Set(restaurants.map((d) => d.category))];
 
   return (
-    <div dir="rtl" className="p-4 mt-24">
+    <div dir="rtl" className="p-4 mt-20">
       <div className="text-center">
         <Link href="/tourist-spots" className="text-xl text-sandyGold hover:text-seaBlue transition">
           الأماكن السياحية
@@ -100,31 +100,31 @@ const RestaurantPage: React.FC = () => {
               <p className="text-sm text-gray-700">
                 <strong>التلفون:</strong> {restaurant.contact}
               </p>
-              <div className="flex justify-center gap-4 mt-4">
-    {/* <button
-      className=" bg-seaBlue px-4 py-2 rounded-s-xl border-2 border-seaBlue"
-      onClick={() =>
-        handleViewMap(
-          restaurant.coordinates,
-          restaurant.name,
-          restaurant.image,
-          restaurant.address
-        )
-      }
-    >
-      عرض الخريطة
-    </button> */}
-    <button
-      className=" px-4 py-2 rounded-e-xl border-2 border-seaBlue text-seaBlue"
-      onClick={() => toggleReviews(restaurant.id)}
-    >
-      {showReviews[restaurant.id] ? 'إخفاء التقييمات' : 'عرض التقييمات'}
-    </button>
-  </div>
+              {/* <div className="flex justify-center gap-4 mt-4">
+                <button
+                  className=" bg-seaBlue px-4 py-2 rounded-s-xl border-2 border-seaBlue"
+                  onClick={() =>
+                    handleViewMap(
+                      restaurant.coordinates,
+                      restaurant.name,
+                      restaurant.image,
+                      restaurant.address
+                    )
+                  }
+                >
+                  عرض الخريطة
+                </button>
+                <button
+                  className=" px-4 py-2 rounded-e-xl border-2 border-seaBlue text-seaBlue"
+                  onClick={() => toggleReviews(restaurant.id)}
+                >
+                  {showReviews[restaurant.id] ? 'إخفاء التقييمات' : 'عرض التقييمات'}
+                </button>
+              </div> */}
             </div>
 
             {/* عرض التقييمات إذا كانت الحالة true */}
-            {showReviews[restaurant.id] && <ReviewsSection />}
+            {/* {showReviews[restaurant.id] && <ReviewsSection />} */}
           </div>
         ))}
       </div>

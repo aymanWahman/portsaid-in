@@ -127,8 +127,8 @@ const ClothingStores: React.FC = () => {
               <p className="text-sm text-gray-700">
                 <strong>التلفون:</strong> {DATA.contact}
               </p>
-              <div className="flex justify-center gap-4 mt-4">
-                {/* <button
+              {/* <div className="flex justify-center gap-4 mt-4">
+                <button
                   className="bg-seaBlue px-4 py-2 rounded-s-xl border-2 border-seaBlue"
                   onClick={() =>
                     handleViewMap(
@@ -140,18 +140,18 @@ const ClothingStores: React.FC = () => {
                   }
                 >
                   عرض الخريطة
-                </button> */}
+                </button>
                 <button
                   className="px-4 py-2 rounded-e-xl text-seaBlue border-2 border-seaBlue"
                   onClick={() => toggleReviews(DATA.id)}
                 >
                   {showReviews[DATA.id] ? "إخفاء التقييمات" : "عرض التقييمات"}
                 </button>
-              </div>
+              </div> */}
             </div>
 
             {/* عرض التقييمات إذا كانت الحالة true */}
-            {showReviews[DATA.id] && <ReviewsSection />}
+            {/* {showReviews[DATA.id] && <ReviewsSection />} */}
           </div>
         ))}
       </div>
