@@ -70,7 +70,7 @@ const hotels: DataTypes[] = [
   {
     id: 7,
     name: "فندق هلنان",
-    region: "بورفؤاد ",
+    region: "بورفؤاد",
     address: "23-Jul, st، Port Fouad City, Port Said Governorate 8587010",
     contact: "01159757590",
     description: "فندق فاخر يحتوي على مطعم يقدم مأكولات طازجة وخدمات ممتازة.",
