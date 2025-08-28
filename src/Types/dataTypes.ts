@@ -6,7 +6,7 @@ export type DataTypes = {
   cuisine?: string[];
   contact: string;
   description: string;
-  coordinates: [number, number];
+  coordinates?: [number, number];
   image: string;
   category: string;
 };

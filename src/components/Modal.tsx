@@ -15,7 +15,7 @@ const Modal = ({ title, content, contentA }: { title: string; content: string; c
       </button>
 
       {isOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+        <div className="fixed inset-0 bg-white bg-opacity-80 flex justify-center items-center">
           <div className="bg-sandyGold p-6 rounded-lg shadow-lg w-3/4 md:w-1/2">
             <h2 className="text-lg text-black font-bold mb-4">{title}</h2>
             <p className="text-slate-500">{content}</p>

@@ -9,6 +9,7 @@ import { MapPinIcon, StarIcon, ClockIcon, PhoneIcon } from '@heroicons/react/24/
 interface PlaceCardProps {
   id: string;
   name: string;
+  place: string;
   description: string;
   image: string;
   rating?: number;
@@ -21,6 +22,7 @@ interface PlaceCardProps {
 const PlaceCard: React.FC<PlaceCardProps> = ({
   id,
   name,
+  place,
   description,
   image,
   rating,
@@ -67,6 +69,9 @@ const PlaceCard: React.FC<PlaceCardProps> = ({
       </div>
 
       <div className="p-4">
+        <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-seaBlue transition-colors">
+          {place}
+        </h2>
         <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-seaBlue transition-colors">
           {name}
         </h3>
@@ -89,8 +94,8 @@ const PlaceCard: React.FC<PlaceCardProps> = ({
           )}
           {phone && (
             <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
-              <PhoneIcon className="w-4 h-4 text-seaBlue" />
-              <span dir="ltr">{phone}</span>
+              <PhoneIcon className="w-4 h-4 text-primary" />
+              <span >{phone}</span>
             </div>
           )}
         </div>

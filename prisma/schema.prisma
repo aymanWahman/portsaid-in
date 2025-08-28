@@ -1,0 +1,276 @@
+// This is your Prisma schema file
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+/// نموذج المستخدم
+model User {
+  id              String         @id @default(auto()) @map("_id") @db.ObjectId
+  email           String         @unique
+  password        String
+  name            String
+  nameEn          String?
+  image           String?
+  phone           String?
+  streetAddress   String?
+  streetAddressEn String?
+  postalCode      String?
+  city            String?
+  cityEn          String?
+  country         String?
+  countryEn       String?
+  role            UserRole       @default(USER)
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+  orders          OrderProduct[]
+  accounts        Account[]
+  sessions        Session[]
+  properties      Property[]
+  reviews         Review[]
+}
+
+/// جلسات المستخدم
+model Session {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  sessionToken String   @unique
+  userId       String   @db.ObjectId
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+/// طلبات التحقق (لو NextAuth حديث سميه VerificationToken)
+model VerificationRequest {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  identifier String
+  token      String   @unique
+  expires    DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@unique([identifier, token])
+}
+
+/// حسابات المستخدم
+model Account {
+  id                String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId            String  @db.ObjectId
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+/// المنتجات
+model Product {
+  id          String         @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  description String
+  image       String
+  order       Int            @default(0)
+  basePrice   Float
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  sizes       Size[]
+  extras      Extra[]
+  orders      OrderProduct[]
+  category    Category       @relation(fields: [categoryId], references: [id])
+  categoryId  String         @db.ObjectId
+}
+
+model Size {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      ProductSizes
+  price     Float
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId String  @db.ObjectId
+}
+
+model Extra {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      ExtraIngredients
+  price     Float
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId String   @db.ObjectId
+}
+
+model Category {
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  name     String
+  nameEn   String
+  order    Int       @default(0)
+  products Product[]
+  places   Place[]
+}
+
+model Order {
+  id            String         @id @default(auto()) @map("_id") @db.ObjectId
+  paid          Boolean        @default(false)
+  subTotal      Float
+  deliveryFee   Float
+  totalPrice    Float
+  userEmail     String
+  phone         String
+  streetAddress String
+  postalCode    String
+  city          String
+  country       String
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  products      OrderProduct[]
+}
+
+model OrderProduct {
+  id       String     @id @default(auto()) @map("_id") @db.ObjectId
+  quantity Int
+orderId   String   @db.ObjectId
+  order     Order    @relation(fields: [orderId], references: [id])
+
+  userId    String?  @db.ObjectId
+  user      User?    @relation(fields: [userId], references: [id])
+
+  productId String   @db.ObjectId
+  product   Product  @relation(fields: [productId], references: [id])
+}
+
+enum ProductSizes {
+  SMALL
+  MEDIUM
+  LARGE
+}
+
+enum ExtraIngredients {
+  CHEESE
+  BACON
+  TOMATO
+  ONION
+  PEPPER
+}
+
+/// أماكن بورسعيد
+model Place {
+  id            String     @id @default(auto()) @map("_id") @db.ObjectId
+  name          String
+  nameEn        String
+  description   String?
+  descriptionEn String?
+  images        String[]
+  address       String?
+  addressEn     String?
+  phone         String?
+  website       String?
+  email         String?
+  coordinates   String?
+  category      Category       @relation(fields: [categoryId], references: [id])
+  categoryId    String     @db.ObjectId
+  placeType     PlaceType
+  region        Region
+  rating        Float?     @default(0)
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+}
+
+/// مراجعات
+model Review {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  itemId    String   @db.ObjectId
+  itemType  String
+  userId    String   @db.ObjectId
+  rating    Int
+  comment   String?
+  commentEn String?
+  user      User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+
+  @@unique([itemId, itemType, userId])
+}
+
+/// عقارات
+model Property {
+  id            String          @id @default(auto()) @map("_id") @db.ObjectId
+  title         String
+  titleEn       String
+  description   String?
+  descriptionEn String?
+  price         Float
+  area          Float
+  address       String
+  addressEn     String
+  images        String[]
+  bedrooms      Int?
+  bathrooms     Int?
+  propertyType  PropertyType
+  transaction   TransactionType
+  region        Region
+  isFeatured    Boolean         @default(false)
+  isAvailable   Boolean         @default(true)
+  latitude      Float?
+  longitude     Float?
+  amenities     String[]
+  amenitiesEn   String[]
+  contactPhone  String?
+  contactEmail  String?
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+
+  ownerId       String @db.ObjectId
+  owner         User   @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+}
+
+// ========== ENUMS ==========
+enum PlaceType {
+  STAR
+  FLAFEL
+  FISH
+  TAKEAWAY
+  PIZZA
+  HOTEL
+  RESTAURANT
+  BEACH
+  GARDEN
+  PHARMACY
+  CLOTHING
+  OTHER
+}
+
+enum PropertyType {
+  HOUSE
+  APARTMENT
+  SHOP
+  LAND
+}
+
+enum TransactionType {
+  SALE
+  RENT
+}
+
+enum Region {
+  PORT_FOUAD_CITY
+  AL_ARAB
+  AL_MANAKH
+  AL_DAWAHI
+  AL_SHARQ
+  AL_ZOHOR
+  AL_GANOB
+}
+
+enum UserRole {
+  USER
+  ADMIN
+}
