@@ -20,7 +20,7 @@ export const updateProfile = async (
 
   if (result.success === false) {
     return {
-      error: result.error.formErrors.fieldErrors,
+      error: result.error.flatten().fieldErrors,
       formData,
     };
   }
