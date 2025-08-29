@@ -10,7 +10,7 @@
 !.yarn/releases
 !.yarn/versions
 
-src/firebase-key.json
+/src/firebase-key.json
 
 
 # testing
