@@ -1,4 +1,4 @@
-import { NewsTypes } from "@/types/newsTypes";
+import { NewsTypes } from "../../../types/newsTypes";
 
 const DataNews: NewsTypes[] = [
   {

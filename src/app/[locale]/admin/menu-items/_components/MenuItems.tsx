@@ -24,6 +24,7 @@ async function MenuItems({ products }: { products: Product[] }) {
               alt={product.name}
               width={100}
               height={100}
+              
             />
             <h3 className="text-lg text-accent font-medium">{product.name}</h3>
           </Link>
