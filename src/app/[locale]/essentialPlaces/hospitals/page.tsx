@@ -1,26 +1,23 @@
 import getTrans from "@/lib/translation";
-import { getPlaces } from "@/lib/places-service";
-import { Locale } from "@/i18n.config";
-import HospitalFilterClient from "@/components/unified/FilterComponent";
+// import { getPlaces } from "@/lib/places-service";
+import { getCurrentLocale } from "@/lib/getCurrentLocale";
+
+// import HospitalFilterClient from "@/components/unified/FilterComponent";
 import Image from "next/image";
 import Link from "@/components/link";
 import hospitals from "@/data/DataHospital";
 import { Routes } from "@/constants/enums";
 
-export default async function HospitalsPage({
-  params,
-}: {
-  params: { locale: Locale };
-}) {
-  const { locale } = params;
-  const translations = await getTrans(locale);
+export default async function HospitalsPage() {
+  const locale = await getCurrentLocale();
+  const { essentialPlaces } = await getTrans(locale);
 
   // هجيب كل المستشفيات
-  const places = await getPlaces({
-    region: "all",
-    category: "hospital",
-    search: "",
-  });
+  // const places = await getPlaces({
+  //   region: "all",
+  //   category: "hospital",
+  //   search: "",
+  // });
 
   return (
     <main className="container pt-24 pb-7">
@@ -30,16 +27,16 @@ export default async function HospitalsPage({
           className="text-xl text-primary hover:text-accent transition"
         >
           <h1 className="text-3xl font-bold text-gray-900 hover:text-primary dark:text-white">
-            {translations.essentialPlaces.title}
+            {essentialPlaces.title}
           </h1>
         </Link>
         <p className="text-gray-600 dark:text-gray-400 mt-2">
-        {translations.essentialPlaces.subtitle}
+          {essentialPlaces.subtitle}
         </p>
       </div>
 
       {/* ✅ الفلتر + العرض */}
-      <HospitalFilterClient places={places} />
+      {/* <HospitalFilterClient places={places} /> */}
 
       <div className="grid md:grid-cols-3 gap-3">
         {hospitals.map((h) => (

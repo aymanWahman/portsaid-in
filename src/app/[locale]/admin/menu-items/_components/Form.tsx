@@ -24,7 +24,7 @@ import { ValidationErrors } from "@/validations/auth";
 import { addProduct, deleteProduct, updateProduct } from "../_actions/product";
 import Loader from "@/components/ui/loader";
 import { toast } from "@/hooks/use-toast";
-import { ProductWithRelations } from "@/types/newsTypes";
+import { ProductWithRelations } from "@/types/product";
 
 function Form({
   translations,

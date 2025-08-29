@@ -24,7 +24,7 @@ export const addProduct = async (
 
   if (result.success === false) {
     return {
-      error: result.error.formErrors.fieldErrors,
+      error: result.error.flatten().fieldErrors,
       status: 400,
       formData,
     };
@@ -66,7 +66,7 @@ export const addProduct = async (
       revalidatePath(`/${locale}`);
       return {
         status: 201,
-        message: translations.messages.productAdded,
+        message: translations.messages.placeAdded,
       };
     }
     return {};
@@ -94,7 +94,7 @@ export const updateProduct = async (
   );
   if (result.success === false) {
     return {
-      error: result.error.formErrors.fieldErrors,
+      error: result.error.flatten().fieldErrors,
       status: 400,
       formData,
     };
@@ -158,7 +158,7 @@ export const updateProduct = async (
     revalidatePath(`/${locale}`);
     return {
       status: 200,
-      message: translations.messages.updateProductSucess,
+      message: translations.messages.updatePlaceSuccess,
     };
   } catch (error) {
     console.error(error);
@@ -204,7 +204,7 @@ export const deleteProduct = async (id: string) => {
     revalidatePath(`/${locale}`);
     return {
       status: 200,
-      message: translations.messages.deleteProductSucess,
+      message: translations.messages.deletePlaceSuccess,
     };
   } catch (error) {
     console.error(error);

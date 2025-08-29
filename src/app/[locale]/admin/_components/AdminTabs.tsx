@@ -31,11 +31,11 @@ function AdminTabs({ translations }: { translations: Translations }) {
       title: translations.admin.tabs.users,
       href: `${Routes.ADMIN}/${Pages.USERS}`,
     },
-    {
-      id: crypto.randomUUID(),
-      title: translations.admin.tabs.places,
-      href: `${Routes.ADMIN}/${Pages.PLACES}`,
-    },
+    // {
+    //   id: crypto.randomUUID(),
+    //   title: translations.admin.tabs.places,
+    //   href: `${Routes.ADMIN}/${Pages.PLACES}`,
+    // },
     
     // {
     //   id: crypto.randomUUID(),

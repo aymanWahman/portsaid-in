@@ -44,7 +44,7 @@ const TouristSpots = async () => {
           <Link href={`/${locale}/${Routes.TOURIST_SPOTS}/${Pages.RESTAURANT}`}>
             <Image
               className="rounded-xl shadow-2xl shadow-black w-[400px] h-[220px] hover:scale-105 transition-transform duration-300"
-              src="/imgs/rPizzaPino.jpg"
+              src="https://res.cloudinary.com/dktod7mod/image/upload/v1756466905/ChatGPT_Image_Aug_29_2025_02_23_41_PM_zkophj.png"
               alt={touristSpots.RESTAURANT}
               width={280}
               height={140}
@@ -64,7 +64,7 @@ const TouristSpots = async () => {
           <Link href={`/${locale}/${Routes.TOURIST_SPOTS}/${Pages.HOTEL}`}>
             <Image
               className="rounded-xl shadow-2xl shadow-black w-[400px] h-[220px] hover:scale-105 transition-transform duration-300"
-              src="/imgs/hotel2.jpg"
+              src="https://res.cloudinary.com/dktod7mod/image/upload/v1756466994/ChatGPT_Image_Aug_29_2025_02_21_24_PM_yvxhb2.png"
               alt={touristSpots.HOTEL}
               width={280}
               height={140}
@@ -84,7 +84,7 @@ const TouristSpots = async () => {
           <Link href={`/${locale}/${Routes.TOURIST_SPOTS}/${Pages.GARDEN}`}>
             <Image
               className="rounded-xl shadow-2xl shadow-black w-[400px] h-[220px] hover:scale-105 transition-transform duration-300"
-              src="/imgs/garden2.jpg"
+              src="https://res.cloudinary.com/dktod7mod/image/upload/v1756467619/ChatGPT_Image_Aug_29_2025_02_37_27_PM_syxix4.png"
               alt={touristSpots.GARDEN}
               width={280}
               height={140}
@@ -105,7 +105,7 @@ const TouristSpots = async () => {
           <Link href={`/${locale}/${Routes.TOURIST_SPOTS}/${Pages.BEACH}`}>
             <Image
               className="rounded-xl shadow-2xl shadow-black w-[400px] h-[220px] hover:scale-105 transition-transform duration-300"
-              src="/imgs/portsaid5.jpg"
+              src="https://res.cloudinary.com/dktod7mod/image/upload/v1756467287/ChatGPT_Image_Aug_29_2025_02_33_55_PM_iq3dui.png"
               alt={touristSpots.BEACH}
               width={280}
               height={140}

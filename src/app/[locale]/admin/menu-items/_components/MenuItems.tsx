@@ -31,7 +31,7 @@ async function MenuItems({ products }: { products: Product[] }) {
       ))}
     </ul>
   ) : (
-    <p className="text-accent text-center">{translations.noProductsFound}</p>
+    <p className="text-accent text-center">{translations.noPlacesFound}</p>
   );
 }
 

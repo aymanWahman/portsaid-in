@@ -17,7 +17,7 @@ import Link from "@/components/link";
 async function GardenPage() {
     const locale = await getCurrentLocale();
     
-      const { touristSpots } = await getTrans(locale);
+    const { touristSpots } = await getTrans(locale);
 
   // const [filter, setFilter] = useState<string>("All");
   // const filteredRestaurants =

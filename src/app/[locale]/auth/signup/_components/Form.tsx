@@ -13,21 +13,35 @@ import { ValidationErrors } from "@/validations/auth";
 import { useParams, useRouter } from "next/navigation";
 import { useActionState, useEffect } from "react";
 
-const initialState: {
+type State = {
   message?: string;
   error?: ValidationErrors;
-  status?: number | null;
-  formData?: FormData | null;
-} = {
+  status?: number;
+  formData?: FormData;
+};
+
+const initialState: State = {
   message: "",
   error: {},
-  status: null,
-  formData: null,
+  status: 0,
+  formData: undefined,
 };
+
+// const initialState: {
+//   message?: string;
+//   error?: ValidationErrors;
+//   status?: number | null;
+//   formData?: FormData | null;
+// } = {
+//   message: "",
+//   error: {},
+//   status: null,
+//   formData: null,
+// };
 function Form({ translations }: { translations: Translations }) {
   const { locale } = useParams();
   const router = useRouter();
-  const [state, action, pending] = useActionState(signup, initialState);
+  const [state, action, pending] = useActionState<State, FormData>(signup, initialState);
   const { getFormFields } = useFormFields({
     slug: Pages.Register,
     translations,
