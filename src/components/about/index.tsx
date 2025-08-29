@@ -3,7 +3,7 @@ import MainHeading from "../main-heading";
 import { getCurrentLocale } from "@/lib/getCurrentLocale";
 import getTrans from "@/lib/translation";
 import Image from "next/image";
-import data from "../../data/DataAboutPort";
+import data from "@/data/DataAboutPort";
 
 async function About() {
   const locale = await getCurrentLocale();
@@ -28,13 +28,12 @@ async function About() {
             >
               <div className="">
                 <Image
-                  className="rounded shadow-2xl shadow-black w-[350px] h-[250px] mx-auto"
-                  src={d.image}
+                  src= {d.image!}
                   alt={d.title}
                   width="460"
                   height="360"
-                  priority={false}
-                  loading="lazy"
+                  priority
+                  className="rounded shadow-2xl shadow-black w-[350px] h-[250px] mx-auto"
                 />
               </div>
 

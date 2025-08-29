@@ -5,6 +5,7 @@ import { IFormField } from "@/types/app";
 import Checkbox from "./checkbox";
 import { ValidationErrors } from "@/validations/auth";
 
+
 interface Props extends IFormField {
   error: ValidationErrors;
 }
@@ -21,7 +22,7 @@ const FormFields = (props: Props) => {
     }
 
     if (type === InputTypes.CHECKBOX) {
-      return <Checkbox {...props} />;
+      return <Checkbox {...props}  />;
     }
 
     return <TextField {...props} />;
