@@ -1,9 +1,8 @@
 "use client";
 
-import Link from 'next/link';
+import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { Pages, Routes } from "@/constants/enums";
-// import { Translations } from "@/types/translations";
 import { useParams, usePathname } from "next/navigation";
 
 function AdminTabs() {
@@ -13,22 +12,22 @@ function AdminTabs() {
   const tabs = [
     {
       id: crypto.randomUUID(),
-      title: 'profile',
+      title: "profile",
       href: Routes.ADMIN,
     },
     {
       id: crypto.randomUUID(),
-      title: 'categories',
+      title: "categories",
       href: `${Routes.ADMIN}/${Pages.CATEGORIES}`,
     },
     {
       id: crypto.randomUUID(),
-      title: 'menuItems',
+      title: "menuItems",
       href: `${Routes.ADMIN}/${Pages.MENU_ITEMS}`,
     },
     {
       id: crypto.randomUUID(),
-      title: 'users',
+      title: "users",
       href: `${Routes.ADMIN}/${Pages.USERS}`,
     },
     // {
@@ -36,7 +35,7 @@ function AdminTabs() {
     //   title: translations.admin.tabs.places,
     //   href: `${Routes.ADMIN}/${Pages.PLACES}`,
     // },
-    
+
     // {
     //   id: crypto.randomUUID(),
     //   title: translations.admin.tabs.orders,
