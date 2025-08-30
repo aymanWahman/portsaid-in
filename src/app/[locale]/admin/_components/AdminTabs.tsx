@@ -3,7 +3,7 @@
 import Link from "@/components/link";
 import { buttonVariants } from "@/components/ui/button";
 import { Pages, Routes } from "@/constants/enums";
-import { Translations } from "@/types/translations";
+import { Translations } from "../../../../types/translations";
 import { useParams, usePathname } from "next/navigation";
 
 function AdminTabs({ translations }: { translations: Translations }) {
