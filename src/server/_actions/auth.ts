@@ -17,7 +17,7 @@ export const login = async (
   const result = loginSchema(translations).safeParse(credentials);
   if (result.success === false) {
     return {
-      error: result.error.formErrors.fieldErrors,
+      error: result.error.flatten().fieldErrors,
       status: 400,
     };
   }
@@ -65,7 +65,7 @@ export const signup = async (prevState: unknown, formData: FormData) => {
   );
   if (result.success === false) {
     return {
-      error: result.error.formErrors.fieldErrors,
+      error: result.error.flatten().fieldErrors,
       formData,
     };
   }
