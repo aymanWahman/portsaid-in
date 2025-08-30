@@ -33,8 +33,8 @@ export default async function RealEstatePage() {
       <section className="container grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
         <div>
           <span className="text-4xl">🏠</span>
-          <Link href={`/${locale}/${Routes.REAL_ESTATE}/${Pages.PARTMENT}`}>
-            <p>{realEstate.PARTMENT} </p>
+          <Link href={`/${locale}/${Routes.REAL_ESTATE}/${Pages.APARTMENT}`}>
+            <p>{realEstate.APARTMENT} </p>
           </Link>
         </div>
         <div>

@@ -220,6 +220,6 @@ cart: {
   };
   realEstate: {
     title: string;
-    PARTMENT: string;
+    APARTMENT: string;
   };
 };

@@ -1,8 +1,6 @@
 import getTrans from "@/lib/translation";
-// import { getPlaces } from "@/lib/places-service";
 import { getCurrentLocale } from "@/lib/getCurrentLocale";
 
-// import HospitalFilterClient from "@/components/unified/FilterComponent";
 import Image from "next/image";
 import Link from "@/components/link";
 import hospitals from "@/data/DataHospital";

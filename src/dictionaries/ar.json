@@ -110,7 +110,7 @@
     "deleteUserSucess": "تم حذف المستخدم بنجاح"
   },
   "menuItem": {
-    "addToCart": "أضف الي العربة"
+    "addToCart": "أضف الي السلة"
   },
   "profile": {
     "title": "الملف الشخصي",
@@ -270,7 +270,7 @@
   },
   "realEstate": {
     "title": "التسويق العقاري",
-    "PARTMENT": "عقارات سكنية"
+    "APARTMENT": "عقارات سكنية"
   },
 
   "copyRight": "© 2025 جميع الحقوق محفوظة",

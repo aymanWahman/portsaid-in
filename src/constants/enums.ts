@@ -39,7 +39,7 @@ export enum Pages {
   RESTAURANT = "restaurant",
   CLOTHING = "clothing",
   PHARMACIES = "pharmacies",
-  PARTMENT = "partment",
+  APARTMENT = "apartment",
   HOSPITALS = "hospitals"
 }
 

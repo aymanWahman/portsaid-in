@@ -3,7 +3,7 @@ import { db } from "@/lib/prisma";
 
 export const getPlaces = cache(
   () => {
-    const places = db.places.findMany({
+    const places = db.place.findMany({
       orderBy: {
         order: "asc",
       },
