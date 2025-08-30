@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Pages, Routes } from "@/constants/enums";
 import { getCurrentLocale } from "@/lib/getCurrentLocale";
 import getTrans from "@/lib/translation";
-import Link from "@/components/link";
+import Link from 'next/link';
 import Form from "./_components/Form";
 
 export default async function RealEstatePage() {

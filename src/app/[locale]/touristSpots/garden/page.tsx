@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Routes } from '@/constants/enums';
 import { getCurrentLocale } from '@/lib/getCurrentLocale';
 import getTrans from '@/lib/translation';
-import Link from "@/components/link";
+import Link from 'next/link';
 
 // import { useState } from "react";
 

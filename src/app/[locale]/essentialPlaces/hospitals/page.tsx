@@ -2,7 +2,7 @@ import getTrans from "@/lib/translation";
 import { getCurrentLocale } from "@/lib/getCurrentLocale";
 
 import Image from "next/image";
-import Link from "@/components/link";
+import Link from 'next/link';
 import hospitals from "@/data/DataHospital";
 import { Routes } from "@/constants/enums";
 

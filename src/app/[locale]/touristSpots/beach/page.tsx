@@ -1,8 +1,8 @@
 
 import beaches from "@/data/DataBeach";
 import Image from "next/image";
-// import { useState } from "react";
-import Link from "@/components/link";
+
+import Link from 'next/link';
 import { Routes } from "@/constants/enums";
 
 import getTrans from "@/lib/translation";
@@ -84,9 +84,9 @@ const BeachPage = async () => {
               <p className="text-sm text-gray-700">
                 <strong>المنطقة:</strong> {d.region}
               </p>
-              {/* <p className="text-gray-700">
+              <p className="text-gray-700">
                 <strong>التصنيف:</strong> {d.category}
-              </p> */}
+              </p>
               <p className="text-sm text-gray-700">
                 <strong>العنوان:</strong> {d.address}
               </p>

@@ -1,4 +1,4 @@
-import Link from "@/components/link";
+import Link from 'next/link';
 import { buttonVariants } from "@/components/ui/button";
 import { Languages, Pages, Routes } from "@/constants/enums";
 import { Locale } from "@/i18n.config";

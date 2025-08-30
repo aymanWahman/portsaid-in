@@ -10,3 +10,4 @@ export type DataTypes = {
   image: string;
   category: string;
 };
+
