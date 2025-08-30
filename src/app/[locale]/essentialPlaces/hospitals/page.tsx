@@ -94,13 +94,13 @@ export default async function HospitalsPage() {
         ))}
       </div>
 
-      <section className="text-center mt-3">
+      {/* <section className="text-center mt-3">
         <Link href="/essentialPlaces">
           <button className="bg-seaBlue font-bold px-6 py-2 rounded mt-4 hover:bg-sandyGold transition-colors">
             العودة للأماكن الهامة
           </button>
         </Link>
-      </section>
+      </section> */}
     </main>
   );
 }

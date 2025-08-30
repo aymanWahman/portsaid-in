@@ -98,10 +98,10 @@ export type Translations = {
     updateUserSucess: string;
     deleteUserSucess: string;
   };
-cart: {
-    title: string;
-    noItemsInCart: string;
+  menuItem: {
+    addToCart: string;
   };
+
   profile: {
     title: string;
     form: {
@@ -177,31 +177,33 @@ cart: {
         };
       };
     };
-
   };
-  sizes: string;
-  extrasIngredients: string;
+  category: string;
+  save: string;
+  edit: string;
   delete: string;
   cancel: string;
-  create: string;
-  save: string;
-  category: string;
-  copyRight: string;
-  noPlacesFound: string;
-
-  filterComponent:{
-    selectRegion: string;
-    selectCategory: string;
-    all: string;
+  sizes: string;
+  extrasIngredients: string;
+  cart:{
+    title: string;
+    noItemsInCart: string;
   }
+  
+  create: string;
+
   cardDetails: {
-    name: string;  
+    name: string;
     phone: string;
     region: string;
     address: string;
     category: string;
-    description: string; 
-
+    description: string;
+  };
+  filterComponent: {
+    selectRegion: string;
+    selectCategory: string;
+    all: string;
   };
 
   touristSpots: {
@@ -222,4 +224,8 @@ cart: {
     title: string;
     APARTMENT: string;
   };
+
+  copyRight: string;
+  noCategoriesFound: string;
+  noPlacesFound: string;
 };

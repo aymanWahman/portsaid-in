@@ -9,10 +9,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import partments from "@/data/DataPartments";
+import apartments from "@/data/DataApartments";
 import Image from "next/image";
 
-async function partment() {
+async function apartment() {
   const locale = await getCurrentLocale();
   const { realEstate } = await getTrans(locale);
   return (
@@ -27,27 +27,27 @@ async function partment() {
       </section>
 
       <section className=" grid grid-cols-3 gap-6 text-center">
-        {partments.map((p) => (
-          <Card key={p.id} className="rounded-2xl shadow-md">
+        {apartments.map((a) => (
+          <Card key={a.id} className="rounded-2xl shadow-md">
             <CardHeader>
-              <CardTitle>{realEstate.PARTMENT}</CardTitle>
+              <CardTitle>{realEstate.APARTMENT}</CardTitle>
             </CardHeader>
             <CardContent className="">
               <Image
-                src={p.image}
+                src={a.image}
                 width={360}
                 height={200}
-                alt={p.name}
+                alt={a.name}
                 className="mx-auto w-300 h-200"
               />
             </CardContent>
 
             <CardContent>
-              <p className="text-sm px-8">{p.description} </p>
+              <p className="text-sm px-8">{a.description} </p>
             </CardContent>
             <CardFooter className="flex gap-6 items-center justify-center">
-              <p>{p.region}</p>
-              <p>{p.contact}</p>
+              <p>{a.region}</p>
+              <p>{a.contact}</p>
             </CardFooter>
           </Card>
         ))}
@@ -56,4 +56,4 @@ async function partment() {
   );
 }
 
-export default partment;
+export default apartment;

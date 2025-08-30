@@ -1,6 +1,6 @@
 import { DataTypes } from "@/types/dataTypes";
 
-const partments: DataTypes[] = [
+const apartments: DataTypes[] = [
   {
     id: 1,
     name: " شقة",
@@ -41,4 +41,4 @@ const partments: DataTypes[] = [
   },
 ];
 
-export default partments;
+export default apartments;

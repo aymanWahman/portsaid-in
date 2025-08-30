@@ -230,10 +230,10 @@
   "save": "حفظ",
   "edit": "تعديل",
   "delete": "حذف",
-  "create": "انشاء",
+  "cancel": "الغاء",
   "sizes": "الأحجام",
   "extrasIngredients": "عناصر اضافية",
-  "cancel": "الغاء",
+  "create": "انشاء",
   "cart": {
     "title": "عربة التسوق",
     "noItemsInCart": "لا توجد عناصر في سلة التسوق الخاصة بك. أضف بعضًا"

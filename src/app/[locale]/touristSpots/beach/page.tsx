@@ -30,12 +30,12 @@ const BeachPage = async () => {
       <div className="text-center">
         <Link
           href={`/${locale}/${Routes.TOURIST_SPOTS}`}
-          className="text-xl  text-sandyGold  hover:text-seaBlue transition"
+          className="text-xl  text-primary  hover:text-secondary transition"
         >
           {translations.touristSpots.title}
         </Link>
       </div>
-      <h1 className="text-center text-2xl font-bold mt-3 mb-4 text-seaBlue">
+      <h1 className="text-center text-2xl font-bold mt-3 mb-4 text-primary">
         
         {translations.touristSpots.BEACH}
       </h1>
