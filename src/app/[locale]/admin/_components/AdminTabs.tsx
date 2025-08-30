@@ -3,32 +3,32 @@
 import Link from 'next/link';
 import { buttonVariants } from "@/components/ui/button";
 import { Pages, Routes } from "@/constants/enums";
-import { Translations } from "@/types/translations";
+// import { Translations } from "@/types/translations";
 import { useParams, usePathname } from "next/navigation";
 
-function AdminTabs({ translations }: { translations: Translations }) {
+function AdminTabs() {
   const pathname = usePathname();
   const { locale } = useParams();
 
   const tabs = [
     {
       id: crypto.randomUUID(),
-      title: translations.admin.tabs.profile,
+      title: 'profile',
       href: Routes.ADMIN,
     },
     {
       id: crypto.randomUUID(),
-      title: translations.admin.tabs.categories,
+      title: 'categories',
       href: `${Routes.ADMIN}/${Pages.CATEGORIES}`,
     },
     {
       id: crypto.randomUUID(),
-      title: translations.admin.tabs.menuItems,
+      title: 'menuItems',
       href: `${Routes.ADMIN}/${Pages.MENU_ITEMS}`,
     },
     {
       id: crypto.randomUUID(),
-      title: translations.admin.tabs.users,
+      title: 'users',
       href: `${Routes.ADMIN}/${Pages.USERS}`,
     },
     // {
