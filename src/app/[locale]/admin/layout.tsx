@@ -1,19 +1,19 @@
 import { Locale } from "@/i18n.config";
-import getTrans from "@/lib/translation";
+// import getTrans from "@/lib/translation";
 import AdminTabs from "./_components/AdminTabs";
 
 async function AdminLayout({
-  params,
+  // params,
   children,
 }: {
   params: Promise<{ locale: Locale }>;
   children: React.ReactNode;
 }) {
-  const locale = (await params).locale;
-  const translations = await getTrans(locale);
+  // const locale = (await params).locale;
+  // const translations = await getTrans(locale);
   return (
     <div className="pt-14">
-      <AdminTabs translations={translations} />
+      <AdminTabs  />
       {children}
     </div>
   );

@@ -1,4 +1,4 @@
-import getTrans from "@/lib/translation";
+// import getTrans from "@/lib/translation";
 import { getCurrentLocale } from "@/lib/getCurrentLocale";
 
 import Image from "next/image";
@@ -8,7 +8,7 @@ import { Routes } from "@/constants/enums";
 
 export default async function HospitalsPage() {
   const locale = await getCurrentLocale();
-  const { essentialPlaces } = await getTrans(locale);
+  // const { essentialPlaces } = await getTrans(locale);
 
   // هجيب كل المستشفيات
   // const places = await getPlaces({
@@ -25,11 +25,13 @@ export default async function HospitalsPage() {
           className="text-xl text-primary hover:text-accent transition"
         >
           <h1 className="text-3xl font-bold text-gray-900 hover:text-primary dark:text-white">
-            {essentialPlaces.title}
+            {/* {essentialPlaces.title} */}
+            الاماكن الاساسية
           </h1>
         </Link>
         <p className="text-gray-600 dark:text-gray-400 mt-2">
-          {essentialPlaces.subtitle}
+          {/* {essentialPlaces.subtitle} */}
+          المستشفيات
         </p>
       </div>
 

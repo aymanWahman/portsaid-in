@@ -5,14 +5,14 @@ import Image from "next/image";
 import Link from 'next/link';
 import { Routes } from "@/constants/enums";
 
-import getTrans from "@/lib/translation";
+// import getTrans from "@/lib/translation";
 import { getCurrentLocale } from "@/lib/getCurrentLocale";
 
 
 const BeachPage = async () => {
     const locale = await getCurrentLocale();
   
-  const translations = await getTrans(locale);
+  // const translations = await getTrans(locale);
 
   // const [filter, setFilter] = useState<string>("All");
 
@@ -32,12 +32,13 @@ const BeachPage = async () => {
           href={`/${locale}/${Routes.TOURIST_SPOTS}`}
           className="text-xl  text-primary  hover:text-secondary transition"
         >
-          {translations.touristSpots.title}
+          الاماكن السياحية
+          {/* {translations.touristSpots.title} */}
         </Link>
       </div>
       <h1 className="text-center text-2xl font-bold mt-3 mb-4 text-primary">
-        
-        {translations.touristSpots.BEACH}
+        الشواطئ
+        {/* {translations.touristSpots.BEACH} */}
       </h1>
 
       {/* فلتر */}
