@@ -69,13 +69,15 @@ function EditCategory({
               locale === Languages.ARABIC ? "!text-right" : "!text-left"
             }
           >
-            {translations.admin.categories.form.editName}
+            {/* {translations.admin.categories.form.editName} */}
+            Change Category Name
           </DialogTitle>
         </DialogHeader>
         <form action={action} className="pt-4">
           <div className="flex items-center gap-4">
             <Label htmlFor="category-name">
-              {translations.admin.categories.form.name.label}
+              {/* {translations.admin.categories.form.name.label} */}
+              Category Name
             </Label>
             <div className="flex-1 relative">
               <Input
@@ -83,9 +85,10 @@ function EditCategory({
                 id="categoryName"
                 name="categoryName"
                 defaultValue={category.name}
-                placeholder={
-                  translations.admin.categories.form.name.placeholder
-                }
+                placeholder= "Enter Category Name"
+                // {
+                //   translations.admin.categories.form.name.placeholder
+                // }
               />
               {state.error?.categoryName && (
                 <p className="text-sm text-destructive absolute top-12">
