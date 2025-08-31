@@ -12,7 +12,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Languages } from "@/constants/enums";
-import { Translations } from "@/types/translations";
+// import { Translations } from "@/types/translations";
 import { Category } from "@prisma/client";
 import { EditIcon } from "lucide-react";
 import { ValidationError } from "next/dist/compiled/amphtml-validator";
@@ -34,10 +34,10 @@ const initialState: InitialStateType = {
 };
 
 function EditCategory({
-  translations,
+  
   category,
 }: {
-  translations: Translations;
+  
   category: Category;
 }) {
   const { locale } = useParams();
@@ -99,7 +99,7 @@ function EditCategory({
           </div>
           <DialogFooter className="mt-10">
             <Button type="submit" disabled={pending}>
-              {pending ? <Loader /> : translations.save}
+              {pending ? <Loader /> : "Save Changes"}
             </Button>
           </DialogFooter>
         </form>
