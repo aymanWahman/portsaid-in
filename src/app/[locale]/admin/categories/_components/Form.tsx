@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Loader from "@/components/ui/loader";
 import { toast } from "@/hooks/use-toast";
-import { Translations } from "@/types/translations";
+// import { Translations } from "@/types/translations";
 import { ValidationError } from "next/dist/compiled/amphtml-validator";
 import { useActionState, useEffect } from "react";
 import { addCategory } from "../_actions/category";
@@ -20,7 +20,7 @@ const initialState: InitialStateType = {
   error: {},
   status: null,
 };
-function Form({ translations }: { translations: Translations }) {
+function Form() {
   const [state, action, pending] = useActionState(addCategory, initialState);
 
   useEffect(() => {
@@ -36,17 +36,20 @@ function Form({ translations }: { translations: Translations }) {
     <form action={action}>
       <div className="space-y-2">
         <Label htmlFor="name">
-          {translations.admin.categories.form.name.label}
+          {/* {translations.admin.categories.form.name.label} */}
+          الفئة
         </Label>
         <div className="flex items-center gap-4">
           <Input
             type="text"
             name="name"
             id="name"
-            placeholder={translations.admin.categories.form.name.placeholder}
+            placeholder="أدخل اسم الفئة"
+            // placeholder={translations.admin.categories.form.name.placeholder}
           />
           <Button type="submit" size="lg" disabled={pending}>
-            {pending ? <Loader /> : translations.create}
+            {pending ? <Loader /> : "لقد تم الانشاءه بنجاح"}
+            {/* {pending ? <Loader /> : translations.create} */}
           </Button>
         </div>
         {state.error?.name && (
