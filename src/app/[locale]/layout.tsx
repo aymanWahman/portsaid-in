@@ -9,6 +9,7 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import NextAuthSessionProvider from "@/providers/NextAuthSessionProvider";
 import { ThemeProvider } from "@/components/header/theme-provider";
+import CartLoader from '@/components/CartLoader';
 
 export async function generateStaticParams() {
   return [{ locale: Languages.ARABIC }, { locale: Languages.ENGLISH }];
@@ -53,6 +54,7 @@ export default async function RootLayout({
         <NextAuthSessionProvider>
           <ReduxProvider>
             <Header />
+             <CartLoader />
             {children}
             <Footer />
             <Toaster />
