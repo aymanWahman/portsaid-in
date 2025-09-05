@@ -94,25 +94,8 @@ const TouristSpots = async () => {
           </Link>
         </div>
 
-        {/* Beaches */}
-        <div className="mx-auto">
-          <Link href={`/${locale}/${Routes.TOURIST_SPOTS}/${Pages.BEACH}`}>
-            <h2 className="font-extrabold text-xl md:text-4xl my-7 text-accent hover:text-primary">
-              {touristSpots.BEACH}
-            </h2>
-          </Link>
-          {/* <h2 className="font-bold text-xl md:text-4xl my-7"> الشواطئ</h2> */}
-          <Link href={`/${locale}/${Routes.TOURIST_SPOTS}/${Pages.BEACH}`}>
-            <Image
-              className="rounded-xl shadow-2xl shadow-black w-[400px] h-[220px] hover:scale-105 transition-transform duration-300"
-              src="https://res.cloudinary.com/dktod7mod/image/upload/v1756467287/ChatGPT_Image_Aug_29_2025_02_33_55_PM_iq3dui.png"
-              alt={touristSpots.BEACH}
-              width={280}
-              height={140}
-              priority
-            />
-          </Link>
-        </div>
+    
+        
       </section>
 
       {/* Section: Final Message */}
@@ -134,3 +117,24 @@ const TouristSpots = async () => {
 };
 
 export default TouristSpots;
+
+
+    {/* Beaches */}
+        // <div className="mx-auto">
+        //   <Link href={`/${locale}/${Routes.TOURIST_SPOTS}/${Pages.BEACH}`}>
+        //     <h2 className="font-extrabold text-xl md:text-4xl my-7 text-accent hover:text-primary">
+        //       {touristSpots.BEACH}
+        //     </h2>
+        //   </Link>
+        //   {/* <h2 className="font-bold text-xl md:text-4xl my-7"> الشواطئ</h2> */}
+        //   <Link href={`/${locale}/${Routes.TOURIST_SPOTS}/${Pages.BEACH}`}>
+        //     <Image
+        //       className="rounded-xl shadow-2xl shadow-black w-[400px] h-[220px] hover:scale-105 transition-transform duration-300"
+        //       src="https://res.cloudinary.com/dktod7mod/image/upload/v1756467287/ChatGPT_Image_Aug_29_2025_02_33_55_PM_iq3dui.png"
+        //       alt={touristSpots.BEACH}
+        //       width={280}
+        //       height={140}
+        //       priority
+        //     />
+        //   </Link>
+        // </div>

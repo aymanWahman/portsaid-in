@@ -1,4 +1,4 @@
-// import { Languages } from "@/constants/enums";
+import { Languages } from "@/constants/enums";
 import MainHeading from "../main-heading";
 import { getCurrentLocale } from "@/lib/getCurrentLocale";
 import getTrans from "@/lib/translation";
@@ -12,7 +12,7 @@ async function About() {
   return (
     <section
       className="section-gap"
-      // dir={locale === Languages.ARABIC ? "rtl" : "ltr"}
+      dir={locale === Languages.ARABIC ? "rtl" : "ltr"}
     >
       <div className="container text-center">
         <MainHeading subTitle={about.ourStory} title={about.aboutUs} />
