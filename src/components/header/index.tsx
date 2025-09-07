@@ -18,7 +18,7 @@ async function Header() {
       <div className="container flex items-center justify-between gap-6 lg:gap-10">
         <Link
           href={`/${locale}`}
-          className="text-primary font-semibold text-2xl"
+          className="text-primary font-semibold text-4xl pb-4"
         >
            {translations.logo}
         </Link>

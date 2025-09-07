@@ -1,5 +1,4 @@
 import Link from "@/components/link";
-import Modal from "@/components/Modal";
 import Image from "next/image";
 import { Pages, Routes } from "@/constants/enums";
 import { getCurrentLocale } from "@/lib/getCurrentLocale";
@@ -7,10 +6,9 @@ import getTrans from "@/lib/translation";
 
 const EssentialPlaces = async () => {
   const locale = await getCurrentLocale();
-
   const { essentialPlaces } = await getTrans(locale);
   return (
-    <main className="container pt-24 mb-7">
+    <main className="container pt-28 mb-7">
       <div className="text-center mb-8">
         <Link
           href={`/${locale}/${Routes.ESSENTIAL_PLACES}`}
@@ -41,7 +39,7 @@ const EssentialPlaces = async () => {
           >
             <Image
               className="rounded-xl shadow-2xl shadow-black w-[300px] h-[220px] hover:scale-105 transition-transform duration-300"
-              src="/imgs/pharmacy.jpg"
+              src="https://res.cloudinary.com/dktod7mod/image/upload/v1757247143/product_images/portsaidIn/pharmacy_npd2rr.jpg"
               alt={essentialPlaces.PHARMACIES}
               width={280}
               height={140}
@@ -67,7 +65,7 @@ const EssentialPlaces = async () => {
           >
             <Image
               className="rounded-xl shadow-2xl shadow-black w-[300px] h-[220px] hover:scale-105 transition-transform duration-300"
-              src="/imgs/clothing.jpg"
+              src="https://res.cloudinary.com/dktod7mod/image/upload/v1757246981/product_images/portsaidIn/clothing_tnjxkq.jpg"
               alt={essentialPlaces.CLOTHING}
               width={280}
               height={140}
@@ -140,20 +138,7 @@ const EssentialPlaces = async () => {
         </div> */}
       </section>
 
-      {/* Section: Final Message */}
-      <section className="text-center mt-12">
-        {/* <h3
-          dir="rtl"
-          className="font-bold text-lg md:text-2xl hover:text-sandyGold transition-colors duration-300"
-        >
-          استكشف أهم الأماكن في بورسعيد
-        </h3> */}
-        <Modal
-          title="About Essential Places"
-          content="Explore the essential places in Port Said, from pharmacies to bookstores, all designed to meet your daily needs."
-          contentA="اكتشف الأماكن الهامة في بورسعيد، من الصيدليات إلى المكتبات، لتلبية احتياجاتك اليومية."
-        />
-      </section>
+  
     </main>
   );
 };

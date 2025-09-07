@@ -1,28 +1,28 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
+import Link from "@/components/link";
 import { motion } from 'framer-motion';
 
 const places = [
   {
     id: 1,
     name: 'قناة السويس',
-    image: '/imgs/portFuad.jpg',
+    image: 'https://res.cloudinary.com/dktod7mod/image/upload/v1757246327/portfoad_cbij2b.jpg',
     description: 'شريان الملاحة العالمي',
     link: '/places/suez-canal'
   },
   {
     id: 2,
     name: 'شاطئ بورسعيد',
-    image: '/imgs/portsaid1.jpg',
+    image: 'https://res.cloudinary.com/dktod7mod/image/upload/v1756467287/ChatGPT_Image_Aug_29_2025_02_33_55_PM_iq3dui.png',
     description: 'أجمل شواطئ البحر المتوسط',
     link: '/places/beach'
   },
   {
     id: 3,
     name: 'المتحف الحربي',
-    image: '/imgs/museum.jpg',
+    image: 'https://res.cloudinary.com/dktod7mod/image/upload/v1757246137/museum_w6yowj.jpg',
     description: 'تاريخ المقاومة الشعبية',
     link: '/places/military-museum'
   }

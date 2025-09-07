@@ -1,4 +1,4 @@
-import Modal from "@/components/Modal";
+
 import Image from "next/image";
 import { Pages, Routes } from "@/constants/enums";
 import { getCurrentLocale } from "@/lib/getCurrentLocale";
@@ -19,7 +19,7 @@ const TouristSpots = async () => {
   const { touristSpots } = await getTrans(locale);
 
   return (
-    <main className="container mb-7 pt-24">
+    <main className="container mb-7 pt-28">
       <h1 className="text-lg md:text-2xl font-semibold text-primary hover:text-accent text-center">
         {touristSpots.title}
       </h1>
@@ -93,25 +93,30 @@ const TouristSpots = async () => {
             />
           </Link>
         </div>
-
+    {/* Beaches */}
+        <div className="mx-auto">
+          <Link href={`/${locale}/${Routes.TOURIST_SPOTS}/${Pages.BEACH}`}>
+            <h2 className="font-extrabold text-xl md:text-4xl my-7 text-accent hover:text-primary">
+              {touristSpots.BEACH}
+            </h2>
+          </Link>
+          {/* <h2 className="font-bold text-xl md:text-4xl my-7"> الشواطئ</h2> */}
+          <Link href={`/${locale}/${Routes.TOURIST_SPOTS}/${Pages.BEACH}`}>
+            <Image
+              className="rounded-xl shadow-2xl shadow-black w-[400px] h-[220px] hover:scale-105 transition-transform duration-300"
+              src="https://res.cloudinary.com/dktod7mod/image/upload/v1756467287/ChatGPT_Image_Aug_29_2025_02_33_55_PM_iq3dui.png"
+              alt={touristSpots.BEACH}
+              width={280}
+              height={140}
+              priority
+            />
+          </Link>
+        </div>
     
         
       </section>
 
-      {/* Section: Final Message */}
-      <section className="container text-center mt-5">
-        <h3
-          dir="rtl"
-          className="font-bold text-lg md:text-2xl hover:text-sandyGold transition-colors duration-300"
-        >
-          تعرف على أفضل الأماكن في بورسعيد
-        </h3>
-        <Modal
-          title="About Port Said"
-          content="Port Said is one of Egypt's most famous coastal cities. It serves as a gateway to the Suez Canal, rich with cultural heritage and scenic beauty."
-          contentA="بورسعيد هي إحدى أشهر المدن الساحلية في مصر. تُعد بوابةً لقناة السويس وتتميز بتراثها الثقافي الغني وجمالها الطبيعي الخلاب."
-        />
-      </section>
+
     </main>
   );
 };
@@ -119,22 +124,3 @@ const TouristSpots = async () => {
 export default TouristSpots;
 
 
-    {/* Beaches */}
-        // <div className="mx-auto">
-        //   <Link href={`/${locale}/${Routes.TOURIST_SPOTS}/${Pages.BEACH}`}>
-        //     <h2 className="font-extrabold text-xl md:text-4xl my-7 text-accent hover:text-primary">
-        //       {touristSpots.BEACH}
-        //     </h2>
-        //   </Link>
-        //   {/* <h2 className="font-bold text-xl md:text-4xl my-7"> الشواطئ</h2> */}
-        //   <Link href={`/${locale}/${Routes.TOURIST_SPOTS}/${Pages.BEACH}`}>
-        //     <Image
-        //       className="rounded-xl shadow-2xl shadow-black w-[400px] h-[220px] hover:scale-105 transition-transform duration-300"
-        //       src="https://res.cloudinary.com/dktod7mod/image/upload/v1756467287/ChatGPT_Image_Aug_29_2025_02_33_55_PM_iq3dui.png"
-        //       alt={touristSpots.BEACH}
-        //       width={280}
-        //       height={140}
-        //       priority
-        //     />
-        //   </Link>
-        // </div>

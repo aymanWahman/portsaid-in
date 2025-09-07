@@ -12,13 +12,13 @@ async function Hero() {
   const { home } = await getTrans(locale);
   const { hero } = home;
   return (
-    <section className='section-gap'>
+    <section className='section-gap pt-10 md:pt-0'>
 
 <div className="relative h-[40vh] container mx-auto">
       <div className="container mx-auto px-4 h-full relative">
         <div className="relative h-full w-full rounded-xl overflow-hidden">
           <Image
-            src="/imgs/portsaid21.jpg"
+            src="https://res.cloudinary.com/dktod7mod/image/upload/v1757243126/ChatGPT_Image_Sep_7_2025_02_04_11_PM_ppx4dy.png"
             alt={hero.title}
             fill
             priority
@@ -58,7 +58,7 @@ async function Hero() {
             </Link>
             <Link
               href={`/${Routes.ABOUT}`}
-              className='flex gap-2 items-center text-black hover:text-primary duration-200 transition-colors font-semibold'
+              className='flex gap-2 items-center hover:text-primary duration-200 transition-colors font-semibold'
             >
               {hero.about}
               <ArrowRightCircle
@@ -72,10 +72,10 @@ async function Hero() {
 
           {/* Video Section */}
   
-            <div className="relative  rounded-lg overflow-hidden shadow-2xl border-4 border-gray-500">
+            <div className="relative rounded-lg overflow-hidden shadow-2xl border-4 border-gray-500">
               <video
                 className="w-full h-full object-cover"
-                autoPlay
+                autoPlay={false}
                 controls
                 preload="none"
                 poster="https://res.cloudinary.com/dktod7mod/image/upload/v1732627109/photo_4_2024-11-24_15-47-45_k9dapv.jpg"
