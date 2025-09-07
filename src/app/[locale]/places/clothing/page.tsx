@@ -16,7 +16,7 @@ const ClothingStoresPage = async ({searchParams}: ClothingStoresPageProps) => {
   const regionFilter = params.region || "All";
   const categoryFilter = params.category || "All";
   const locale = await getCurrentLocale();
-  const { filterComponent, essentialPlaces, cardDetails } = await getTrans(locale);
+  const { filterComponent, places, cardDetails } = await getTrans(locale);
 
   // التصفية على السيرڤر
   const filteredClothing = clothing.filter(
@@ -38,20 +38,20 @@ const ClothingStoresPage = async ({searchParams}: ClothingStoresPageProps) => {
     <main className="container pb-4 mt-24">
       <div className="text-center mb-8">
         <Link
-          href={`/${locale}/${Routes.ESSENTIAL_PLACES}`}
+          href={`/${locale}/${Routes.PLACES}`}
           className="text-xl text-primary hover:text-accent transition"
         >
           <h1 className="text-3xl font-bold text-gray-900 hover:text-primary dark:text-white">
-            {essentialPlaces.title}
+            {places.title}
           </h1>
         </Link>
         <p className="text-gray-600 dark:text-gray-400 mt-2">
-          {essentialPlaces.subtitle}
+          {places.subtitle}
         </p>
       </div>
 
       <h1 className="text-center text-2xl font-bold mt-3 mb-4 text-primary">
-        {essentialPlaces.CLOTHING}
+        {places.CLOTHING}
       </h1>
 
       <FilterComponent
@@ -96,13 +96,7 @@ const ClothingStoresPage = async ({searchParams}: ClothingStoresPageProps) => {
         ))}
       </div>
 
-      <section className="text-center mt-3">
-        <Link href="/essentialPlaces">
-          <button className="bg-seaBlue font-bold px-6 py-2 rounded mt-4 hover:bg-sandyGold transition-colors">
-            العودة للأماكن الهامة
-          </button>
-        </Link>
-      </section>
+    
     </main>
   );
 };

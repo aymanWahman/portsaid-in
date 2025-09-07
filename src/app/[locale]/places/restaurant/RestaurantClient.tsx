@@ -1,36 +1,29 @@
 "use client";
 
-// import { useRouter } from 'next/navigation';
 import { useState } from "react";
 import Image from "next/image";
-
-import restaurants from "@/data/DataRestaurant";
-// import ReviewsSection from "@/components/ReviewsSection";
 import { Routes, Languages } from "@/constants/enums";
-
-// import { Translations } from "@/types/translations";
+import { Translations } from "@/types/translations";
 import { useParams } from "next/navigation";
 import Link from "@/components/link";
 
-function RestaurantPage() {
-  // const pathname = usePathname();
-  const { locale } = useParams();
-  // const handleViewMap = (coordinates: [number, number], name: string, image: string, address: string) => {
-  //   router.push(`/tourist-spots/map?coordinates=${encodeURIComponent(coordinates.join(','))}&name=${encodeURIComponent(name)}&image=${encodeURIComponent(image)}&address=${encodeURIComponent(address)}`);
-  // };
+// تعريف النوع لبيانات المطاعم
+interface RestaurantData {
+  id: number;
+  name: string;
+  image: string;
+  description: string;
+  region: string;
+  address: string;
+  contact: string;
+  category: string;
+}
 
+// المكون يستقبل البيانات والترجمات كـ props
+function RestaurantClient({ translations, restaurants }: { translations: Translations, restaurants: RestaurantData[] }) {
+  const { locale } = useParams();
   const [regionFilter, setRegionFilter] = useState<string>("All");
   const [categoryFilter, setCategoryFilter] = useState<string>("All");
-
-  // // حالة لإظهار وإخفاء التقييمات لكل مطعم
-  // const [showReviews, setShowReviews] = useState<{ [key: number]: boolean }>({});
-
-  // const toggleReviews = (id: number) => {
-  //   setShowReviews((prev) => ({
-  //     ...prev,
-  //     [id]: !prev[id], // قلب الحالة (true/false) للمطعم المحدد
-  //   }));
-  // };
 
   const filteredRestaurants = restaurants.filter(
     (restaurant) =>
@@ -44,25 +37,27 @@ function RestaurantPage() {
     ...new Set(restaurants.map((d) => d.category)),
   ];
 
+
+
   return (
     <main className={locale === Languages.ARABIC ? "!text-right" : "!text-left"}>
       <div className="container section-gap pt-14 ">
         <div className="text-center font-bold text-2xl">
           <Link
-            href={`/${locale}/${Routes.TOURIST_SPOTS}`}
-            className="text-xl text-primary hover:text-seaBlue transition"
+            href={`/${locale}/${Routes.PLACES}`}
+            className="text-2xl text-primary hover:text-accent font-serif transition"
           >
-            الاماكن السياحية
+            {translations.places.title }
           </Link>
         </div>
         <h1 className="text-center text-2xl font-bold mt-3 mb-4">
-          المطاعم
+          {translations.places.RESTAURANT}
         </h1>
 
         <div className="flex flex-wrap gap-6 mb-6 justify-center">
           <div>
-            <label className="block text-lg text-primary font-bold mb-2">
-              اختر المنطقة:
+            <label className="block text-lg text-accent font-bold mb-2">
+              {locale === Languages.ARABIC ? "اختر المنطقة:" : "Select Region:"}
             </label>
             <select
               value={regionFilter}
@@ -77,8 +72,8 @@ function RestaurantPage() {
             </select>
           </div>
           <div>
-            <label className="block text-lg text-primary font-bold mb-2">
-              اختر الفئة:
+            <label className="block text-lg text-accent font-bold mb-2">
+              {locale === Languages.ARABIC ? "اختر التصنيف:" : "Select Category:"}
             </label>
             <select
               value={categoryFilter}
@@ -107,7 +102,7 @@ function RestaurantPage() {
                 width="300"
                 height="200"
               />
-              <div className="px-4 py-2 space-y-1 ">
+              <div className="px-4 py-2 space-y-1">
                 <h2 className="text-xl font-bold text-primary p-2 mb-3 text-center rounded-lg border-t-2 border-primary shadow shadow-primary">
                   {restaurant.name}
                 </h2>
@@ -115,40 +110,15 @@ function RestaurantPage() {
                   {restaurant.description}
                 </p>
                 <p className="text-sm text-gray-700">
-                  <strong>المنطقة:</strong> {restaurant.region}
+                  <strong>{locale === Languages.ARABIC ? " المنطقة:" : " Region:"}</strong> {restaurant.region}
                 </p>
                 <p className="text-sm text-gray-700">
-                  <strong>العنوان:</strong> {restaurant.address}
+                  <strong>{locale === Languages.ARABIC ? "العنوان:" : " Adress:"}</strong> {restaurant.address}
                 </p>
                 <p className="text-sm text-gray-700">
-                  <strong>التلفون:</strong> {restaurant.contact}
+                  <strong>{locale === Languages.ARABIC ? " التلفون:" : " Mobile:"}</strong> {restaurant.contact}
                 </p>
-
-                {/* <div className="flex justify-center gap-4 mt-4">
-                <button
-                  className=" bg-seaBlue px-4 py-2 rounded-s-xl border-2 border-seaBlue"
-                  onClick={() =>
-                    handleViewMap(
-                      restaurant.coordinates,
-                      restaurant.name,
-                      restaurant.image,
-                      restaurant.address
-                    )
-                  }
-                >
-                  عرض الخريطة
-                </button>
-                <button
-                  className=" px-4 py-2 rounded-e-xl border-2 border-seaBlue text-seaBlue"
-                  onClick={() => toggleReviews(restaurant.id)}
-                >
-                  {showReviews[restaurant.id] ? 'إخفاء التقييمات' : 'عرض التقييمات'}
-                </button>
-              </div> */}
               </div>
-
-              {/* عرض التقييمات إذا كانت الحالة true */}
-              {/* {showReviews[restaurant.id] && <ReviewsSection />} */}
             </div>
           ))}
         </div>
@@ -157,4 +127,4 @@ function RestaurantPage() {
   );
 }
 
-export default RestaurantPage;
+export default RestaurantClient;

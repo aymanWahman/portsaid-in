@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/link";
 import { buttonVariants } from "@/components/ui/button";
 import { Pages, Routes } from "@/constants/enums";
 import { useParams, usePathname } from "next/navigation";

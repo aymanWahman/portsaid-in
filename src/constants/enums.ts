@@ -17,8 +17,7 @@ export enum Routes {
   CART = "cart",
   PROFILE = "profile",
   ADMIN = "admin",
-  ESSENTIAL_PLACES = "essentialPlaces",
-  TOURIST_SPOTS = "touristSpots",
+  PLACES = "places",
   REAL_ESTATE = "realEstate",
 }
 
@@ -29,7 +28,6 @@ export enum Pages {
   CATEGORIES = "categories",
   MENU_ITEMS = "menu-items",
   USERS = "users",
-  PLACES = "places",
   ORDERS = "orders",
   NEW = "new",
   EDIT = "edit",

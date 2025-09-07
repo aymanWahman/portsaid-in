@@ -33,8 +33,7 @@
     "signOut": "Sign Out",
     "profile": "Profile",
     "admin": "Admin",
-    "essentialPlaces": "Essential Places",
-    "touristSpots": "Tourist Spots",
+    "places": "Places",
     "realEstate": "Real Estate"
   },
   "auth": {
@@ -108,7 +107,7 @@
     "updateUserSucess": "User updated successfully",
     "deleteUserSucess": "User deleted successfully"
   },
-"menuItem": {
+  "menuItem": {
     "addToCart": "Add to cart"
   },
   "profile": {
@@ -169,7 +168,6 @@
       "orders": "Orders",
       "users": "Users",
       "places": "Places"
-      
     },
     "categories": {
       "form": {
@@ -183,7 +181,7 @@
         }
       }
     },
-      "menu-items": {
+    "menu-items": {
       "createNewMenuItem": "Create new menu item",
       "addItemSize": "Add item size",
       "addExtraItem": "Add extra item",
@@ -239,37 +237,33 @@
     "noItemsInCart": "There are no items in your cart. Add some"
   },
 
-
-  "cardDetails":{
+  "cardDetails": {
     "name": "Name",
     "region": "Region",
     "address": "Address",
     "phone": "Phone",
     "category": "Category",
     "description": "Description"
-    
   },
 
-  "filterComponent":{
+  "filterComponent": {
     "selectRegion": "Select Region",
     "selectCategory": "Select Category",
     "all": "All"
   },
 
-  "touristSpots": {
-    "title": "Tourist spots",
+  "places": {
+    "title": "Places",
+    "subtitle": "Important places in the city of Port Said",
     "RESTAURANT": "Restaurant",
     "HOTEL": "Hotel",
     "BEACH": "Beach",
-    "GARDEN": "Garden"
-  },
-  "essentialPlaces": {
-    "title": "Essential Places",
-    "subtitle": "Important places in the city of Port Said",
+    "GARDEN": "Garden",
     "CLOTHING": "Clothes",
     "PHARMACIES": "Pharmacies",
     "HOSPITALS": "Hospitals"
   },
+
   "realEstate": {
     "title": "Real estate",
     "APARTMENT": "Residential Property"

@@ -12,7 +12,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Languages } from "@/constants/enums";
-// import { Translations } from "@/types/translations";
+import { Translations } from "@/types/translations";
 import { Category } from "@prisma/client";
 import { EditIcon } from "lucide-react";
 import { ValidationError } from "next/dist/compiled/amphtml-validator";
@@ -34,10 +34,10 @@ const initialState: InitialStateType = {
 };
 
 function EditCategory({
-  
+  translations, 
   category,
 }: {
-  
+  translations: Translations;
   category: Category;
 }) {
   const { locale } = useParams();
@@ -69,15 +69,15 @@ function EditCategory({
               locale === Languages.ARABIC ? "!text-right" : "!text-left"
             }
           >
-            {/* {translations.admin.categories.form.editName} */}
-            Change Category Name
+            {translations.admin.categories.form.editName}
+          
           </DialogTitle>
         </DialogHeader>
         <form action={action} className="pt-4">
           <div className="flex items-center gap-4">
             <Label htmlFor="category-name">
-              {/* {translations.admin.categories.form.name.label} */}
-              Category Name
+              {translations.admin.categories.form.name.label}
+            
             </Label>
             <div className="flex-1 relative">
               <Input
@@ -85,10 +85,10 @@ function EditCategory({
                 id="categoryName"
                 name="categoryName"
                 defaultValue={category.name}
-                placeholder= "Enter Category Name"
-                // {
-                //   translations.admin.categories.form.name.placeholder
-                // }
+                placeholder= {
+                  translations.admin.categories.form.name.placeholder
+                }
+                
               />
               {state.error?.categoryName && (
                 <p className="text-sm text-destructive absolute top-12">

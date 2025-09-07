@@ -42,15 +42,11 @@ function Navbar({
     //   title: translations.navbar.contact,
     //   href: Routes.CONTACT,
     // },
+  
     {
       id: crypto.randomUUID(),
-      title: translations.navbar.essentialPlaces,
-      href: Routes.ESSENTIAL_PLACES,
-    },
-    {
-      id: crypto.randomUUID(),
-      title: translations.navbar.touristSpots,
-      href: Routes.TOURIST_SPOTS,
+      title: translations.navbar.places,
+      href: Routes.PLACES,
     },
     {
       id: crypto.randomUUID(),

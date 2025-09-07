@@ -43,8 +43,7 @@ export type Translations = {
     signOut: string;
     profile: string;
     admin: string;
-    essentialPlaces: string;
-    touristSpots: string;
+    places: string;
     realEstate: string;
   };
   auth: {
@@ -206,20 +205,19 @@ export type Translations = {
     all: string;
   };
 
-  touristSpots: {
+  places: {
     title: string;
+    subtitle: string;
     RESTAURANT: string;
     HOTEL: string;
     BEACH: string;
     GARDEN: string;
-  };
-  essentialPlaces: {
-    title: string;
-    subtitle: string;
     CLOTHING: string;
     PHARMACIES: string;
     HOSPITALS: string;
+
   };
+
   realEstate: {
     title: string;
     APARTMENT: string;

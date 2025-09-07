@@ -1,44 +1,50 @@
-
-import beaches from "@/data/DataBeach";
+// "use client";
+// import { DataTypes } from "@/types/dataTypes";
+import gardens from "@/data/DataGarden";
 import Image from "next/image";
-
+import { Routes } from '@/constants/enums';
+import { getCurrentLocale } from '@/lib/getCurrentLocale';
+import getTrans from '@/lib/translation';
 import Link from 'next/link';
-import { Routes } from "@/constants/enums";
 
-// import getTrans from "@/lib/translation";
-import { getCurrentLocale } from "@/lib/getCurrentLocale";
+// import { useState } from "react";
 
 
-const BeachPage = async () => {
+// type Props = {
+//   gardens: DataTypes[];
+// };
+
+async function GardenPage() {
     const locale = await getCurrentLocale();
-  
-  // const translations = await getTrans(locale);
+    
+    const  translations  = await getTrans(locale);
 
   // const [filter, setFilter] = useState<string>("All");
-
   // const filteredRestaurants =
   //   filter === "All"
-  //     ? beaches
-  //     : beaches.filter(
-  //         (beach) => beach.region === filter || beach.category === filter
+  //     ? gardens
+  //     : gardens.filter(
+  //         (garden) => garden.region === filter || garden.category === filter
   //       );
 
-  // const uniqueRegions = Array.from(new Set(beaches.map((d) => d.region)));
+  // const uniqueRegions = Array.from(new Set(gardens.map((d) => d.region)));
+  // const uniqueCategories = Array.from(
+  //   new Set(restaurants.map((r) => r.category))
+  // );
 
   return (
-    <div className="p-4 mt-20">
+    <main className="container pb-4 mt-24">
       <div className="text-center">
         <Link
-          href={`/${locale}/${Routes.TOURIST_SPOTS}`}
-          className="text-xl  text-primary  hover:text-secondary transition"
+          href={`/${locale}/${Routes.PLACES}`}
+          className="text-2xl text-primary hover:text-blue-900 transition"
         >
-          الاماكن السياحية
-          {/* {translations.touristSpots.title} */}
+          {translations.places.title}
         </Link>
       </div>
-      <h1 className="text-center text-2xl font-bold mt-3 mb-4 text-primary">
-        الشواطئ
-        {/* {translations.touristSpots.BEACH} */}
+      <h1 className="text-center text-2xl font-bold mt-3 mb-4">
+        
+        {translations.places.GARDEN}
       </h1>
 
       {/* فلتر */}
@@ -64,9 +70,9 @@ const BeachPage = async () => {
         ))}
       </div> */}
 
-  
+      {/* عرض المطاعم */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {beaches.map((d) => (
+        {gardens.map((d) => (
           <div
             key={d.id}
             className="border rounded-lg overflow-hidden shadow-2xl bg-seagullGray"
@@ -74,7 +80,7 @@ const BeachPage = async () => {
             <Image
               src={d.image}
               alt={d.name}
-              className="w-full h-40 object-cover"
+              className="w-full h-50 object-cover"
               width="300"
               height="200"
             />
@@ -85,21 +91,16 @@ const BeachPage = async () => {
               <p className="text-sm text-gray-700">
                 <strong>المنطقة:</strong> {d.region}
               </p>
-              <p className="text-gray-700">
-                <strong>التصنيف:</strong> {d.category}
-              </p>
+
               <p className="text-sm text-gray-700">
                 <strong>العنوان:</strong> {d.address}
               </p>
-              {/* <p className="text-gray-700">
-                <strong>التلفون:</strong> {d.contact}
-              </p> */}
             </div>
           </div>
         ))}
       </div>
-    </div>
+    </main>
   );
 };
 
-export default BeachPage;
+export default  GardenPage;

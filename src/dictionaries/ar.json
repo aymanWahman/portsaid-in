@@ -34,8 +34,7 @@
     "signOut": "تسجيل الخروج",
     "profile": "الملف الشخصي",
     "admin": "المسؤول",
-    "essentialPlaces": "أماكن أساسية",
-    "touristSpots": "أماكن سياحية",
+    "places": "الأماكن ",
     "realEstate": "التسويق العقاري"
   },
   "auth": {
@@ -254,20 +253,18 @@
     "all": "الكل"
   },
 
-  "touristSpots": {
-    "title": "الأماكن السياحية",
+  "places": {
+    "title": "الأماكن ",
+    "subtitle": "الأماكن الهامة في مدينة بورسعيد",
     "RESTAURANT": "المطاعم",
     "HOTEL": "الفنادق",
     "BEACH": "الشواطئ",
-    "GARDEN": "الحدائق"
-  },
-  "essentialPlaces": {
-    "title": " الأماكن الأساسية",
-    "subtitle": "الأماكن الهامة في مدينة بورسعيد",
+    "GARDEN": "الحدائق",
     "CLOTHING": "الملابس",
     "PHARMACIES": "الصيدليات",
     "HOSPITALS": "المستشفيات"
   },
+
   "realEstate": {
     "title": "التسويق العقاري",
     "APARTMENT": "عقارات سكنية"
