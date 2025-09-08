@@ -44,7 +44,7 @@ async function Hero() {
           <p className='text-accent my-4'>{hero.description}</p>
           <div className='flex items-center gap-4'>
             <Link
-              href={`/${locale}/${Routes.TOURIST_SPOTS}`}
+              href={`/${locale}/${Routes.PLACES}`}
               className={`${buttonVariants({
                 size: 'lg',
               })} space-x-2 !px-4 !rounded-full uppercase`}
