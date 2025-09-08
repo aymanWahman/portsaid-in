@@ -6,21 +6,9 @@ import { Routes, Languages } from "@/constants/enums";
 import { Translations } from "@/types/translations";
 import { useParams } from "next/navigation";
 import Link from "@/components/link";
-
-// تعريف النوع لبيانات المطاعم
-interface RestaurantData {
-  id: number;
-  name: string;
-  image: string;
-  description: string;
-  region: string;
-  address: string;
-  contact: string;
-  category: string;
-}
-
+import restaurants from "@/data/DataRestaurant";
 // المكون يستقبل البيانات والترجمات كـ props
-function RestaurantClient({ translations, restaurants }: { translations: Translations, restaurants: RestaurantData[] }) {
+function RestaurantClient({ translations }: { translations: Translations }) {
   const { locale } = useParams();
   const [regionFilter, setRegionFilter] = useState<string>("All");
   const [categoryFilter, setCategoryFilter] = useState<string>("All");
@@ -31,10 +19,10 @@ function RestaurantClient({ translations, restaurants }: { translations: Transla
       (categoryFilter === "All" || restaurant.category === categoryFilter)
   );
 
-  const uniqueRegions = ["All", ...new Set(restaurants.map((d) => d.region))];
+  const uniqueRegions = ["All", ...new Set(restaurants.map((d) => (locale === 'ar' ? d.region : d.regionEn)))];
   const uniqueCategories = [
     "All",
-    ...new Set(restaurants.map((d) => d.category)),
+    ...new Set(restaurants.map((d) => (locale === 'ar' ? d.category : d.categoryEn))),
   ];
 
 
@@ -66,7 +54,7 @@ function RestaurantClient({ translations, restaurants }: { translations: Transla
             >
               {uniqueRegions.map((region) => (
                 <option key={region} value={region}>
-                  {region === "All" ? "الكل" : region}
+                  {region === "All" ? (locale === 'ar' ? 'الكل' : 'All') : region}
                 </option>
               ))}
             </select>
@@ -82,7 +70,7 @@ function RestaurantClient({ translations, restaurants }: { translations: Transla
             >
               {uniqueCategories.map((category) => (
                 <option key={category} value={category}>
-                  {category === "All" ? "الكل" : category}
+                  {category === "All" ? (locale === 'ar' ? 'الكل' : 'All') : category}
                 </option>
               ))}
             </select>
@@ -90,33 +78,33 @@ function RestaurantClient({ translations, restaurants }: { translations: Transla
         </div>
 
         <div className="grid md:grid-cols-3 gap-3">
-          {filteredRestaurants.map((restaurant) => (
+          {filteredRestaurants.map((r) => (
             <div
-              key={restaurant.id}
+              key={r.id}
               className="border rounded-lg overflow-hidden shadow-xl bg-seagullGray"
             >
               <Image
-                src={restaurant.image}
-                alt={restaurant.name}
+                src={r.image}
+                alt={r.name}
                 className="w-full h-[200px] object-cover"
                 width="300"
                 height="200"
               />
               <div className="px-4 py-2 space-y-1">
                 <h2 className="text-xl font-bold text-primary p-2 mb-3 text-center rounded-lg border-t-2 border-primary shadow shadow-primary">
-                  {restaurant.name}
+                  {locale === Languages.ARABIC ? r.name : r.nameEn}
                 </h2>
                 <p className="text-md text-gray-500 text-center px-2">
-                  {restaurant.description}
+                  {locale === Languages.ARABIC ? r.description : r.descriptionEn}
                 </p>
                 <p className="text-sm text-gray-700">
-                  <strong>{locale === Languages.ARABIC ? " المنطقة:" : " Region:"}</strong> {restaurant.region}
+                  <strong>{locale === Languages.ARABIC ? " المنطقة:" : " Region:"}</strong> {locale === Languages.ARABIC ? r.region : r.regionEn}
                 </p>
                 <p className="text-sm text-gray-700">
-                  <strong>{locale === Languages.ARABIC ? "العنوان:" : " Adress:"}</strong> {restaurant.address}
+                  <strong>{locale === Languages.ARABIC ? "العنوان:" : " Adress:"}</strong> {locale === Languages.ARABIC ? r.address : r.addressEn}
                 </p>
                 <p className="text-sm text-gray-700">
-                  <strong>{locale === Languages.ARABIC ? " التلفون:" : " Mobile:"}</strong> {restaurant.contact}
+                  <strong>{locale === Languages.ARABIC ? " التلفون:" : " Tel:"}</strong> {r.contact}
                 </p>
               </div>
             </div>

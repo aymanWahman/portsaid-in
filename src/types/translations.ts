@@ -184,11 +184,11 @@ export type Translations = {
   cancel: string;
   sizes: string;
   extrasIngredients: string;
-  cart:{
+  cart: {
     title: string;
     noItemsInCart: string;
-  }
-  
+  };
+
   create: string;
 
   cardDetails: {
@@ -215,12 +215,22 @@ export type Translations = {
     CLOTHING: string;
     PHARMACIES: string;
     HOSPITALS: string;
-
   };
 
   realEstate: {
     title: string;
     APARTMENT: string;
+  };
+
+  regions: {
+    title: string;
+    EL_SHARQ: string;
+    EL_ARAB: string;
+    EL_MANAKH: string;
+    EL_DAWAHI: string;
+    EL_ZOHOUR: string;
+    PORT_FOUAD: string;
+    ALL: string;
   };
 
   copyRight: string;

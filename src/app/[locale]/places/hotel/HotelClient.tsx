@@ -21,10 +21,10 @@ const HotelPageClient = ({translations}: {translations: Translations}) => {
       (categoryFilter === "All" || hotel.category === categoryFilter)
   );
 
-  const uniqueRegions = ["All", ...new Set(hotels.map((d) => d.region))];
+  const uniqueRegions = ["All", ...new Set(hotels.map((d) => (locale === 'ar' ? d.region : d.regionEn)))];
   const uniqueCategories = [
     "All",
-    ...new Set(hotels.map((d) => d.category)),
+    ...new Set(hotels.map((d) => (locale === 'ar' ? d.category : d.categoryEn))),
   ];
 
 
@@ -54,7 +54,7 @@ const HotelPageClient = ({translations}: {translations: Translations}) => {
                 >
                   {uniqueRegions.map((region) => (
                     <option key={region} value={region}>
-                      {region === "All" ? "الكل" : region}
+                      {region === "All" ? (locale === 'ar' ? 'الكل' : 'All') : region}
                     </option>
                   ))}
                 </select>
@@ -70,7 +70,7 @@ const HotelPageClient = ({translations}: {translations: Translations}) => {
                 >
                   {uniqueCategories.map((category) => (
                     <option key={category} value={category}>
-                      {category === "All" ? "الكل" : category}
+                      {category === "All" ? (locale === 'ar' ? 'الكل' : 'All') : category}
                     </option>
                   ))}
                 </select>
@@ -93,20 +93,20 @@ const HotelPageClient = ({translations}: {translations: Translations}) => {
               priority
             />
             <div className="p-4">
-              <h2 className="text-lg font-bold text-primary">{d.name}</h2>
-              <p className="text-gray-500">{d.description}</p>
+              <h2 className="text-xl font-bold text-primary p-2 mb-3 text-center rounded-lg border-t-2 border-primary shadow shadow-primary">{locale === Languages.ARABIC ? d.name : d.nameEn}</h2>
+              <p className="text-md text-gray-500 text-center px-2">{locale === Languages.ARABIC ? d.description : d.descriptionEn}</p>
 
               <p className="text-gray-700">
-                <strong>{locale === Languages.ARABIC ? " المنطقة:" : " Region:"}</strong> {d.region}
+                <strong>{locale === Languages.ARABIC ? " المنطقة:" : " Region:"}</strong> {locale === Languages.ARABIC ? d.region : d.regionEn}
               </p>
               {/* <p className="text-gray-700">
                 <strong>التصنيف:</strong> {d.category}
               </p> */}
               <p className="text-gray-700">
-                <strong>{locale === Languages.ARABIC ? "العنوان:" : " Adress:"}</strong> {d.address}
+                <strong>{locale === Languages.ARABIC ? "العنوان:" : " Adress:"}</strong> {locale === Languages.ARABIC ? d.address : d.addressEn}
               </p>
               <p className="text-gray-700">
-                <strong>{locale === Languages.ARABIC ? " التلفون:" : " Mobile:"}</strong> {d.contact}
+                <strong>{locale === Languages.ARABIC ? " التلفون:" : " Tel:"}</strong> {d.contact}
               </p>
             </div>
           </div>

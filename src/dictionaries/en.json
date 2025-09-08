@@ -255,10 +255,10 @@
   "places": {
     "title": "Places",
     "subtitle": "Important places in the city of Port Said",
-    "RESTAURANT": "Restaurant",
-    "HOTEL": "Hotel",
-    "BEACH": "Beach",
-    "GARDEN": "Garden",
+    "RESTAURANT": "Restaurants",
+    "HOTEL": "Hotels",
+    "BEACH": "Beaches",
+    "GARDEN": "Gardens",
     "CLOTHING": "Clothes",
     "PHARMACIES": "Pharmacies",
     "HOSPITALS": "Hospitals"
@@ -267,6 +267,16 @@
   "realEstate": {
     "title": "Real estate",
     "APARTMENT": "Residential Property"
+  },
+  "regions": {
+    "title": "region",
+    "EL_SHARQ": "El_Sharq",
+    "EL_ARAB": "El_Arab",
+    "EL_MANAKH": "El_Manakh",
+    "EL_DAWAHI": "El_Dawahi",
+    "EL_ZOHOUR": "El_Zohour",
+    "PORT_FOUAD": "PORT_FOUAD",
+    "ALL": "All"
   },
 
   "copyRight": "© 2025 All rights reserved",
