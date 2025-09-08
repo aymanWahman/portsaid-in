@@ -73,7 +73,7 @@ const TouristSpots = async () => {
           <Link href={`/${locale}/${Routes.PLACES}/${Pages.GARDEN}`}>
             <Image
               className="rounded-xl shadow-2xl shadow-black w-[400px] h-[220px] hover:scale-105 transition-transform duration-300"
-              src="https://res.cloudinary.com/dktod7mod/image/upload/v1756467619/ChatGPT_Image_Aug_29_2025_02_37_27_PM_syxix4.png"
+              src="https://res.cloudinary.com/dktod7mod/image/upload/v1757341938/product_images/portsaidIn/ChatGPT_Image_Sep_8_2025_05_31_38_PM_piuxo1.png"
               alt={translations.places.GARDEN}
               width={280}
               height={140}

@@ -48,11 +48,11 @@ function Navbar({
       title: translations.navbar.places,
       href: Routes.PLACES,
     },
-    {
-      id: crypto.randomUUID(),
-      title: translations.navbar.realEstate,
-      href: Routes.REAL_ESTATE,
-    },
+    // {
+    //   id: crypto.randomUUID(),
+    //   title: translations.navbar.realEstate,
+    //   href: Routes.REAL_ESTATE,
+    // },
   ];
 
 
